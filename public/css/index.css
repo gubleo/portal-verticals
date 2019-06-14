@@ -1,0 +1,194 @@
+html, body{
+    padding: 0;
+    margin: 0;
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+}
+/*.navtop{*/
+    /*background-color: #fafafa;*/
+    /*color: black;*/
+    /*border-top: solid 4px lightskyblue;*/
+/*}*/
+.iconesnav{
+    float: right;
+    font-size: 2px;
+}
+.tamanhoicones{
+    font-size: 16px;
+    margin-right: 5px;
+}
+.tamanhoicones a:hover{
+    background-color: rgba(0, 0, 0, 0.1);
+    border-bottom: 3px solid #33C3F0;
+}
+.dentrodropdown{
+    padding: 15px;
+    text-align: center;
+}
+.dentrodropdown button{
+    width: 200px;
+    height: auto;
+}
+#botaoface{
+    background-color: darkblue;
+    color: white;
+    margin-bottom: 5px;
+}
+#botaogoogle{
+    background-color: white;
+    color: black;
+    margin-bottom: 5px;
+}
+#botaomail{
+    background-color: #ffe887;
+    color: black;
+    margin-bottom: 5px;
+}
+@media only screen and (max-width: 900px) {
+    #mobileoff{
+        display: none;
+        visibility: hidden;
+    }
+}
+
+.boxusuario{
+    visibility: hidden;
+    float: left;
+    position: relative;
+    display: inline;
+}
+
+@media only screen and (max-width: 900px) {
+    .boxusuario{
+        visibility: visible;
+        padding-right: 15px;
+        font-size: 20px
+    }
+}
+
+
+
+@media only screen and (max-width: 900px) {
+    .menucelular{
+        visibility: visible;
+        line-height: 100px;
+        padding-right: 15px;
+        font-size: 20px;
+        float: left;
+        position: relative;
+    }
+}
+
+.menu-direito-eventos{
+    width: 100%;
+    background-color: red;
+}
+
+.dentromenu{
+border-top: solid 4px red;
+}
+.teste1{
+    float: left;
+    left: 50%;
+    margin-bottom: 30px;
+}
+.menufloat{
+    float: left;
+    position: relative;
+}
+.menueventos{
+    float: right;
+    width: 100%;
+    font-size: 10px;
+    margin-bottom: 10px;
+}
+.menueventos li {
+    margin-left: 20px;
+    margin-bottom: 0;
+}
+.menueventos li a {
+    margin-bottom: 0;
+    height: 5px;
+}
+.menueventos li a:hover {
+    margin-bottom: 0;
+    height: 5px;
+    line-height: 10px;
+    background-color: transparent;
+}
+.menuopcoes{
+    width: 100%;
+    float: right;
+}
+.menuopcoes-selecionar{
+    font-size: 14px;
+    height: 40px;
+    padding: 40px;
+    color: #585858;
+}
+
+.marginesquerda{
+
+}
+.modaltop{
+    border-top: solid 3px #33C3F0;
+}
+
+.itens-modal{
+    margin-top: 5%;
+}
+
+.itens-modal a i{
+    color: #93AFBA;
+    padding: 5px;
+    margin-left: 15px;
+    font-size: 26px;
+}
+
+.itens-modal ul li .home{
+    float: left;
+    width: 100%;
+    line-height: 10px;
+    text-align: center;
+}
+.itens-modal ul li .correio{
+    float: left;
+    width: 100%;
+    line-height: 10px;
+    text-align: center;
+}
+.itens-modal ul li .notificacao{
+    float: left;
+    width: 100%;
+    line-height: 10px;
+    text-align: center;
+}
+.itens-modal ul li .ajuda{
+    float: left;
+    width: 100%;
+    line-height: 10px;
+    text-align: center;
+}
+.nav-space{
+    width: 100%;
+    height: 60px;
+}
+.espacamentomenu{
+    margin-top: 25px;
+}
+.rodape {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #cacaca;
+    border-radius: 4px;
+}
+.rodape img{
+    width: 120px;
+    height: 25px;
+}
+.rodape span{
+    font-size: 15px;
+}
+.recents{
+    font-size: 12px;
+    color: #888888;
+}

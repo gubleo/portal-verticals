@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verticals | Desenvolvimento</title>
+
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection"/>
+    <link rel="stylesheet" href="css/index.css">
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+
+    <script src="https://kit.fontawesome.com/b9786aa6c5.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <script defer src="js/slide-menu.js"></script>
+
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+
+</head>
+<body>
+
+<!--✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨-->
+<!--BARRA DE NAVEGAÇÃO           -->
+<!--✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨-->
+<nav>
+    <div class="nav-wrapper navtop">
+        <a href="#" class="brand-logo"><img src="img/logo.png"/></a>
+
+        <!--📱📱📱📱📱📱📱📱📱📱📱📱📱📱📱📱📱📱-->
+        <!-- MENU ESQUERDO - VERSÁO MOBILE -->
+        <!--📱📱📱📱📱📱📱📱📱📱📱📱📱📱📱📱📱📱-->
+
+        <ul id="slide-out" class="side-nav dentromenu">
+            <ul id="slide-out" class="sidenav">
+                <li>
+                    <div class="user-view">
+                        <div class="background">
+                            <img src="img/leao.jpg">
+                        </div>
+                        <a href="#user"><img class="circle" src="img/gustavoborges.jpg"></a>
+                        <a href="#name"><span class=" name">Gustavo Borges</span></a>
+                        <a href="#email"><span class=" email">gustavo@craos.net</span></a>
+                    </div>
+                </li>
+
+                <div class="menueventos">
+                    <li>
+                        <div class="teste1">
+                            <a href="#!"><span><i class="fas fa-home"></i></span></a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="teste1">
+                            <a href="#!"><span><i class="fas fa-box-open"></i></span></a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="teste1">
+                            <a href="#!"><span><i class="far fa-comment-alt"></i></span></a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="teste1">
+                            <a href="#!"><span><i class="fas fa-question-circle "></i></span></a>
+                        </div>
+                    </li>
+                </div>
+
+                <div class="menuopcoes">
+                    <div class="divider"></div>
+                    <div class="collection">
+                        <a href="#!" class="menuopcoes-selecionar"><i class="fas fa-bell space-icons tamanhoicones"></i>Comunicados</a>
+                        <a href="#!" class="menuopcoes-selecionar"><i
+                                class="far fa-calendar-alt space-icons tamanhoicones"> </i>Eventos</a>
+                        <a href="#!" class="menuopcoes-selecionar"><i
+                                class="fas fa-users space-icons tamanhoicones"> </i>Assembléias</a>
+                        <a href="#!" class="menuopcoes-selecionar"><i
+                                class="fas fa-tools space-icons tamanhoicones"> </i>Manutenções</a>
+                        <a href="#!" class="menuopcoes-selecionar"><i class="fas fa-building space-icons tamanhoicones"> </i>O
+                            condominío</a>
+                        <a href="#!" class="menuopcoes-selecionar"><i
+                                class="fas fa-pencil-ruler space-icons tamanhoicones"> </i>Regimentos</a>
+                        <a href="#!" class="menuopcoes-selecionar"><i
+                                class="fas fa-ribbon space-icons tamanhoicones"> </i>Campanhas</a>
+                    </div>
+                    <div class="divider"></div>
+                    <div class="collection">
+                        <a href="#!" class="menuopcoes-selecionar"><i class="fas fa-chalkboard-teacher "> </i>Solicitações</a>
+                        <a href="#!" class="menuopcoes-selecionar"><i class="far fa-calendar-check"> </i>Reservas</a>
+                        <a href="#!" class="menuopcoes-selecionar"><i class="fas fa-hammer"> </i>Reformas</a>
+                        <a href="#!" class="menuopcoes-selecionar"><i class="fas fa-truck"> </i>Mudanças</a>
+                        <a href="#!" class="menuopcoes-selecionar"><i class="fas fa-envelope-open"> </i>Correios</a>
+                        <a href="#!" class="menuopcoes-selecionar"><i class="fas fa-comment-alt"> </i>Notificações</a>
+                        <a href="#!" class="menuopcoes-selecionar"><i class="fas fa-comment-alt"> </i>Aluguel</a>
+                    </div>
+                </div>
+            </ul>
+        </ul>
+
+        <!--📱📱📱📱📱📱📱📱📱📱📱📱📱📱📱📱📱📱📱📱-->
+        <!-- FIM MENU ESQUERDO - VERSÁO MOBILE -->
+        <!--📱📱📱📱📱📱📱📱📱📱📱📱📱📱📱📱📱📱📱📱📱-->
+
+
+        <!-- 🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠 -->
+        <!-- MENU USUARIO - INFERIOR    -->
+        <!-- 🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠 -->
+
+        <div data-activates="slide-out" class="right boxusuario menu-direito-botao">
+            <a class="waves-effect waves-light modal-trigger" href="#modal1"><i id="user-cicle"
+                                                                                class="fas fa-user-circle itemhover"></i></a>
+        </div>
+
+        <div id="modal1" class="modal bottom-sheet modaltop">
+            <div class="modal-content">
+                <h5>Bem Vindo(a), Gustavo</h5>
+                <p>Separamos aqui pra você algumas opções que irá te ajudar no dia-a-dia!</p>
+                <div class="divider"></div>
+                <div class="itens-modal">
+                    <ul>
+                        <li><a href="#!"><i class="fas fa-home"></i></a><span class="home">Inicio</span></li>
+                        <li><a href="#!"><i class="fas fa-box-open"></i></a><span class="correio">Correio</span></li>
+                        <li><a href="#!"><i class="far fa-comment-alt"></i></a><span
+                                class="notificacao">Notificacoes</span></li>
+                        <li><a href="#!"><i class="fas fa-question-circle "></i></a><span class="ajuda">Ajuda</span>
+                        </li>
+                        <br/>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠 -->
+        <!-- FIM MENU USUARIO - INFERIOR    -->
+        <!-- 🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠 -->
+
+        <ul class="right hide-on-med-and-down">
+            <li>
+                <div class="iconesnav" id="iniciar">
+                    <a href="#!">
+                        <span><i class="fas fa-home tamanhoicones"></i></span>
+                        <span>Iniciar</span></a>
+                </div>
+            </li>
+            <li>
+                <div class="iconesnav" id="correios">
+                    <a href="#!">
+                        <span><i class="fas fa-box-open tamanhoicones"></i></span>
+                        <span>Correios</span></a>
+                </div>
+            </li>
+            <li>
+                <div class="iconesnav" id="notificacoes">
+                    <a href="#!">
+                        <span><i class="far fa-comment-alt tamanhoicones"></i></span>
+                        <span>Notificações</span></a>
+                </div>
+            </li>
+            <li>
+                <div class="iconesnav" id="ajuda">
+                    <a href="#!">
+                        <span><i class="fas fa-question-circle tamanhoicones"></i></span>
+                        <span>Ajuda</span></a>
+                </div>
+            </li>
+            <li>
+                <a class="dropdown-button" href="#!" data-activates="dropdown1">
+                    <i id="user-cicle" class="fas fa-user-circle tamanhoicones"></i>
+                    <span>Acesse sua conta<i class="material-icons right">arrow_drop_down</i></span>
+                </a>
+            </li>
+            <ul id="dropdown1" class="dropdown-menu-login z-depth-1">
+                <div class="dentrodropdown">
+                    <h6>Bem vindo(a) ao Verticals!</h6>
+                    <spam>Utilize as seguintes opções <br>para logar-se</spam>
+                    para logar-se</p>
+                    <li class="divider" tabindex="-1"></li>
+                    <button id="botaoface"><i class="fab fa-facebook-f space-icons "> </i>Facebook</button>
+                    <br/>
+                    <button id="botaogoogle"><i class="fab fa-google space-icons "> </i>Google</button>
+                    <br/>
+                    <button id="botaomail"><i class="fas fa-envelope space-icons "> </i>E-mail</button>
+                </div>
+            </ul>
+        </ul>
+        <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+    </div>
+</nav>
+
+<div class="nav-space"></div>
+
+
+<!--✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨-->
+<!--MENU           -->
+<!--✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨✨-->
+
+<div class="row">
+    <div class="col s12 m4 l2 marginesquerda" id="mobileoff" style="margin-top: 1em">
+        <div class="collection z-depth-1">
+            <div class="collection-item active">Fique Informado:</div>
+            <a href="#!" class="collection-item"><i class="fas fa-bell space-icons tamanhoicones"></i>Comunicados</a>
+            <a href="#!" class="collection-item"><i class="far fa-calendar-alt space-icons tamanhoicones"> </i>Eventos</a>
+            <a href="#!" class="collection-item"><i class="fas fa-users space-icons tamanhoicones"> </i>Assembléias</a>
+            <a href="#!" class="collection-item"><i class="fas fa-tools space-icons tamanhoicones"> </i>Manutenções</a>
+            <a href="#!" class="collection-item"><i class="fas fa-building space-icons tamanhoicones"> </i>O condominío</a>
+            <a href="#!" class="collection-item"><i class="fas fa-pencil-ruler space-icons tamanhoicones"> </i>Regimentos</a>
+            <a href="#!" class="collection-item"><i class="fas fa-ribbon space-icons tamanhoicones"> </i>Campanhas</a>
+        </div>
+
+        <div class="collection z-depth-1 espacamentomenu">
+            <div class="informado collection-item active">Para sua Unidade:</div>
+            <a href="#!" class="collection-item"><i class="fas fa-chalkboard-teacher space-icons "> </i>Solicitações</a>
+            <a href="#!" class="collection-item"><i class="far fa-calendar-check space-icons tamanhoicones"> </i>Reservas</a>
+            <a href="#!" class="collection-item"><i class="fas fa-hammer space-icons tamanhoicones"> </i>Reformas</a>
+            <a href="#!" class="collection-item"><i class="fas fa-truck space-icons tamanhoicones"> </i>Mudanças</a>
+            <a href="#!" class="collection-item"><i class="fas fa-envelope-open space-icons tamanhoicones"> </i>Correios</a>
+            <a href="#!" class="collection-item"><i class="fas fa-comment-alt tamanhoicones"> </i>Notificações</a>
+            <a href="#!" class="collection-item"><i
+                    class="fas fa-comment-alt space-icons tamanhoicones"> </i>Aluguel</a>
+        </div>
+    </div>
+
+    <div class="col s12 m4 l7 " style="margin-top: 1em">
+        <div class="col s12 m5">
+            <div class="card">
+                <div class="card-image">
+                    <img src="html/feeds/fachada_956_667.jpg">
+                    <span class="card-title">O que caracteriza Alteração de Fachada do condomínio</span>
+                    <a class="btn-floating halfway-fab waves-effect waves-light blue"><i
+                            class="material-icons">subject</i></a>
+                </div>
+                <div class="card-content">
+                    <p>Querer pintar uma parede, trocar uma esquadria ou fechar uma sacada parece uma vontade inocente e até rotineira. Mas em um condomínio, não é. Ela pode gerar muita confusão se avançar para áreas comuns ou para a fachada do condomínio...</p>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 m3">
+            <div class="card">
+                <div class="card-image">
+                    <img src="html/feeds/cachorro_956_667.jpg">
+                    <span class="card-title">Guia sobre animais (cães, gatos, ..) em condomínio</span>
+                    <a class="btn-floating halfway-fab waves-effect waves-light blue"><i
+                            class="material-icons">subject</i></a>
+                </div>
+                <div class="card-content">
+                    <p>Se o cachorro é o melhor amigo do homem, é também uma das maiores dores de cabeça da vida em
+                        condomínio. Afinal, lidar com as particularidades de animais e donos não é tarefa das mais
+                        fáceis para o síndico...</p>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 m4">
+            <div class="card">
+                <div class="card-image">
+                    <img src="html/feeds/barulho_956_667.jpg">
+                    <span class="card-title">Guia sobre Barulho em Condomínios</span>
+                    <a class="btn-floating halfway-fab waves-effect waves-light blue"><i
+                            class="material-icons">subject</i></a>
+                </div>
+                <div class="card-content">
+                    <p>Em condomínios, o barulho é um dos campeões de reclamação. Há diversos tipos: barulho de festa, de bagunça de criança nas áreas comuns em horários proibidos, dentro dos apartamentos durante o dia todo, ou aquele barulho que vem de fora do condomínio, de bares, casas noturnas, ou até do prédio ao lado...</p>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 m6">
+            <div class="card">
+                <div class="card-image">
+                    <img src="html/feeds/goteira.png">
+                    <span class="card-title">Acabe de vez com as goteiras na garagem do condomínio</span>
+                    <a class="btn-floating halfway-fab waves-effect waves-light blue"><i
+                            class="material-icons">subject</i></a>
+                </div>
+                <div class="card-content">
+                    <p>	Condomínio nenhum está livre do gotejamento insistente, que acaba com a paciência até do síndico mais tranquilo.
+
+                        O fato é que ninguém convive bem com goteiras na garagem. Nem os gestores nem os moradores. As poças que marcam o chão e prejudicam a limpeza são só o começo do problema...</p>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 m6">
+            <div class="card">
+                <div class="card-image">
+                    <img src="html/feeds/energia.png">
+                    <span class="card-title">Todo dia é dia mundial da energia</span>
+                    <a class="btn-floating halfway-fab waves-effect waves-light blue"><i
+                            class="material-icons">subject</i></a>
+                </div>
+                <div class="card-content">
+                    <p>O mundo precisa urgentemente de soluções para minimizar a escassez de energia. Desde 1981, no dia 29 de maio, pessoas de todos os países são convidadas a pensar em ações positivas para incluir no dia a dia. Um momento de conscientização e união de esforços....</p>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="col s12 m4 l3" style="margin-top: 1em">
+            <ul class="collection z-depth-1">
+                <div class="collection-item active">Artigos recentes:</div>
+                <li class="collection-item avatar">
+                    <img src="html/feeds/fachada_956_667.jpg" alt="" class="circle">
+                    <span class="title blue-text">Alterar fachada</span>
+                    <p>Querer pintar uma parede, trocar uma esquadria ou fec...
+                       <span class="blue-text">Ver mais</span><br/>
+                        <span class="recents">De agora.</span>
+                    </p>
+                </li>
+                <li class="collection-item avatar">
+                    <img src="html/feeds/cachorro_956_667.jpg" class="circle">
+                    <span class="title blue-text">Cachorros no condominio</span>
+                    <p>Se o cachorro é o melhor amigo do homem, é também uma das maiores dores de cabeça da vida...
+                        <span class="blue-text">Ver mais</span><br/>
+                        <span class="recents">De 43 minutos.</span>
+                    </p>
+                </li>
+                <li class="collection-item avatar">
+                    <img src="html/feeds/barulho_956_667.jpg" class="circle">
+                    <span class="title blue-text">Barulho em condominio</span>
+                    <p>Em condomínios, o barulho é um dos campeões de reclamação. Há diversos tipos: barulho de festa, de bagunça de criança nas áreas com...
+                        <span class="blue-text">Ver mais</span> <br/>
+                        <span class="recents">De 1 hora.</span>
+                    </p>
+                </li>
+            </ul>
+            <div class="row rodape u-full-width z-depth-1">
+                <img src="img/logo.png"><br>
+                <span>Craos.NET © 2019</span>
+            </div>
+        </div>
+</body>
+
+</html>
