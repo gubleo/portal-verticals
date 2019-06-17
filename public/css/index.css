@@ -43,7 +43,10 @@ html, body{
     color: black;
     margin-bottom: 5px;
 }
-@media only screen and (max-width: 900px) {
+
+/* Menu lateral */
+/* Some ao diminuir tela/mobile */
+@media only screen and (max-width: 550px) {
     #mobileoff{
         display: none;
         visibility: hidden;
@@ -191,4 +194,12 @@ border-top: solid 4px red;
 .recents{
     font-size: 12px;
     color: #888888;
+}
+.hr-divider{
+    color: #fafafa;
+    border-bottom: solid 1px #DCDCDC;
+    padding-top: 5px;
+}
+.termopolitica{
+    font-size: 9px;
 }
