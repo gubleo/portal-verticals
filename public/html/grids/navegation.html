@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verticals | Desenvolvimento</title>
+    <link type="text/css" rel="stylesheet" href="../../css/materialize.min.css" media="screen,projection"/>
+    <link rel="stylesheet" href="../../css/index.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="../../js/materialize.min.js"></script>
+    <script src="https://kit.fontawesome.com/b9786aa6c5.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script defer src="../../js/slide-menu.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.modal').modal();
+        });
+        //menu parte de cima
+        $(".button-collapse").sideNav();
+        //menu parte de baixo
+    </script>
+</head>
+<body>
+<div class="nav-wrapper navtop">
+    <a href="#" class="brand-logo"><img src="img/logo.png"/></a>
+
+    <!--📱📱📱📱📱📱📱📱📱📱📱📱📱📱📱📱📱📱-->
+    <!-- MENU ESQUERDO - VERSÁO MOBILE -->
+    <!--📱📱📱📱📱📱📱📱📱📱📱📱📱📱📱📱📱📱-->
+
+    <ul id="slide-out" class="side-nav dentromenu">
+        <ul id="slide-out" class="sidenav">
+            <li>
+                <div class="user-view">
+                    <div class="background">
+                        <img src="img/leao.jpg">
+                    </div>
+                    <a href="#user"><img class="circle" src="img/gustavoborges.jpg"></a>
+                    <a href="#name"><span class=" name">Gustavo Borges</span></a>
+                    <a href="#email"><span class=" email">gustavo@craos.net</span></a>
+                </div>
+            </li>
+
+            <div class="menueventos">
+                <li>
+                    <div class="teste1">
+                        <a href="#!"><span><i class="fas fa-home"></i></span></a>
+                    </div>
+                </li>
+                <li>
+                    <div class="teste1">
+                        <a href="#!"><span><i class="fas fa-box-open"></i></span></a>
+                    </div>
+                </li>
+                <li>
+                    <div class="teste1">
+                        <a href="#!"><span><i class="far fa-comment-alt"></i></span></a>
+                    </div>
+                </li>
+                <li>
+                    <div class="teste1">
+                        <a href="#!"><span><i class="fas fa-question-circle "></i></span></a>
+                    </div>
+                </li>
+            </div>
+
+            <div class="menuopcoes">
+                <div class="divider"></div>
+                <div class="collection">
+                    <a href="#!" class="menuopcoes-selecionar"><i class="fas fa-bell space-icons tamanhoicones"></i>Comunicados</a>
+                    <a href="#!" class="menuopcoes-selecionar"><i
+                            class="far fa-calendar-alt space-icons tamanhoicones"> </i>Eventos</a>
+                    <a href="#!" class="menuopcoes-selecionar"><i
+                            class="fas fa-users space-icons tamanhoicones"> </i>Assembléias</a>
+                    <a href="#!" class="menuopcoes-selecionar"><i
+                            class="fas fa-tools space-icons tamanhoicones"> </i>Manutenções</a>
+                    <a href="#!" class="menuopcoes-selecionar"><i class="fas fa-building space-icons tamanhoicones"> </i>O
+                        condominío</a>
+                    <a href="#!" class="menuopcoes-selecionar"><i
+                            class="fas fa-pencil-ruler space-icons tamanhoicones"> </i>Regimentos</a>
+                    <a href="#!" class="menuopcoes-selecionar"><i
+                            class="fas fa-ribbon space-icons tamanhoicones"> </i>Campanhas</a>
+                </div>
+                <div class="divider"></div>
+                <div class="collection">
+                    <a href="#!" class="menuopcoes-selecionar"><i class="fas fa-chalkboard-teacher "> </i>Solicitações</a>
+                    <a href="#!" class="menuopcoes-selecionar"><i class="far fa-calendar-check"> </i>Reservas</a>
+                    <a href="#!" class="menuopcoes-selecionar"><i class="fas fa-hammer"> </i>Reformas</a>
+                    <a href="#!" class="menuopcoes-selecionar"><i class="fas fa-truck"> </i>Mudanças</a>
+                    <a href="#!" class="menuopcoes-selecionar"><i class="fas fa-envelope-open"> </i>Correios</a>
+                    <a href="#!" class="menuopcoes-selecionar"><i class="fas fa-comment-alt"> </i>Notificações</a>
+                    <a href="#!" class="menuopcoes-selecionar"><i class="fas fa-comment-alt"> </i>Aluguel</a>
+                </div>
+            </div>
+        </ul>
+    </ul>
+
+    <!--📱📱📱📱📱📱📱📱📱📱📱📱📱📱📱📱📱📱📱📱-->
+    <!-- FIM MENU ESQUERDO - VERSÁO MOBILE -->
+    <!--📱📱📱📱📱📱📱📱📱📱📱📱📱📱📱📱📱📱📱📱📱-->
+
+
+    <!-- 🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠 -->
+    <!-- MENU USUARIO - INFERIOR    -->
+    <!-- 🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠 -->
+
+    <div data-activates="slide-out" class="right boxusuario menu-direito-botao">
+        <a class="waves-effect waves-light modal-trigger" href="#modal1"><i id="user-cicle"
+                                                                            class="fas fa-user-circle itemhover"></i></a>
+    </div>
+
+    <div id="modal1" class="modal bottom-sheet modaltop">
+        <div class="modal-content">
+            <h5>Bem Vindo(a), Gustavo</h5>
+            <p>Separamos aqui pra você algumas opções que irá te ajudar no dia-a-dia!</p>
+            <div class="divider"></div>
+            <div class="itens-modal">
+                <ul>
+                    <li><a href="#!"><i class="fas fa-home"></i></a><span class="home">Inicio</span></li>
+                    <li><a href="#!"><i class="fas fa-box-open"></i></a><span class="correio">Correio</span></li>
+                    <li><a href="#!"><i class="far fa-comment-alt"></i></a><span
+                            class="notificacao">Notificacoes</span></li>
+                    <li><a href="#!"><i class="fas fa-question-circle "></i></a><span class="ajuda">Ajuda</span>
+                    </li>
+                    <br/>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- 🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠 -->
+    <!-- FIM MENU USUARIO - INFERIOR    -->
+    <!-- 🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠 -->
+
+    <ul class="right hide-on-med-and-down">
+        <li>
+            <div class="iconesnav" id="iniciar">
+                <a href="#!">
+                    <span><i class="fas fa-home tamanhoicones"></i></span>
+                    <span>Iniciar</span></a>
+            </div>
+        </li>
+        <li>
+            <div class="iconesnav" id="correios">
+                <a href="#!">
+                    <span><i class="fas fa-box-open tamanhoicones"></i></span>
+                    <span>Correios</span></a>
+            </div>
+        </li>
+        <li>
+            <div class="iconesnav" id="notificacoes">
+                <a href="#!">
+                    <span><i class="far fa-comment-alt tamanhoicones"></i></span>
+                    <span>Notificações</span></a>
+            </div>
+        </li>
+        <li>
+            <div class="iconesnav" id="ajuda">
+                <a href="#!">
+                    <span><i class="fas fa-question-circle tamanhoicones"></i></span>
+                    <span>Ajuda</span></a>
+            </div>
+        </li>
+        <li>
+            <a class="dropdown-button" href="#!" data-activates="dropdown1">
+                <i id="user-cicle" class="fas fa-user-circle tamanhoicones"></i>
+                <span>Acesse sua conta<i class="material-icons right">arrow_drop_down</i></span>
+            </a>
+        </li>
+        <ul id="dropdown1" class="dropdown-menu-login z-depth-1">
+            <div class="dentrodropdown">
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="email" type="email" class="validate">
+                        <label for="email">Email</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="email" type="email" class="validate">
+                        <label for="email">Senha</label>
+                    </div>
+                </div>
+
+                <a class="btn1 btn-block btn-social btn-facebook">
+                    <span class="fab fa-facebook-square"></span> Acessar com Facebook
+                </a>
+                <a class="btn1 btn-block btn-social btn-google">
+                    <span class="fab fa-google"></span> Acessar com gmail
+                </a>
+                <a class="btn1 btn-block btn-social btn-microsoft">
+                    <span class="fas fa-envelope"></span> Acessar com Email
+                </a>
+
+
+            </div>
+        </ul>
+    </ul>
+    <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+</div>
+</body>
+</html>
