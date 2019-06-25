@@ -1,18 +1,30 @@
-$.post('./html/grids/navegation.html', function (html) {
-    $('#navegation-bar').html(html);
+$.post('./html/grids/navegation.html', function (navegation) {
+    $('#navegation-bar').html(navegation);
 });
 
-$.post('./html/feeds/artigo.html', function (html) {
-    $('#maincontainer').html(html);
+$.post('./html/grids/copyright.html', function (copyright) {
+    $('#bycraos').html(copyright);
 });
 
-$.post('./html/grids/recents.html', function (html) {
-    $('#recentes').html(html);
+$.post('./html/grids/menu.html', function (menu) {
+    $('#menu').html(menu);
 });
 
-$.post('./html/grids/copyright.html', function (html) {
-    $('#bycraos').html(html);
+$.post('./html/feeds/artigo.html', function (artigo) {
+    $('#maincontainer').html(artigo);
 });
-$.post('./html/grids/menu.html', function (html) {
-    $('#menu').html(html);
+
+$.post('./html/grids/recents.html', function (recents) {
+    $('#recentes').html(recents);
 });
+
+
+//
+// function exibirregistro() {
+//     // document.getElementById("registro").innerHTML = './html/register.html';
+//     window.location.replace('./html/register.html','janela');
+// }
+//
+// $.post('../html/register.html', function (registro) {
+//     $('register').html(registro);
+// });

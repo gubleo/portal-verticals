@@ -22,7 +22,7 @@
 </head>
 <body>
 <div class="nav-wrapper navtop">
-    <a href="#" class="brand-logo"><img src="img/logo.png"/></a>
+    <a href="#" class="brand-logo"><img src="./img/logo.png"/></a>
 
     <!--📱📱📱📱📱📱📱📱📱📱📱📱📱📱📱📱📱📱-->
     <!-- MENU ESQUERDO - VERSÁO MOBILE -->
@@ -33,9 +33,9 @@
             <li>
                 <div class="user-view">
                     <div class="background">
-                        <img src="img/leao.jpg">
+                        <img src="../img/leao.jpg">
                     </div>
-                    <a href="#user"><img class="circle" src="img/gustavoborges.jpg"></a>
+                    <a href="#user"><img class="circle" src="../img/gustavoborges.jpg"></a>
                     <a href="#name"><span class=" name">Gustavo Borges</span></a>
                     <a href="#email"><span class=" email">gustavo@craos.net</span></a>
                 </div>
@@ -169,19 +169,7 @@
         </li>
         <ul id="dropdown1" class="dropdown-menu-login z-depth-1">
             <div class="dentrodropdown">
-
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input id="email" type="email" class="validate">
-                        <label for="email">Email</label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="input-field col s12">
-                        <input id="email" type="email" class="validate">
-                        <label for="email">Senha</label>
-                    </div>
-                </div>
+                <span style="margin-top: 0px">Você pode acessar sua conta utilizando:</span>
 
                 <a class="btn1 btn-block btn-social btn-facebook">
                     <span class="fab fa-facebook-square"></span> Acessar com Facebook
@@ -189,8 +177,18 @@
                 <a class="btn1 btn-block btn-social btn-google">
                     <span class="fab fa-google"></span> Acessar com gmail
                 </a>
-                <a class="btn1 btn-block btn-social btn-microsoft">
+                <a href="./html/register.html" class="btn1 btn-block btn-social btn-microsoft">
                     <span class="fas fa-envelope"></span> Acessar com Email
+                </a>
+                <span class="btn1 esqueceusenha">Esqueceu seu login?</span>
+
+
+
+                <div class="divider" style="margin-top: 10px;"></div>
+                <p class="contas-fontes">Ainda não possui cadastro?</p>
+                <p class="sub-contas-fontes">Registre-se agora e fique por dentro de todas as nossas novidades!</p>
+                <a class="btn1 btn-block btn-social btn-criarconta">
+                    <span class="fas fa-plus"></span> Criar uma conta
                 </a>
 
 
