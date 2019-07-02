@@ -18,7 +18,14 @@ $.post('./html/grids/recents.html', function (recents) {
     $('#recentes').html(recents);
 });
 
+$(document).ready(function(){
+    $("#ler-pagina").click(function(){
 
+        $(function(){
+            $("#conteudo-pagina-lida").load("pagina-lida.html");
+        });
+    })
+});
 //
 // function exibirregistro() {
 //     // document.getElementById("registro").innerHTML = './html/register.html';

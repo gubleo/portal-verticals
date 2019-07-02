@@ -1,26 +1,25 @@
-html, body{
+html, body {
     padding: 0;
     margin: 0;
-    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
 }
+
 /*.navtop{*/
-    /*background-color: #fafafa;*/
-    /*color: black;*/
-    /*border-top: solid 4px lightskyblue;*/
+/*background-color: #fafafa;*/
+/*color: black;*/
+/*border-top: solid 4px lightskyblue;*/
 /*}*/
-.iconesnav{
+.iconesnav {
     float: right;
     font-size: 2px;
 }
-.tamanhoicones{
-    font-size: 16px;
-    margin-right: 5px;
+
+.tamanhoicones {
+    font-size: 20px;
+    margin-right: 2px;
 }
-.tamanhoicones a:hover{
-    background-color: rgba(0, 0, 0, 0.1);
-    border-bottom: 3px solid #33C3F0;
-}
-.dentrodropdown{
+
+.dentrodropdown {
     border-top: solid 3px #33C3F0;
     border-bottom: solid 3px #33C3F0;
     padding-top: 2px;
@@ -30,21 +29,25 @@ html, body{
     background-color: white;
     text-align: center;
 }
-.dentrodropdown button{
+
+.dentrodropdown button {
     width: 200px;
     height: auto;
 }
-#botaoface{
+
+#botaoface {
     background-color: darkblue;
     color: white;
     margin-bottom: 5px;
 }
-#botaogoogle{
+
+#botaogoogle {
     background-color: white;
     color: black;
     margin-bottom: 5px;
 }
-#botaomail{
+
+#botaomail {
     background-color: #ffe887;
     color: black;
     margin-bottom: 5px;
@@ -53,13 +56,13 @@ html, body{
 /* Menu lateral */
 /* Some ao diminuir tela/mobile */
 @media only screen and (max-width: 550px) {
-    #mobileoff{
+    #mobileoff {
         display: none;
         visibility: hidden;
     }
 }
 
-.boxusuario{
+.boxusuario {
     visibility: hidden;
     float: left;
     position: relative;
@@ -67,17 +70,15 @@ html, body{
 }
 
 @media only screen and (max-width: 1000px) {
-    .boxusuario{
+    .boxusuario {
         visibility: visible;
         padding-right: 15px;
         font-size: 20px
     }
 }
 
-
-
 @media only screen and (max-width: 1000px) {
-    .menucelular{
+    .menucelular {
         visibility: visible;
         line-height: 100px;
         padding-right: 15px;
@@ -87,126 +88,146 @@ html, body{
     }
 }
 
-.menu-direito-eventos{
+.menu-direito-eventos {
     width: 100%;
     background-color: red;
 }
 
-.dentromenu{
-border-top: solid 4px red;
+.dentromenu {
+    border-top: solid 4px red;
 }
-.teste1{
+
+.teste1 {
     float: left;
     left: 50%;
     margin-bottom: 30px;
 }
-.menufloat{
+
+.menufloat {
     float: left;
     position: relative;
 }
-.menueventos{
+
+.menueventos {
     float: right;
     width: 100%;
     font-size: 10px;
     margin-bottom: 10px;
 }
+
 .menueventos li {
     margin-left: 20px;
     margin-bottom: 0;
 }
+
 .menueventos li a {
     margin-bottom: 0;
     height: 5px;
 }
+
 .menueventos li a:hover {
     margin-bottom: 0;
     height: 5px;
     line-height: 10px;
     background-color: transparent;
 }
-.menuopcoes{
+
+.menuopcoes {
     width: 100%;
     float: right;
 }
-.menuopcoes-selecionar{
+
+.menuopcoes-selecionar {
     font-size: 14px;
     height: 40px;
     padding: 40px;
     color: #585858;
 }
 
-.marginesquerda{
+.marginesquerda {
 
 }
-.modaltop{
+
+.modaltop {
     border-top: solid 3px #33C3F0;
 }
 
-.itens-modal{
+.itens-modal {
     margin-top: 5%;
 }
 
-.itens-modal a i{
+.itens-modal a i {
     color: #93AFBA;
     padding: 5px;
     margin-left: 15px;
     font-size: 26px;
 }
 
-.itens-modal ul li .home{
+.itens-modal ul li .home {
     float: left;
     width: 100%;
     line-height: 10px;
     text-align: center;
 }
-.itens-modal ul li .correio{
+
+.itens-modal ul li .correio {
     float: left;
     width: 100%;
     line-height: 10px;
     text-align: center;
 }
-.itens-modal ul li .notificacao{
+
+.itens-modal ul li .notificacao {
     float: left;
     width: 100%;
     line-height: 10px;
     text-align: center;
 }
-.itens-modal ul li .ajuda{
+
+.itens-modal ul li .ajuda {
     float: left;
     width: 100%;
     line-height: 10px;
     text-align: center;
 }
-.nav-space{
+
+.nav-space {
     width: 100%;
     height: 60px;
 }
-.espacamentomenu{
+
+.espacamentomenu {
     margin-top: 25px;
 }
+
 .rodape {
     margin-top: 20px;
     padding: 10px;
     border: 1px solid #cacaca;
     border-radius: 4px;
 }
-.rodape img{
+
+.rodape img {
     width: 120px;
     height: 25px;
 }
-.rodape span{
+
+.rodape span {
     font-size: 15px;
 }
-.recents{
+
+.recents {
     font-size: 12px;
     color: #888888;
 }
-.hr-divider{
+
+.hr-divider {
     color: #fafafa;
     border-bottom: solid 1px #DCDCDC;
     padding-top: 5px;
 }
-.termopolitica{
+
+.termopolitica {
     font-size: 9px;
 }
 
@@ -263,6 +284,7 @@ border-top: solid 4px red;
     background-color: #125acd;
     border-color: rgba(0, 0, 0, 0.2)
 }
+
 .btn-social > :first-child {
     position: absolute;
     left: 0;
@@ -274,6 +296,7 @@ border-top: solid 4px red;
     text-align: center;
     border-right: 1px solid rgba(0, 0, 0, 0.2)
 }
+
 .btn-social {
     position: relative;
     padding-left: 44px;
@@ -282,10 +305,12 @@ border-top: solid 4px red;
     overflow: hidden;
     text-overflow: ellipsis
 }
+
 .btn-block {
     display: block;
     width: 100%;
 }
+
 .btn1 {
     display: block;
     padding: 6px 12px;
@@ -308,20 +333,20 @@ border-top: solid 4px red;
     border-radius: 4px;
 }
 
-.contas-fontes{
+.contas-fontes {
     font-size: 14px;
     text-align: left;
     margin-top: 0;
     margin-bottom: -10px;
 }
-.sub-contas-fontes{
+
+.sub-contas-fontes {
     color: #888888;
     font-size: 12px;
     line-height: 15px;
     text-align: left;
     margin-top: 1px;
 }
-
 
 .btn-criarconta {
     background-color: #33C3F0;
@@ -340,46 +365,68 @@ border-top: solid 4px red;
     background-color: #0073e6;
     border-color: rgba(0, 0, 0, 0.2)
 }
-.marginbaixo{
+
+.marginbaixo {
     margin-bottom: 4rem;
 }
-.btncancelar{
+
+.btncancelar {
     background-color: white;
     color: black;
 }
-.btncancelar:hover{
+
+.btncancelar:hover {
     background-color: #33C3F0;
     color: white;
 }
-.btncriar{
+
+.btncriar {
     background-color: #33C3F0;
     color: white;
 }
-.btncriar:hover{
+
+.btncriar:hover {
     background-color: white;
     color: black;
     border-bottom: solid 2px #33C3F0;
 }
-.center1{
+
+.center1 {
     position: center;
     margin-bottom: 0;
 }
-.preferencia-text{
+
+.preferencia-text {
     color: black;
 }
-.posicaocentro{
+
+.posicaocentro {
     left: 50%;
 }
-.esqueceusenha{
+
+.esqueceusenha {
     color: cornflowerblue;
 }
-.concordotermo{
+
+.concordotermo {
     margin-bottom: 2rem;
 }
-.border-separation{
+
+.border-separation {
     border-bottom: 1px solid #888;
 }
-.card-align{
+
+.card-align {
     margin-top: 2%;
     position: center;
+}
+
+.badgecima {
+    float: left;
+    position: relative;
+}
+
+.badgecima2 {
+    float: left;
+    position: relative;
 }
