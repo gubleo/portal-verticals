@@ -201,10 +201,17 @@ html, body {
 }
 
 .rodape {
-    margin-top: 20px;
     padding: 10px;
     border: 1px solid #cacaca;
     border-radius: 4px;
+}
+.borda-lat{
+    border-right: solid 1px lightgray;
+}
+.box-separation{
+    width: 1px;
+    float: right;
+    position: absolute;
 }
 
 .rodape img {
@@ -429,4 +436,21 @@ html, body {
 .badgecima2 {
     float: left;
     position: relative;
+}
+nav div li a:hover {
+    margin-top: 1px;
+    text-decoration: none;
+}
+
+nav div li a{
+}
+.divisaoicones{
+    height: 3px;
+    width: 1em;
+    color: black;
+    border-right: 3px red;
+}
+.join-account{
+    font-size: 12px;
+    margin-bottom: 10px;
 }
