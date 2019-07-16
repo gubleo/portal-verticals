@@ -454,3 +454,9 @@ nav div li a{
     font-size: 12px;
     margin-bottom: 10px;
 }
+.border-bottom{
+    border-bottom: solid 4px #33C3F0;
+}
+.border-bottom-card{
+    border-bottom: solid 2px #33C3F0;
+}
