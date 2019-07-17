@@ -438,8 +438,8 @@ html, body {
     position: relative;
 }
 nav div li a:hover {
+    color: #33C3F0;
     margin-top: 1px;
-    text-decoration: none;
 }
 
 nav div li a{
@@ -459,4 +459,7 @@ nav div li a{
 }
 .border-bottom-card{
     border-bottom: solid 2px #33C3F0;
+}
+.aviso-navegation-txt{
+    font-family: 2px; 
 }
