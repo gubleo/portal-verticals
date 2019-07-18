@@ -463,3 +463,52 @@ nav div li a{
 .aviso-navegation-txt{
     font-family: 2px; 
 }
+.dropdown-item{
+    display: block;
+    overflow: hidden;
+    padding: 4px 10px 4px 16px;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.dropdown-menu{
+    -webkit-background-clip: padding-box;
+    -moz-background-clip: padding-box;
+    background-clip: padding-box;
+    background-color: #fff;
+    border: 1px solid rgba(27,31,35,.15);
+    border-radius: 4px;
+    box-shadow: 0 3px 12px #93AFBA;
+    left: 0;
+    list-style: none;
+    margin-top: 2px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    position: absolute;
+    top: 100%;
+    width: 160px;
+    z-index: 100;
+    border-bottom: solid 3px #33C3F0;
+}
+.title-dropdown-user-logado{
+    line-height: 10px;
+    padding: 15px;
+}
+.sub-menu{
+    font-size: 12px;
+    margin-top: 0;
+    padding-top: 0;
+    padding: 15px;
+    z-index: 9999;
+    color: grey;
+}
+.tamanholi{
+    width: 100%;
+}
+.cormenu2{
+    color: #6E6E6E;
+}
+.iconemenumargem{
+    margin-right: 0;
+    z-index: 99999;
+}

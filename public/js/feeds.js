@@ -2,6 +2,11 @@ $.post('./html/grids/navegation.html', function (navegation) {
     $('#navegation-bar').html(navegation);
 });
 
+//simulando usuario logado
+$.post('./html/grids/user-navegation.html', function (logged) {
+    $('#user-navegation-bar').html(logged);
+});
+
 $.post('./html/grids/copyright.html', function (copyright) {
     $('#bycraos').html(copyright);
 });

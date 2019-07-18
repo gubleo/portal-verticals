@@ -2415,6 +2415,19 @@ a {
     box-shadow: 0 0px 5px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
 }
 
+.hoverable1 {
+    -webkit-transition: -webkit-box-shadow .25s;
+    transition: -webkit-box-shadow .25s;
+    transition: box-shadow .25s;
+    transition: box-shadow .25s, -webkit-box-shadow .25s
+}
+
+.hoverable1:hover {
+    -webkit-box-shadow: 0 0px 5px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0px 5px 0 rgba(0, 0, 0, 0.2)
+}
+
+
 .divider {
     height: 1px;
     overflow: hidden;
@@ -2827,6 +2840,17 @@ td, th {
     border-radius: 2px;
     overflow: hidden;
     position: relative
+}
+.collection1 {
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+    text-align: left;
+}
+.collection-item1 {
+    background-color: #fff;
+    padding: 4px 10px 4px 16px;
+    margin: 0;
 }
 
 .collection .collection-item {
@@ -5376,22 +5400,22 @@ button.btn-floating {
 .dropdown-menu-login {
     background-color: #f9f9f9;;
     margin-top: 4.1em;
+    padding-top: 3px;
     display: none;
     min-width: 300px;
-    max-height: 650px;
+    max-height: 800px;
     overflow-y: auto;
     opacity: 0;
     position: absolute;
-    z-index: 999;
-    will-change: width, height;
+    z-index: -999;
+    border-bottom: solid 4px #33C3F0;
 }
 
 .dropdown-content li {
     clear: both;
     color: rgba(0, 0, 0, 0.87);
     cursor: pointer;
-    min-height: 50px;
-    line-height: 1.5rem;
+    line-height: 1.5px;
     width: 100%;
     text-align: left;
     text-transform: none
@@ -5414,8 +5438,9 @@ button.btn-floating {
     font-size: 16px;
     color: black;
     display: block;
-    line-height: 22px;
+    line-height: 2.3em;
     padding: 14px 16px
+    border-bottom: solid 1px #33C3F0;
 }
 
 .dropdown-content li > span > label {
@@ -5428,8 +5453,8 @@ button.btn-floating {
     height: inherit;
     line-height: inherit;
     float: left;
-    margin: 0 24px 0 0;
-    width: 24px
+    margin: 0 8px 0 0;
+    width: 25px
 }
 
 .input-field.col .dropdown-content [type="checkbox"] + label {
