@@ -512,3 +512,6 @@ nav div li a{
     margin-right: 0;
     z-index: 99999;
 }
+.nome-dropdown{
+    padding 5px;
+}
