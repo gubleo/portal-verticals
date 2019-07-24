@@ -5084,10 +5084,9 @@ small {
 
 .material-tooltip {
     padding: 10px 8px;
-    font-size: 1rem;
+    font-size: 12px;
     z-index: 2000;
-    background-color: transparent;
-    border-radius: 2px;
+    border-radius: 5px;
     color: #fff;
     min-height: 36px;
     line-height: 120%;
@@ -5099,6 +5098,7 @@ small {
     left: 0;
     top: 0;
     pointer-events: none;
+    border-bottom: solid 4px #33C3F0;
     visibility: hidden
 }
 

@@ -112,30 +112,33 @@
     </div>
 
     <div id="modal1" class="modal bottom-sheet modaltop">
-        <div class="modal-content">
-            <h5>Bem Vindo(a), Gustavo</h5>
-            <p>Separamos aqui pra você algumas opções que irá te ajudar no dia-a-dia!</p>
-            <div class="divider"></div>
-            <div class="itens-modal">
-                <ul>
-                    <li><a href="#!"><i class="fas fa-home"></i></a><span class="home">Inicio</span></li>
-                    <li><a href="#!"><i class="fas fa-box-open"></i></a><span class="correio">Correio</span></li>
-                    <li><a href="#!"><i class="far fa-comment-alt"></i></a><span
-                            class="notificacao">Notificacoes</span></li>
-                    <li><a href="#!"><i class="fas fa-question-circle "></i></a><span class="ajuda">Ajuda</span>
-                    </li>
-                    <br/>
-                </ul>
-            </div>
+        <div class="dentrodropdown">
+            <span style="margin-top: 0px">Você pode acessar sua conta utilizando:</span>
+
+            <a class="btn1 btn-block btn-social btn-facebook">
+                <span class="fab fa-facebook-square"></span> Acessar com Facebook
+            </a>
+            <a class="btn1 btn-block btn-social btn-google">
+                <span class="fab fa-google"></span> Acessar com gmail
+            </a>
+            <a href="./html/register.html" class="btn1 btn-block btn-social btn-microsoft">
+                <span class="fas fa-envelope"></span> Acessar com Email
+            </a>
+            <span class="btn1 esqueceusenha">Esqueceu seu login?</span>
+
+
+
+            <div class="divider" style="margin-top: 10px;"></div>
+            <p class="contas-fontes">Ainda não possui cadastro?</p>
+            <p class="sub-contas-fontes">Registre-se agora e fique por dentro de todas as nossas novidades!</p>
+            <a class="btn1 btn-block btn-social btn-criarconta">
+                <span class="fas fa-plus"></span> Criar uma conta</a>
         </div>
     </div>
 
     <!-- 🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠 -->
     <!-- FIM MENU USUARIO - INFERIOR    -->
     <!-- 🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠 -->
-
-
-    
 
     <ul class="right hide-on-med-and-down ">
         <li>
@@ -149,7 +152,7 @@
         <li>
             <div class="iconesnav" id="iniciar">
                 <a href="#!">
-                    <span><i class="fas fa-home tamanhoicones cor-do-menu"></i></span>
+                    <span class="tooltipped" data-tooltip="Voltar ao Inicio"><i class="fas fa-home tamanhoicones cor-do-menu"></i></span>
                     <span></span>
                     <!--<span>Iniciar</span>-->
                 </a>
@@ -158,7 +161,7 @@
         <li>
             <div class="iconesnav" id="correios">
                 <a href="#!">
-                    <span><i class="fas fa-box-open tamanhoicones cor-do-menu"></i></span>
+                    <span class="tooltipped" data-tooltip="Correspondências"><i class="fas fa-box-open tamanhoicones cor-do-menu"></i></span>
                     <span></span>
                     <!--<span>Correios</span>-->
                 </a>
@@ -167,7 +170,7 @@
         <li>
             <div class="iconesnav" id="notificacoes">
                 <a href="#!" data-target="dropdown1">
-                    <span><i class="far fa-comment-alt tamanhoicones cor-do-menu"></i></span>
+                    <span class="tooltipped" data-tooltip="Suas Noitificações"><i class="far fa-comment-alt tamanhoicones cor-do-menu"></i></span>
                     <!--<span>Notificações</span>-->
                 </a>
             </div>
@@ -175,7 +178,7 @@
         <li>
             <div class="iconesnav" id="ajuda" style="margin-right: 10px;">
                 <a href="#!">
-                    <span><i class="fas fa-question-circle tamanhoicones cor-do-menu"></i></span>
+                    <span class="tooltipped" data-tooltip="Ajuda"><i class="fas fa-question-circle tamanhoicones cor-do-menu"></i></span>
                     <!--<span>Ajuda</span>-->
                 </a>
             </div>
@@ -184,7 +187,7 @@
         <li>
             <a class="dropdown-button" href="#!" data-activates="dropdown1">
 
-            <span><i id="user-cicle" class="material-icons tamanhoicones cor-do-menu tamanholi">person_pin arrow_drop_down</i>
+            <span class="tooltipped" data-tooltip="Acessar sua Conta"><i id="user-cicle" class="material-icons tamanhoicones cor-do-menu tamanholi">person_pin arrow_drop_down</i>
             </a>
         </li>
         <ul id="dropdown1" class="dropdown-menu-login z-depth-1">
