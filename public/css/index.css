@@ -19,6 +19,22 @@ html, body {
     margin-right: 2px;
 }
 
+.linha-select{
+    border-bottom: 1px solid #0f7b9f;
+}
+
+.div-color{
+    background-color: light-grey;
+    height: 100%;
+}
+
+.tamanhoimgdiv{
+    margin-top: 15px;
+    width: 90%;
+    height: 90%;
+}
+
+
 .dentrodropdown {
     border-top: solid 3px #33C3F0;
     border-bottom: solid 3px #33C3F0;
@@ -457,12 +473,21 @@ nav div li a{
 .border-bottom{
     border-bottom: solid 4px #33C3F0;
 }
+.border-bottom-fina{
+    border-bottom: solid 2px #33C3F0;
+}
 .border-bottom-card{
     border-bottom: solid 2px #33C3F0;
 }
 .aviso-navegation-txt{
     font-family: 2px; 
 }
+
+.texto-recsenha{
+    margin-top: 10px;
+    float: left;
+}
+
 .dropdown-item{
     display: block;
     overflow: hidden;
