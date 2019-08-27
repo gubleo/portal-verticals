@@ -488,6 +488,18 @@ nav div li a{
     float: left;
 }
 
+.border-bottom-texto{
+    border-bottom: solid 1px #33C3F0;
+    width: 100%;
+
+}
+.marginesquerda2{
+    margin-left: 5px;
+}
+.conteudo-pagina{
+    margin-top: 5%;
+}
+
 .dropdown-item{
     display: block;
     overflow: hidden;
