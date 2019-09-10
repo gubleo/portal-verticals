@@ -3124,6 +3124,95 @@ td, th {
     padding: 0 !important
 }
 
+span.badge-agora {
+    min-width: 3rem;
+    padding: 0 6px;
+    margin-left: 14px;
+    text-align: center;
+    font-size: 1rem;
+    line-height: 22px;
+    height: 22px;
+    color: #757575;
+    float: right;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+span.badge-agora.new {
+    font-weight: 300;
+    font-size: 0.8rem;
+    color: #fff;
+    background-color: dodgerblue;
+    border-radius: 2px
+    -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+span.badge-agora.new:after {
+    content: " agora"
+}
+
+/* minutos */
+
+span.badge-minutos {
+    min-width: 3rem;
+    padding: 0 6px;
+    margin-left: 14px;
+    text-align: center;
+    font-size: 1rem;
+    line-height: 22px;
+    height: 22px;
+    color: #757575;
+    float: right;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+span.badge-minutos.new {
+    font-weight: 300;
+    font-size: 0.8rem;
+    color: #fff;
+    background-color: dodgerblue;
+    border-radius: 2px
+    -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+span.badge-minutos.new:after {
+    content: " minutos atrás"
+}
+
+/* horas */
+
+span.badge-horas {
+    min-width: 3rem;
+    padding: 0 6px;
+    margin-left: 14px;
+    text-align: center;
+    font-size: 1rem;
+    line-height: 22px;
+    height: 22px;
+    color: #757575;
+    float: right;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+span.badge-horas.new {
+    font-weight: 300;
+    font-size: 0.8rem;
+    color: #fff;
+    background-color: dodgerblue;
+    border-radius: 2px
+    -webkit-box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+}
+
+span.badge-horas.new:after {
+    content: " horas atrás"
+}
+
+
 span.badge {
     min-width: 3rem;
     padding: 0 6px;
