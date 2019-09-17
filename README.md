@@ -1,5 +1,5 @@
-# PPC
+# Portal Verticals
 
-🏢 PPC Development 🚀
+🏢 Development 🚀
 
 All rights reserved to Craos.NET 
