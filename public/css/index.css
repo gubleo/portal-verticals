@@ -567,3 +567,7 @@ nav div li a{
     width: 200px;
     height: 200px;
 }
+.smalltext{
+    font-size: 12px;
+    font-family: #808080;
+}
