@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Verticals | Portal para Condominios</title>
+    <title>Verticals | Eventos do Condominio</title>
     <link type="text/css" rel="stylesheet" href="./css/materialize.min.css" media="screen,projection"/>
     <link rel="stylesheet" href="./css/index.css">
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
@@ -26,41 +26,209 @@
 
 <body>
 
-    <!-- Barra de Navegação Topo -->
+<!-- Barra de Navegação Topo -->
 
-    <nav id="navegation-bar"></nav>
-    <div class="nav-space"></div>
+<nav id="navegation-bar"></nav>
+<div class="nav-space"></div>
 
-    <!-- Coluna esquerda - Menus e outros -->
-    <div class="row">
-        <div class="col s12 m4 l2 marginesquerda" id="mobileoff" style="margin-top: 1em">
-            <div id="menu"></div>
-        </div>
+<!-- Coluna esquerda - Menus e outros -->
+<div class="row">
+    <div class="col s12 m4 l2 marginesquerda" id="mobileoff" style="margin-top: 1em">
+
+        <div id="menu"></div>
+
+        <div class="row s12 l12 marginesquerda" id="bycraos"></div>
+    </div>
+
 
     <!-- Coluna Central - Postagens e outros -->
 
-    <div class="col s12 m4 l7" style="margin-top: 1em">
+
+    <div class="col s12 m4 l10" style="margin-top: 15px;">
         <div class="row">
-            <div class="col s12">
-                <div class="card-panel white border-bottom">
-                    <span class="black-text"><i class="fas fa-bell blue-text" style="font-size: 16px;"> </i> Ative as notificações e fique por dentro de todos as novidades sobre seu Condominio! </b></span>
-                    <span class="grey-text">Caso ainda não saiba como ativar as notificações, <a>clique aqui.</a></span>
+            <div class=" m6">
+                <div class="title-pages collection z-depth-1">
+                    <div class="title-pages collection collection-item active">Suas Reformas</div>
                 </div>
+                <ul class="collection">
+                    <li class="collection-item avatar">
+                        <i class="material-icons circle">build</i>
+                        <span id="avisoreforma" class="title blue-text">Reforma em sua Residência</span>
+                        <p id="datareforma" class="">Data da Reforma: <b>23/09/2019 ás 11h30</b></p>
+                        <p id="motivoreforma" class="">Motivo da Reforma: <b>Reforma no encanamento do Banheiro</b></p>
+                        <p id="estimativareforma" class="">Estimativa: <b>2 horas</b></p>
+                        <a href="#!" class="secondary-content"><i class="material-icons green-text" title="Ainda Disponível">done</i></a>
+                    </li>
+                    <li class="collection-item avatar">
+                        <i class="material-icons circle">build</i>
+                        <span id="avisoreforma" class="title grey-text">Reforma em sua Residência</span>
+                        <p id="datareforma" class="grey-text">Data da Reforma: <b>23/09/2019 ás 11h30</b></p>
+                        <p id="motivoreforma" class="grey-text">Motivo da Reforma: <b>Reforma no encanamento do Banheiro</b></p>
+                        <p id="estimativareforma" class="grey-text">Estimativa: <b>2 horas</b></p>
+                        <a href="#!" class="secondary-content"><i class="material-icons red-text" title="Não está mais disponível">do_not_disturb_alt</i></a>
+                    </li>
+                </ul>
+
+            </div>
+            <div class=" m6">
+                <div class="title-pages collection z-depth-1">
+                    <div class="title-pages collection collection-item active">Informe uma nova Reforma</div>
+                </div>
+
+                <div class="row">
+                    <form class="col s12">
+                        <div class="row">
+                            <div class="input-field col s6">
+                                <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+                                <label for="first_name">First Name</label>
+                            </div>
+                            <div class="input-field col s6">
+                                <input id="last_name" type="text" class="validate">
+                                <label for="last_name">Last Name</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input disabled value="I am not editable" id="disabled" type="text" class="validate">
+                                <label for="disabled">Disabled</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="password" type="password" class="validate">
+                                <label for="password">Password</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <input id="email" type="email" class="validate">
+                                <label for="email">Email</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col s12">
+                                This is an inline input field:
+                                <div class="input-field inline">
+                                    <input id="email_inline" type="email" class="validate">
+                                    <label for="email_inline">Email</label>
+                                    <span class="helper-text" data-error="wrong" data-success="right">Helper text</span>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="title-pages collection z-depth-1">
+                    <div class="title-pages collection collection-item active">Recomendações de Prestadores de Serviços do Condomínio</div>
+                </div>
+                <ul class="collection">
+                    <li class="collection-item avatar">
+                        <i class="material-icons circle">folder</i>
+                        <span class="title">Title</span>
+                        <p>First Line <br>
+                            Second Line
+                        </p>
+                        <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                    </li>
+                    <li class="collection-item avatar">
+                        <i class="material-icons circle green">insert_chart</i>
+                        <span class="title">Title</span>
+                        <p>First Line <br>
+                            Second Line
+                        </p>
+                        <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                    </li>
+                    <li class="collection-item avatar">
+                        <i class="material-icons circle red">play_arrow</i>
+                        <span class="title">Title</span>
+                        <p>First Line <br>
+                            Second Line
+                        </p>
+                        <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                    </li>
+                    <li class="collection-item avatar">
+                        <i class="material-icons circle">folder</i>
+                        <span class="title">Title</span>
+                        <p>First Line <br>
+                            Second Line
+                        </p>
+                        <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                    </li>
+                    <li class="collection-item avatar">
+                        <i class="material-icons circle green">insert_chart</i>
+                        <span class="title">Title</span>
+                        <p>First Line <br>
+                            Second Line
+                        </p>
+                        <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                    </li>
+                    <li class="collection-item avatar">
+                        <i class="material-icons circle red">play_arrow</i>
+                        <span class="title">Title</span>
+                        <p>First Line <br>
+                            Second Line
+                        </p>
+                        <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                    </li>
+                    <li class="collection-item avatar">
+                        <i class="material-icons circle">folder</i>
+                        <span class="title">Title</span>
+                        <p>First Line <br>
+                            Second Line
+                        </p>
+                        <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                    </li>
+                    <li class="collection-item avatar">
+                        <i class="material-icons circle green">insert_chart</i>
+                        <span class="title">Title</span>
+                        <p>First Line <br>
+                            Second Line
+                        </p>
+                        <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                    </li>
+                    <li class="collection-item avatar">
+                        <i class="material-icons circle red">play_arrow</i>
+                        <span class="title">Title</span>
+                        <p>First Line <br>
+                            Second Line
+                        </p>
+                        <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                    </li>
+                    <li class="collection-item avatar">
+                        <i class="material-icons circle">folder</i>
+                        <span class="title">Title</span>
+                        <p>First Line <br>
+                            Second Line
+                        </p>
+                        <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                    </li>
+                    <li class="collection-item avatar">
+                        <i class="material-icons circle green">insert_chart</i>
+                        <span class="title">Title</span>
+                        <p>First Line <br>
+                            Second Line
+                        </p>
+                        <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                    </li>
+                    <li class="collection-item avatar">
+                        <i class="material-icons circle red">play_arrow</i>
+                        <span class="title">Title</span>
+                        <p>First Line <br>
+                            Second Line
+                        </p>
+                        <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                    </li>
+                </ul>
+
             </div>
         </div>
-
-        <div id="postagens-artigos"></div>
     </div>
 
-    <!-- Artigos recentes -->
 
-    <div class="col s12 m4 l3" id="recentes" style="margin-top: 1em">
     </div>
-
-    <!-- Direitos Autorais ©  -->
-
-    <div class="col s12 m4 l3" id="bycraos">
-    </div>
-
+    <script>
+        $(document).ready(function(){
+            $('.parallax').parallax();
+        });
+    </script>
 </body>
 </html>
