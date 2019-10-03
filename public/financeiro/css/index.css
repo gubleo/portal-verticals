@@ -18,6 +18,17 @@ html, body {
     }
 }
 
+.light-grey{
+    background-color:#F2F2F2
+}
+
+.borda-esquerda-verde{
+    border-left: 3px solid #01DF3A
+}
+.borda-esquerda-red{
+    border-left: 3px solid red
+}
+
 .tamanhocarousel{
     height: 30px;
     width: 100%;
