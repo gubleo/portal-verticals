@@ -11,10 +11,20 @@ html, body {
     background-color: #01DF3A;
 }
 
+.hovertest{
+    border-bottom: solid 50px red;
+}
+
 @media only screen and (max-width: 550px) {
     .tamanhografico {
         width: 100%;
         height: 100%;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    .celularbotao {
+        display: none;
     }
 }
 

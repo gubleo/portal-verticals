@@ -122,6 +122,12 @@ html, body {
     }
 }
 
+@media only screen and (max-width: 1000px) {
+    .financeslogo {
+        display: none;
+    }
+}
+
 .menu-direito-eventos {
     width: 100%;
     background-color: red;

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Verticals | Contas à Pagar</title>
+    <title>Verticals | Lançamentos Financeiros</title>
     <link type="text/css" rel="stylesheet" href="./css/materialize.min.css" media="screen,projection"/>
     <link rel="stylesheet" href="./css/index.css">
     <link rel="stylesheet" href="./css/chart.css">
@@ -13,24 +13,17 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script defer src="./js/slide-menu.js"></script>
     <script type="text/javascript" src="./js/feeds.js"></script>
-
     <!-- Favicon (Icon Topo) -->
-
     <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
     <link rel="icon" href="../favicon.ico" type="image/x-icon">
     <meta name="theme-color" content="#01DF3A">
     <meta name="apple-mobile-web-app-status-bar-style" content="#0174DF">
     <meta name="msapplication-navbutton-color" content="#0174DF">
-
 </head>
-
 <body>
-
 <!-- Barra de Navegação Topo -->
-
 <nav id="navegation-bar-financeiro"></nav>
 <div class="nav-space"></div>
-
 <!-- Coluna esquerda - Menus e outros -->
 <div class="row">
     <div class="col s12 m4 l2 marginesquerda" id="mobileoff" style="margin-top: 1em">
@@ -38,20 +31,21 @@
         <div class="row s12 l12 marginesquerda" id="bycraos2">
         </div>
     </div>
-
     <!-- Coluna Central - Postagens e outros -->
-
     <div class="col s12 m4 l10" style="margin-top: 15px;">
-
         <div class="title-pages collection z-depth-1">
-            <div class="title-pages collection collection-item active"><i class="far fa-calendar-alt"> </i>  Contas à Pagar/Receber
+            <div class="title-pages collection collection-item active"><i class="fas fa-funnel-dollar">  </i> Lançamentos Financeiros
             </div>
         </div>
-<!--        <div class="row">-->
-<!--            <button class="btn waves-effect waves-light" type="submit" name="action">Nova conta-->
-<!--                <i class="material-icons right">add</i>-->
-<!--            </button>-->
-<!--        </div>-->
+        <div class="col s12 m12">
+            <button class="btn light-green hoverable" style="margin-right: 10px; margin-bottom: 10px;" type="submit" name="action" title="Abrir um Novo Lançamento">Novo lançamento
+                <i class="material-icons left">add</i>
+            </button>
+
+            <button class="btn white black-text hoverable" style="margin-right: 10px; margin-bottom: 10px;" type="submit" name="action">Transferir
+                <i class="material-icons left">transfer_within_a_station</i>
+            </button>
+        </div>
         <div class="col s12 m3">
 
             <div class="title-pages collection z-depth-1">
@@ -77,7 +71,6 @@
                 <option value="3">Próximos 60 Dias</option>
                 <option value="4">Próximos 2 Meses</option>
                 <option value="5">Próximos 30 Dias</option>
-                <option value="6">Próximos 30 Dias</option>
             </select>
             <div class="input-field col s12">
                 <input id="campode" type="text" class="datepicker">
@@ -101,11 +94,9 @@
                 <a class="waves-effect waves-light btn center">Aplicar</a>
                 <a class="waves-effect waves-light btn center" style="margin-right: 3px;">Limpar</a>
             </div>
-
             </div>
         </div>
-
-        <div class="col s12 m9">
+        <div class="col s12 m9" >
             <div class="title-pages collection z-depth-1">
                 <div class="title-pages collection collection-item active"><i class="fas fa-flag "> </i> Acordos
                     <a href="#!" title=""><i class="fa fa-caret-down right white-text tamanhoicones"></i></a>
@@ -114,19 +105,88 @@
                     <a href="#!" title=""><i class="fa fa-print right white-text tamanhoicones"></i></a>
                     <a href="#!" title=""><i class="fa fa-file-excel-on right white-text tamanhoicones "></i></a>
                     <a href="#!" title=""><i class="fa fa-pie-chart right white-text tamanhoicones"></i></a>
+                    <a href="#!" title=""><i class="material-icons right white-text tamanhoicones" title="Bloquear">block</i></a>
                 </div>
             </div>
-            <label>Não foi possível localizar nenhum registro...</label>
+            <table>
+                <thead>
+                <tr>
+                    <th class="grey-text">LANÇAMENTO</th>
+                    <th class="grey-text">RECEBER DE / PAGAR PARA</th>
+                    <th class="grey-text">DETALHES</th>
+                    <th class="grey-text">VALOR</th>
+                    <th class="grey-text">SALDO</th>
+                    <th><a href="#!" title=""><i class="fa fa-caret-down right light-blue-text"></i></a></th>
+                </tr>
+                </thead>
 
+                <tbody>
+
+                <tr class="hoverable">
+                    <td>03/07/2019</td>
+                    <td>Avertura de Conta - Conta Exemplo</td>
+                    <td>Ag.: 1234 - Conta: 123</td>
+                    <td>R$0,00</td>
+                    <td><b>R$0,00</b></td>
+                </ul>
+                </tr>
+
+                <tr class="hoverable">
+                    <td>24/08/2019</td>
+                    <td>Avertura de Conta - Conta Exemplo</td>
+                    <td>Ag.: 1234 - Conta: 123</td>
+                    <td>R$0,00</td>
+                    <td><b>R$0,00</b></td>
+                </tr>
+                <tr class="hoverable">
+                    <td>11/09/2019</td>
+                    <td>Avertura de Conta - Conta Exemplo</td>
+                    <td>Ag.: 1234 - Conta: 123</td>
+                    <td>R$0,00</td>
+                    <td><b>R$0,00</b></td>
+                </tr>
+                <tr class="hoverable">
+                    <td>01/10/2019</td>
+                    <td>Avertura de Conta - Conta Exemplo</td>
+                    <td>Ag.: 1234 - Conta: 123</td>
+                    <td>R$0,00</td>
+                    <td><b>R$0,00</b></td>
+                </tr>
+                <tr class="hoverable">
+                    <td>21/11/2019</td>
+                    <td>Avertura de Conta - Conta Exemplo</td>
+                    <td>Ag.: 1234 - Conta: 123</td>
+                    <td>R$0,00</td>
+                    <td><b>R$0,00</b></td>
+                </tr>
+                <tr class="hoverable">
+                    <td>11/09/2019</td>
+                    <td>Avertura de Conta - Conta Exemplo</td>
+                    <td>Ag.: 1234 - Conta: 123</td>
+                    <td>R$0,00</td>
+                    <td><b>R$0,00</b></td>
+                </tr>
+                <tr class="hoverable">
+                    <td>01/10/2019</td>
+                    <td>Avertura de Conta - Conta Exemplo</td>
+                    <td>Ag.: 1234 - Conta: 123</td>
+                    <td>R$0,00</td>
+                    <td><b>R$0,00</b></td>
+                </tr>
+                <tr class="hoverable">
+                    <td>21/11/2019</td>
+                    <td>Avertura de Conta - Conta Exemplo</td>
+                    <td>Ag.: 1234 - Conta: 123</td>
+                    <td>R$0,00</td>
+                    <td><b>R$0,00</b></td>
+                </tr>
+                </tbody>
+            </table>
         </div>
-
-
         <script>
             $(document).ready(function () {
                 $('select').formSelect();
             });
-        </script>
-        <script>
             $(document).ready(function () {
                 $('.datepicker').datepicker();
             });
