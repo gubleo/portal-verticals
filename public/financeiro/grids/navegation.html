@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verticals | Desenvolvimento</title>
+    <link type="text/css" rel="stylesheet" href="../../css/materialize.min.css" media="screen,projection"/>
+    <link rel="stylesheet" href="../../css/index.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="../../js/materialize.min.js"></script>
+    <script src="https://kit.fontawesome.com/b9786aa6c5.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script defer src="../../js/slide-menu.js"></script>
+</head>
+<body>
+
+<style>
+    img[src="https://cdn.000webhost.com/000webhost/logo/footer-powered-by-000webhost-white2.png"] {
+        display: none;
+    }
+</style>
+
+<script>
+    $(document).ready(function () {
+        $('.modal').modal();
+    });
+    //menu parte de cima
+    $(".button-collapse").sideNav();
+    //menu parte de baixo
+</script>
+
+
+<div class="nav-wrapper navtop">
+    <a href="../index.html" class="brand-logo"><img src="../img/logo.png"/></a>
+
+    <!--📱📱📱📱📱📱📱📱📱📱📱📱📱📱📱📱📱📱-->
+    <!-- MENU ESQUERDO - VERSÁO MOBILE -->
+    <!--📱📱📱📱📱📱📱📱📱📱📱📱📱📱📱📱📱📱-->
+
+    <ul id="slide-out" class="side-nav dentromenu">
+
+
+    </ul>
+
+    <!--📱📱📱📱📱📱📱📱📱📱📱📱📱📱📱📱📱📱📱📱-->
+    <!-- FIM MENU ESQUERDO - VERSÁO MOBILE -->
+    <!--📱📱📱📱📱📱📱📱📱📱📱📱📱📱📱📱📱📱📱📱📱-->
+
+
+    <!-- 🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠 -->
+    <!-- MENU USUARIO - INFERIOR    -->
+    <!-- 🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠 -->
+
+    <div data-activates="slide-out" class="right boxusuario menu-direito-botao">
+        <a class="waves-effect waves-light modal-trigger" href="#modal1"><i id="user-cicle"
+                                                                            class="fas fa-user-circle itemhover"></i></a>
+    </div>
+
+    <div id="modal1" class="modal bottom-sheet modaltop">
+        <div class="dentrodropdown">
+            <span style="margin-top: 0px">Você pode acessar sua conta utilizando:</span>
+
+            <a class="btn1 btn-block btn-social btn-facebook">
+                <span class="fab fa-facebook-square"></span> Acessar com Facebook
+            </a>
+            <a class="btn1 btn-block btn-social btn-google">
+                <span class="fab fa-google"></span> Acessar com gmail
+            </a>
+            <a href="./html/register.html" class="btn1 btn-block btn-social btn-microsoft">
+                <span class="fas fa-envelope"></span> Acessar com Email
+            </a>
+            <span class="btn1 esqueceusenha">Esqueceu seu login?</span>
+
+
+            <div class="divider" style="margin-top: 10px;"></div>
+            <p class="contas-fontes">Ainda não possui cadastro?</p>
+            <p class="sub-contas-fontes">Registre-se agora e fique por dentro de todas as nossas novidades!</p>
+            <a class="btn1 btn-block btn-social btn-criarconta">
+                <span href="./register.html" class="fas fa-plus"></span>Criar uma conta</a>
+        </div>
+    </div>
+
+    <!-- 🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠 -->
+    <!-- FIM MENU USUARIO - INFERIOR    -->
+    <!-- 🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠🛠 -->
+
+    <ul class="right hide-on-med-and-down ">
+        <li>
+            <div class="aviso-navegation">
+                <div class="chip">
+                    <span><b>Portal em fase de Desenvolvimento</b> Caso enfrente problemas, tenha paciência.</span>
+                    <i class="close material-icons">close</i>
+                </div>
+            </div>
+        </li>
+        <li>
+            <div class="iconesnav" id="iniciar">
+                <a href="#!">
+                    <span class="tooltipped" data-tooltip="Voltar ao Inicio"><i
+                            class="fas fa-home tamanhoicones cor-do-menu"></i></span>
+                    <span></span>
+                    <!--<span>Iniciar</span>-->
+                </a>
+            </div>
+        </li>
+        <li>
+            <div class="iconesnav" id="correios">
+                <a href="#!">
+                    <span class="tooltipped" data-tooltip="Correspondências"><i
+                            class="fas fa-box-open tamanhoicones cor-do-menu"></i></span>
+                    <span></span>
+                    <!--<span>Correios</span>-->
+                </a>
+            </div>
+        </li>
+        <li>
+            <div class="iconesnav" id="notificacoes">
+                <a href="#!" data-target="dropdown1">
+                    <span class="tooltipped" data-tooltip="Suas Noitificações"><i
+                            class="far fa-comment-alt tamanhoicones cor-do-menu"></i></span>
+                    <!--<span>Notificações</span>-->
+                </a>
+            </div>
+        </li>
+        <li>
+            <div class="iconesnav" id="ajuda" style="margin-right: 10px;">
+                <a href="#!">
+                    <span class="tooltipped" data-tooltip="Ajuda"><i
+                            class="fas fa-question-circle tamanhoicones cor-do-menu"></i></span>
+                    <!--<span>Ajuda</span>-->
+                </a>
+            </div>
+        </li>
+
+        <li>
+            <a class="dropdown-button" href="#!" data-activates="dropdown1">
+
+            <span class="tooltipped" data-tooltip="Acessar sua Conta"><i id="user-cicle"
+                                                                         class="material-icons tamanhoicones cor-do-menu tamanholi">person_pin arrow_drop_down</i>
+            </a>
+        </li>
+        <ul id="dropdown1" class="dropdown-menu-login z-depth-1">
+            <div class="dentrodropdown">
+                <span style="margin-top: 0px">Você pode acessar sua conta utilizando:</span>
+
+                <a class="btn1 btn-block btn-social btn-facebook">
+                    <span class="fab fa-facebook-square"></span> Acessar com Facebook
+                </a>
+                <a class="btn1 btn-block btn-social btn-google">
+                    <span class="fab fa-google"></span> Acessar com gmail
+                </a>
+                <a href="./html/register.html" class="btn1 btn-block btn-social btn-microsoft">
+                    <span class="fas fa-envelope"></span> Acessar com Email
+                </a>
+                <a href="./recuperar-senha.html">
+                    <span class="btn1 esqueceusenha">Esqueceu seu login?</span>
+                </a>
+
+
+                <div class="divider" style="margin-top: 10px;"></div>
+                <p class="contas-fontes">Ainda não possui cadastro?</p>
+                <p class="sub-contas-fontes">Registre-se agora e fique por dentro de todas as nossas novidades!</p>
+                <a href="./register.html" class="btn1 btn-block btn-social btn-criarconta">
+                    <span class="fas fa-plus"></span> Criar uma conta</a>
+
+                <a href="./home.html" <span class="btn1 esqueceusenha">Login para teste</span></a>
+
+
+            </div>
+        </ul>
+    </ul>
+    <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a>
+</div>
+</body>
+</html>

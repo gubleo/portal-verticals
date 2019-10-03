@@ -5,6 +5,14 @@ $.post('./html/grids/navegation.html', function (navegation) {
     $('#navegation-bar').html(navegation);
 });
 
+$.post('../html/grids/navegation.html', function (navegation) {
+    $('#navegation-bar2').html(navegation);
+});
+
+$.post('../financeiro/grids/navegation.html', function (navegation) {
+    $('#navegation-bar-financeiro').html(navegation);
+});
+
 //  Barra de navegação topo - Usuário logado
 
 $.post('./html/grids/user-navegation.html', function (logged) {
@@ -14,13 +22,22 @@ $.post('./html/grids/user-navegation.html', function (logged) {
 //  Selo copyright - Coluna lateral
 
 $.post('./html/grids/copyright.html', function (copyright) {
-    $('#bycraos').html(copyright);
+    $('#bycraos2').html(copyright);
+});
+
+
+$.post('../financeiro/grids/copyright.html', function (copyright) {
+    $('#bycraos2').html(copyright);
 });
 
 //  Menu Lateral - Acessos
 
 $.post('./html/grids/menu.html', function (menu) {
     $('#menu').html(menu);
+});
+
+$.post('../financeiro/grids/menu.html', function (menu) {
+    $('#menu2').html(menu);
 });
 
 $.post('./html/feeds/artigo.html', function (artigo) {

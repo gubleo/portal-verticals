@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verticals | Controle Financeiro</title>
+    <link type="text/css" rel="stylesheet" href="./css/materialize.min.css" media="screen,projection"/>
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/chart.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="./js/materialize.min.js"></script>
+    <script src="https://kit.fontawesome.com/b9786aa6c5.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script defer src="./js/slide-menu.js"></script>
+    <script type="text/javascript" src="./js/feeds.js"></script>
+
+    <!-- Favicon (Icon Topo) -->
+
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon.ico" type="image/x-icon">
+    <meta name="theme-color" content="#01DF3A">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#0174DF">
+    <meta name="msapplication-navbutton-color" content="#0174DF">
+
+</head>
+
+<body>
+
+<!-- Barra de Navegação Topo -->
+
+<nav id="navegation-bar-financeiro"></nav>
+<div class="nav-space"></div>
+
+<!-- Coluna esquerda - Menus e outros -->
+<div class="row">
+    <div class="col s12 m4 l2 marginesquerda" id="mobileoff" style="margin-top: 1em">
+        <div id="menu2"></div>
+        <div class="row s12 l12 marginesquerda" id="bycraos2">
+        </div>
+    </div>
+
+    <!-- Coluna Central - Postagens e outros -->
+
+    <div class="col s12 m4 l10" style="margin-top: 15px;">
+        <div class="title-pages collection z-depth-1"><div class="title-pages collection collection-item active"> Controle Financeiro</div></div>
+        <div class="col s12 m6">
+            <div class="title-pages collection z-depth-1"><div class="title-pages collection collection-item active"> Lista de Contas</div></div>
+                <div class="col s6 m2 ">
+                    <span id="totalconta" class="grey-text">Total</span>
+
+                </div>
+                <div class="col s6 m2">
+                    <span id="saldoconta" class="grey-text">Saldo</span>
+                </div>
+                <div class="col s12 m8">
+                    <span id="saldoatual" class=""><b>Saldo Atual: R$0,00</b></span>
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>Realizado no Mês</th>
+                            <p>Resumo do mês: 11/2019</p>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                        <tr>
+                            <td class="grey-text">Saldo Inicial</td>
+                            <td class="grey-text right">R$ 0,00</td>
+                        </tr>
+                        <tr>
+                            <td class="grey-text">Entradas</td>
+                            <td class="grey-text right">R$ 0,00</td>
+                        </tr>
+                        <tr>
+                            <td class="grey-text">Saídas</td>
+                            <td class="red-text right">R$ 0,00</td>
+                        </tr>
+                        <tr>
+                            <td class="grey-text">Total</td>
+                            <td class="grey-text right">R$ 0,00</td>
+                        </tr>
+                        <thead>
+                        <tr>
+                            <th>Previsto no Mês</th>
+                            <td class=" right">R$ 0,00</td>
+                        </tr>
+                        </thead>
+                        <tr>
+                            <td class="grey-text">À receber</td>
+                            <td class="grey-text right">R$ 0,00</td>
+                        </tr>
+                        <tr>
+                            <td class="grey-text">À pagar</td>
+                            <td class="red-text right">R$ 0,00</td>
+                        </tr>
+                        <tr>
+                            <td class="grey-text">Total</td>
+                            <td class="grey-text right">R$ 0,00</td>
+                        </tr>
+
+                        <thead>
+                        <tr>
+                            <th>Previsão Saldo Fim do Mês</th>
+                            <td class=" right">R$ 0,00</td>
+                        </tr>
+                        </thead>
+                        </tbody>
+                    </table>
+                    <ul class="collapsible" style="margin-top: 2rem;">
+                        <li class="active">
+                            <div class="collapsible-header"><i class="material-icons">keyboard_arrow_down</i>Resumo dos Meses Anteriores</div>
+                            <div class="collapsible-body active">
+                                <ul class="collapsible">
+                                    <li class="active">
+                                        <div class="collapsible-header"><i class="material-icons">chevron_right</i>Resumo do mês: 10/2019</div>
+                                        <div class="collapsible-body active">
+                                            <table>
+                                                <thead>
+                                                <tr>
+                                                    <th>Realizado no Mês</th>
+                                                </tr>
+                                                </thead>
+
+                                                <tbody>
+                                                <tr>
+                                                    <td class="grey-text">Saldo Inicial</td>
+                                                    <td class="grey-text right">R$ 0,00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="grey-text">Entradas</td>
+                                                    <td class="grey-text right">R$ 0,00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="grey-text">Saídas</td>
+                                                    <td class="red-text right">R$ 0,00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="grey-text">Total</td>
+                                                    <td class="grey-text right">R$ 0,00</td>
+                                                </tr>
+                                                <thead>
+                                                <tr>
+                                                    <th>Previsto no Mês</th>
+                                                    <td class=" right">R$ 0,00</td>
+                                                </tr>
+                                                </thead>
+                                                <tr>
+                                                    <td class="grey-text">À receber</td>
+                                                    <td class="grey-text right">R$ 0,00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="grey-text">À pagar</td>
+                                                    <td class="red-text right">R$ 0,00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="grey-text">Total</td>
+                                                    <td class="grey-text right">R$ 0,00</td>
+                                                </tr>
+
+                                                <thead>
+                                                <tr>
+                                                    <th>Previsão Saldo Fim do Mês</th>
+                                                    <td class=" right">R$ 0,00</td>
+                                                </tr>
+                                                </thead>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </li>
+                                    <li class="active">
+                                        <div class="collapsible-header"><i class="material-icons">chevron_right</i>Resumo do mês: 09/2019</div>
+                                        <div class="collapsible-body active">
+                                            <table>
+                                                <thead>
+                                                <tr>
+                                                    <th>Realizado no Mês</th>
+                                                </tr>
+                                                </thead>
+
+                                                <tbody>
+                                                <tr>
+                                                    <td class="grey-text">Saldo Inicial</td>
+                                                    <td class="grey-text right">R$ 0,00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="grey-text">Entradas</td>
+                                                    <td class="grey-text right">R$ 0,00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="grey-text">Saídas</td>
+                                                    <td class="red-text right">R$ 0,00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="grey-text">Total</td>
+                                                    <td class="grey-text right">R$ 0,00</td>
+                                                </tr>
+                                                <thead>
+                                                <tr>
+                                                    <th>Previsto no Mês</th>
+                                                    <td class=" right">R$ 0,00</td>
+                                                </tr>
+                                                </thead>
+                                                <tr>
+                                                    <td class="grey-text">À receber</td>
+                                                    <td class="grey-text right">R$ 0,00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="grey-text">À pagar</td>
+                                                    <td class="red-text right">R$ 0,00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="grey-text">Total</td>
+                                                    <td class="grey-text right">R$ 0,00</td>
+                                                </tr>
+
+                                                <thead>
+                                                <tr>
+                                                    <th>Previsão Saldo Fim do Mês</th>
+                                                    <td class=" right">R$ 0,00</td>
+                                                </tr>
+                                                </thead>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </li>
+                                    <li class="active">
+                                        <div class="collapsible-header"><i class="material-icons">chevron_right</i>Resumo do mês: 08/2019</div>
+                                        <div class="collapsible-body active">
+                                            <table>
+                                                <thead>
+                                                <tr>
+                                                    <th>Realizado no Mês</th>
+                                                </tr>
+                                                </thead>
+
+                                                <tbody>
+                                                <tr>
+                                                    <td class="grey-text">Saldo Inicial</td>
+                                                    <td class="grey-text right">R$ 0,00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="grey-text">Entradas</td>
+                                                    <td class="grey-text right">R$ 0,00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="grey-text">Saídas</td>
+                                                    <td class="red-text right">R$ 0,00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="grey-text">Total</td>
+                                                    <td class="grey-text right">R$ 0,00</td>
+                                                </tr>
+                                                <thead>
+                                                <tr>
+                                                    <th>Previsto no Mês</th>
+                                                    <td class=" right">R$ 0,00</td>
+                                                </tr>
+                                                </thead>
+                                                <tr>
+                                                    <td class="grey-text">À receber</td>
+                                                    <td class="grey-text right">R$ 0,00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="grey-text">À pagar</td>
+                                                    <td class="red-text right">R$ 0,00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="grey-text">Total</td>
+                                                    <td class="grey-text right">R$ 0,00</td>
+                                                </tr>
+
+                                                <thead>
+                                                <tr>
+                                                    <th>Previsão Saldo Fim do Mês</th>
+                                                    <td class=" right">R$ 0,00</td>
+                                                </tr>
+                                                </thead>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+
+                </div>
+        </div>
+
+
+
+        <div class="col s12 m6">
+            <div class="title-pages collection z-depth-1">
+                <div class="title-pages collection collection-item active"> Mês a Mês</div>
+            </div>
+            <p class="grey-text"><b>Lançamento</b></p>
+            <img class="tamanhografico" src="img/temporario.PNG"/>
+
+            <p class="grey-text"><b>Programação</b></p>
+            <img class="tamanhografico" src="img/temporario.PNG"/>
+    </div>
+
+        <div class="col s12 m6">
+            <div class="title-pages collection z-depth-1"><div class="title-pages collection collection-item active">Programação</div></div>
+
+            <table>
+                <thead>
+                <tr>
+                    <th>Tipo</th>
+                    <th>Receita</th>
+                    <th>Despesa</th>
+                    <th>Saldo</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr>
+                    <td class="red-text"><b>Vencidos</b></td>
+                    <td class="grey-text">R$0,00</td>
+                    <td class="red-text">R$0,00</td>
+                    <td class="green-text"><b>R$0,00</b></td>
+                </tr>
+                <tr>
+                    <td class="green-text"><b>À Vencer em 7 dias</b></td>
+                    <td class="green-text">R$0,00</td>
+                    <td class="red-text">R$0,00</td>
+                    <td class="green-text"><b>R$0,00</b></td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+</body>
+</html>
