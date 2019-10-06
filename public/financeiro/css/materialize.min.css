@@ -2869,8 +2869,8 @@ td, th {
 
 .collection .collection-item.avatar:not(.circle-clipper) > .circle, .collection .collection-item.avatar :not(.circle-clipper) > .circle {
     position: absolute;
-    width: 42px;
-    height: 42px;
+    width: 70px;
+    height: 70px;
     overflow: hidden;
     left: 15px;
     display: inline-block;

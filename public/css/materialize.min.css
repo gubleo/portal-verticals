@@ -3238,7 +3238,7 @@ span.badge.new {
 }
 
 span.badge.new:after {
-    content: " recentes"
+    content: ""
 }
 
 span.badge[data-badge-caption]::after {
