@@ -42,6 +42,19 @@ html, body {
     border-left: 3px solid red
 }
 
+.borda-esquerda-fornecedor{
+    border-left: 3px solid #ADFF2F
+}
+
+.borda-esquerda-indisponivel{
+    border-left: 3px solid #800000;
+}
+
+
+.borda-esquerda-cliente{
+    border-left: 3px solid #FFA500
+}
+
 .tamanhocarousel{
     height: 30px;
     width: 100%;
