@@ -4,55 +4,14 @@ html, body {
     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
 }
 
-.margin-left-fornecedores{
-    padding-left: 15px;
+.testelinha{
+    border: red solid 1px;
 }
 
 .title-pages{
     width: 100%;
     height: 3rem;
-    background-color: #01DF3A;
-}
-
-.hovertest{
-    border-bottom: solid 50px red;
-}
-
-@media only screen and (max-width: 550px) {
-    .tamanhografico {
-        width: 100%;
-        height: 100%;
-    }
-}
-
-@media only screen and (max-width: 550px) {
-    .celularbotao {
-        display: none;
-    }
-}
-
-.light-grey{
-    background-color:#F2F2F2
-}
-
-.borda-esquerda-verde{
-    border-left: 3px solid #01DF3A
-}
-.borda-esquerda-red{
-    border-left: 3px solid red
-}
-
-.borda-esquerda-fornecedor{
-    border-left: 3px solid #ADFF2F
-}
-
-.borda-esquerda-indisponivel{
-    border-left: 3px solid #800000;
-}
-
-
-.borda-esquerda-cliente{
-    border-left: 3px solid #FFA500
+    background-color: #33C3F0;
 }
 
 .tamanhocarousel{
@@ -95,8 +54,8 @@ html, body {
 
 
 .dentrodropdown {
-    border-top: solid 3px #01DF3A;
-    border-bottom: solid 3px #01DF3A;
+    border-top: solid 3px #33C3F0;
+    border-bottom: solid 3px #33C3F0;
     padding-top: 2px;
     padding-bottom: 15px;
     padding-left: 15px;
@@ -137,8 +96,6 @@ html, body {
     }
 }
 
-
-
 .boxusuario {
     visibility: hidden;
     float: left;
@@ -162,6 +119,12 @@ html, body {
         font-size: 20px;
         float: left;
         position: relative;
+    }
+}
+
+@media only screen and (max-width: 1000px) {
+    .financeslogo {
+        display: none;
     }
 }
 
@@ -226,7 +189,7 @@ html, body {
 }
 
 .modaltop {
-    border-top: solid 3px #01DF3A;
+    border-top: solid 3px #33C3F0;
 }
 
 .itens-modal {
@@ -433,7 +396,7 @@ html, body {
 }
 
 .btn-criarconta {
-    background-color: #01DF3A;
+    background-color: #33C3F0;
     color: white;
     border-color: rgba(0, 0, 0, 0.2)
 }
@@ -460,19 +423,19 @@ html, body {
 }
 
 .btncancelar:hover {
-    background-color: #01DF3A;
+    background-color: #33C3F0;
     color: white;
 }
 
 .btncriar {
-    background-color: #01DF3A;
+    background-color: #33C3F0;
     color: white;
 }
 
 .btncriar:hover {
     background-color: white;
     color: black;
-    border-bottom: solid 2px #01DF3A;
+    border-bottom: solid 2px #33C3F0;
 }
 
 .center1 {
@@ -515,7 +478,7 @@ html, body {
     position: relative;
 }
 nav div li a:hover {
-    color: #01DF3A;
+    color: #33C3F0;
     margin-top: 1px;
 }
 
@@ -532,13 +495,13 @@ nav div li a{
     margin-bottom: 10px;
 }
 .border-bottom{
-    border-bottom: solid 4px #01DF3A;
+    border-bottom: solid 4px #33C3F0;
 }
 .border-bottom-fina{
-    border-bottom: solid 2px #01DF3A;
+    border-bottom: solid 2px #33C3F0;
 }
 .border-bottom-card{
-    border-bottom: solid 2px #01DF3A;
+    border-bottom: solid 2px #33C3F0;
 }
 .aviso-navegation-txt{
     font-family: 2px; 
@@ -550,7 +513,7 @@ nav div li a{
 }
 
 .border-bottom-texto{
-    border-bottom: solid 1px #01DF3A;
+    border-bottom: solid 1px #33C3F0;
     width: 100%;
 
 }
@@ -586,7 +549,7 @@ nav div li a{
     top: 100%;
     width: 160px;
     z-index: 100;
-    border-bottom: solid 3px #01DF3A;
+    border-bottom: solid 3px #33C3F0;
 }
 .title-dropdown-user-logado{
     line-height: 10px;
