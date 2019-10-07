@@ -36,11 +36,11 @@
 }
 
 .materialize-red.lighten-2 {
-    background-color: #ee6e73 !important
+    background-color: #01DF3A !important
 }
 
 .materialize-red-text.text-lighten-2 {
-    color: #ee6e73 !important
+    color: #01DF3A !important
 }
 
 .materialize-red.lighten-1 {
@@ -2438,7 +2438,7 @@ a {
 blockquote {
     margin: 20px 0;
     padding-left: 1.5rem;
-    border-left: 5px solid #ee6e73
+    border-left: 5px solid #01DF3A
 }
 
 i {
@@ -2497,7 +2497,7 @@ img.responsive-img, video.responsive-video {
 }
 
 .pagination li.active {
-    background-color: #ee6e73
+    background-color: #01DF3A
 }
 
 .pagination li.disabled a {
@@ -2680,7 +2680,7 @@ ul.staggered-list li {
 .page-footer {
     padding-top: 20px;
     color: #fff;
-    background-color: #ee6e73
+    background-color: #01DF3A
 }
 
 .page-footer .footer-copyright {
@@ -5111,7 +5111,7 @@ small {
     -ms-flex-positive: 1;
     flex-grow: 1
 }
-
+/*cor tabs*/
 .tabs .tab {
     display: inline-block;
     text-align: center;
@@ -5123,25 +5123,28 @@ small {
 }
 
 .tabs .tab a {
-    color: rgba(238, 110, 115, 0.7);
+    color: #696969;
     display: block;
     width: 100%;
     height: 100%;
     padding: 0 24px;
-    font-size: 14px;
+    font-size: 12px;
     text-overflow: ellipsis;
     overflow: hidden;
-    -webkit-transition: color .28s ease;
-    transition: color .28s ease
+    -webkit-transition: color .66s ease;
+    transition: color .66s ease
 }
 
 .tabs .tab a:hover, .tabs .tab a.active {
     background-color: transparent;
-    color: #ee6e73
+    color:  	#32CD32;
+    font-size: 14px;
+    -webkit-transition: color .66s ease;
+    transition: color .66s ease
 }
 
 .tabs .tab.disabled a, .tabs .tab.disabled a:hover {
-    color: rgba(238, 110, 115, 0.7);
+    color: black;
     cursor: default
 }
 
@@ -5149,7 +5152,7 @@ small {
     position: absolute;
     bottom: 0;
     height: 2px;
-    background-color: #f6b2b5;
+    background-color: #01DF3A;
     will-change: left, right
 }
 
@@ -7076,13 +7079,13 @@ input[type=range]:focus::-ms-fill-upper {
 .table-of-contents a:hover {
     color: #a8a8a8;
     padding-left: 19px;
-    border-left: 1px solid #ee6e73
+    border-left: 1px solid #01DF3A
 }
 
 .table-of-contents a.active {
     font-weight: 500;
     padding-left: 18px;
-    border-left: 2px solid #ee6e73
+    border-left: 2px solid #01DF3A
 }
 
 .side-nav {
@@ -7279,7 +7282,7 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 .side-nav .collapsible-body > ul:not(.collapsible) > li.active, .side-nav.fixed .collapsible-body > ul:not(.collapsible) > li.active {
-    background-color: #ee6e73
+    background-color: #01DF3A
 }
 
 .side-nav .collapsible-body > ul:not(.collapsible) > li.active a, .side-nav.fixed .collapsible-body > ul:not(.collapsible) > li.active a {
@@ -7977,7 +7980,7 @@ input[type=range]:focus::-ms-fill-upper {
     position: absolute;
     font-size: 1rem;
     border-radius: 50%;
-    background-color: #ee6e73;
+    background-color: #01DF3A;
     -webkit-box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.14), 0 10px 50px 0 rgba(0, 0, 0, 0.12), 0 30px 10px -20px rgba(0, 0, 0, 0.2);
     box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.14), 0 10px 50px 0 rgba(0, 0, 0, 0.12), 0 30px 10px -20px rgba(0, 0, 0, 0.2);
     width: 100%;
