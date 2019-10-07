@@ -37,11 +37,11 @@
 }
 
 .materialize-red.lighten-2 {
-  background-color: #ee6e73 !important;
+  background-color: #01DF3A !important;
 }
 
 .materialize-red-text.text-lighten-2 {
-  color: #ee6e73 !important;
+  color: #01DF3A !important;
 }
 
 .materialize-red.lighten-1 {
@@ -2583,7 +2583,7 @@ a {
           box-shadow: none !important;
 }
 
-.z-depth-1, nav, .card-panel, .card, .toast, .btn, .btn-large, .btn-floating, .dropdown-content, .collapsible, .side-nav {
+.z-depth-1, nav, .card-panel, .card, .toast, .btn, .btn-large, .btn-floating, .dropdown-content, .side-nav {
   -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
           box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
 }
@@ -2634,7 +2634,7 @@ a {
 blockquote {
   margin: 20px 0;
   padding-left: 1.5rem;
-  border-left: 5px solid #ee6e73;
+  border-left: 5px solid #01DF3A;
 }
 
 i {
@@ -2694,7 +2694,7 @@ video.responsive-video {
 }
 
 .pagination li.active {
-  background-color: #ee6e73;
+  background-color: #01DF3A;
 }
 
 .pagination li.disabled a {
@@ -2881,7 +2881,7 @@ ul.staggered-list li {
 .page-footer {
   padding-top: 20px;
   color: #fff;
-  background-color: #ee6e73;
+  background-color: #01DF3A;
 }
 
 .page-footer .footer-copyright {
@@ -2936,7 +2936,7 @@ table.centered thead tr th, table.centered tbody tr td {
 }
 
 thead {
-  border-bottom: 1px solid #33C3F0;
+  border-bottom: 1px solid #d0d0d0;
 }
 
 td, th {
@@ -4209,7 +4209,7 @@ nav ul a span.badge {
 
 nav {
   color: #fff;
-  background-color: #ee6e73;
+  background-color: #01DF3A;
   width: 100%;
   height: 56px;
   line-height: 56px;
@@ -4373,7 +4373,7 @@ nav ul a.btn > .material-icons, nav ul a.btn-large > .material-icons, nav ul a.b
 }
 
 nav ul a:hover {
-  border-bottom: solid 2px #33C3F0;
+  border-bottom: solid 2px #40E0D0;
 }
 
 nav ul.left {
@@ -5067,7 +5067,7 @@ small {
 }
 
 .tabs .tab a {
-  color: rgba(238, 110, 115, 0.7);
+  color: black;
   display: block;
   width: 100%;
   height: 100%;
@@ -5081,12 +5081,12 @@ small {
 
 .tabs .tab a:hover, .tabs .tab a.active {
   background-color: transparent;
-  color: #ee6e73;
+  color: #01DF3A;
 }
 
 .tabs .tab.disabled a,
 .tabs .tab.disabled a:hover {
-  color: rgba(238, 110, 115, 0.7);
+  color: black;
   cursor: default;
 }
 
@@ -5718,9 +5718,6 @@ button.btn-floating {
 }
 
 .collapsible {
-  border-top: 1px solid #ddd;
-  border-right: 1px solid #ddd;
-  border-left: 1px solid #ddd;
   margin: 0.5rem 0 1rem 0;
 }
 
@@ -5734,7 +5731,6 @@ button.btn-floating {
   line-height: 1.5;
   padding: 1rem;
   background-color: #fff;
-  border-bottom: 1px solid #ddd;
 }
 
 .collapsible-header i {
@@ -7383,13 +7379,13 @@ input[type=range]:focus::-ms-fill-upper {
 .table-of-contents a:hover {
   color: #a8a8a8;
   padding-left: 19px;
-  border-left: 1px solid #ee6e73;
+  border-left: 1px solid #01DF3A;
 }
 
 .table-of-contents a.active {
   font-weight: 500;
   padding-left: 18px;
-  border-left: 2px solid #ee6e73;
+  border-left: 2px solid #01DF3A;
 }
 
 .side-nav {
@@ -7600,7 +7596,7 @@ input[type=range]:focus::-ms-fill-upper {
 
 .side-nav .collapsible-body > ul:not(.collapsible) > li.active,
 .side-nav.fixed .collapsible-body > ul:not(.collapsible) > li.active {
-  background-color: #ee6e73;
+  background-color: #01DF3A;
 }
 
 .side-nav .collapsible-body > ul:not(.collapsible) > li.active a,
@@ -8376,7 +8372,7 @@ input[type=range]:focus::-ms-fill-upper {
   position: absolute;
   font-size: 1rem;
   border-radius: 50%;
-  background-color: #ee6e73;
+  background-color: #01DF3A;
   -webkit-box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.14), 0 10px 50px 0 rgba(0, 0, 0, 0.12), 0 30px 10px -20px rgba(0, 0, 0, 0.2);
           box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.14), 0 10px 50px 0 rgba(0, 0, 0, 0.12), 0 30px 10px -20px rgba(0, 0, 0, 0.2);
   width: 100%;
