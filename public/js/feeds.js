@@ -1,3 +1,7 @@
+//user register
+$(document).ready(function () {
+    $('.modal').modal();
+});
 
 //  Barra de navegação topo - Usuário deslogado
 
