@@ -7111,7 +7111,8 @@ input[type=range]:focus::-ms-fill-upper {
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     -webkit-transform: translateX(-105%);
-    transform: translateX(-105%)
+    transform: translateX(-105%);
+    border-right: solid 3px #00b0ff;
 }
 
 .side-nav.right-aligned {
@@ -7189,7 +7190,7 @@ input[type=range]:focus::-ms-fill-upper {
     color: rgba(0, 0, 0, 0.54);
     font-size: 14px;
     font-weight: 500;
-    line-height: 48px
+    border-bottom: solid 2px #fafafa;
 }
 
 .side-nav .subheader:hover {
