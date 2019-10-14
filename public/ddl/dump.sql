@@ -5,7 +5,7 @@
 -- Dumped from database version 10.9
 -- Dumped by pg_dump version 11.5
 
--- Started on 2019-10-14 12:21:27 -03
+-- Started on 2019-10-14 12:23:15 -03
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -29,7 +29,7 @@ CREATE SCHEMA adm;
 ALTER SCHEMA adm OWNER TO postgres;
 
 --
--- TOC entry 2542 (class 0 OID 0)
+-- TOC entry 2554 (class 0 OID 0)
 -- Dependencies: 7
 -- Name: SCHEMA adm; Type: COMMENT; Schema: -; Owner: postgres
 --
@@ -62,7 +62,7 @@ CREATE TABLE adm.academias (
 ALTER TABLE adm.academias OWNER TO postgres;
 
 --
--- TOC entry 2543 (class 0 OID 0)
+-- TOC entry 2555 (class 0 OID 0)
 -- Dependencies: 207
 -- Name: TABLE academias; Type: COMMENT; Schema: adm; Owner: postgres
 --
@@ -87,7 +87,7 @@ CREATE SEQUENCE adm.academias_id_seq
 ALTER TABLE adm.academias_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2544 (class 0 OID 0)
+-- TOC entry 2556 (class 0 OID 0)
 -- Dependencies: 206
 -- Name: academias_id_seq; Type: SEQUENCE OWNED BY; Schema: adm; Owner: postgres
 --
@@ -116,7 +116,7 @@ CREATE TABLE adm.blocos (
 ALTER TABLE adm.blocos OWNER TO postgres;
 
 --
--- TOC entry 2545 (class 0 OID 0)
+-- TOC entry 2557 (class 0 OID 0)
 -- Dependencies: 203
 -- Name: TABLE blocos; Type: COMMENT; Schema: adm; Owner: postgres
 --
@@ -141,7 +141,7 @@ CREATE SEQUENCE adm.blocos_id_seq
 ALTER TABLE adm.blocos_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2546 (class 0 OID 0)
+-- TOC entry 2558 (class 0 OID 0)
 -- Dependencies: 202
 -- Name: blocos_id_seq; Type: SEQUENCE OWNED BY; Schema: adm; Owner: postgres
 --
@@ -170,7 +170,7 @@ CREATE TABLE adm.churrasqueiras (
 ALTER TABLE adm.churrasqueiras OWNER TO postgres;
 
 --
--- TOC entry 2547 (class 0 OID 0)
+-- TOC entry 2559 (class 0 OID 0)
 -- Dependencies: 211
 -- Name: TABLE churrasqueiras; Type: COMMENT; Schema: adm; Owner: postgres
 --
@@ -195,7 +195,7 @@ CREATE SEQUENCE adm.churrasqueiras_id_seq
 ALTER TABLE adm.churrasqueiras_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2548 (class 0 OID 0)
+-- TOC entry 2560 (class 0 OID 0)
 -- Dependencies: 210
 -- Name: churrasqueiras_id_seq; Type: SEQUENCE OWNED BY; Schema: adm; Owner: postgres
 --
@@ -223,7 +223,7 @@ CREATE TABLE adm.condominio (
 ALTER TABLE adm.condominio OWNER TO postgres;
 
 --
--- TOC entry 2549 (class 0 OID 0)
+-- TOC entry 2561 (class 0 OID 0)
 -- Dependencies: 197
 -- Name: TABLE condominio; Type: COMMENT; Schema: adm; Owner: postgres
 --
@@ -248,7 +248,7 @@ CREATE SEQUENCE adm.condominio_id_seq
 ALTER TABLE adm.condominio_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2550 (class 0 OID 0)
+-- TOC entry 2562 (class 0 OID 0)
 -- Dependencies: 196
 -- Name: condominio_id_seq; Type: SEQUENCE OWNED BY; Schema: adm; Owner: postgres
 --
@@ -292,7 +292,7 @@ CREATE SEQUENCE adm.designacoes_id_seq
 ALTER TABLE adm.designacoes_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2551 (class 0 OID 0)
+-- TOC entry 2563 (class 0 OID 0)
 -- Dependencies: 200
 -- Name: designacoes_id_seq; Type: SEQUENCE OWNED BY; Schema: adm; Owner: postgres
 --
@@ -321,7 +321,7 @@ CREATE TABLE adm.elevadores (
 ALTER TABLE adm.elevadores OWNER TO postgres;
 
 --
--- TOC entry 2552 (class 0 OID 0)
+-- TOC entry 2564 (class 0 OID 0)
 -- Dependencies: 213
 -- Name: TABLE elevadores; Type: COMMENT; Schema: adm; Owner: postgres
 --
@@ -346,7 +346,7 @@ CREATE SEQUENCE adm.elevadores_id_seq
 ALTER TABLE adm.elevadores_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2553 (class 0 OID 0)
+-- TOC entry 2565 (class 0 OID 0)
 -- Dependencies: 212
 -- Name: elevadores_id_seq; Type: SEQUENCE OWNED BY; Schema: adm; Owner: postgres
 --
@@ -375,7 +375,7 @@ CREATE TABLE adm.espacos (
 ALTER TABLE adm.espacos OWNER TO postgres;
 
 --
--- TOC entry 2554 (class 0 OID 0)
+-- TOC entry 2566 (class 0 OID 0)
 -- Dependencies: 205
 -- Name: TABLE espacos; Type: COMMENT; Schema: adm; Owner: postgres
 --
@@ -400,7 +400,7 @@ CREATE SEQUENCE adm.espacos_id_seq
 ALTER TABLE adm.espacos_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2555 (class 0 OID 0)
+-- TOC entry 2567 (class 0 OID 0)
 -- Dependencies: 204
 -- Name: espacos_id_seq; Type: SEQUENCE OWNED BY; Schema: adm; Owner: postgres
 --
@@ -429,7 +429,7 @@ CREATE TABLE adm.estacionamentos (
 ALTER TABLE adm.estacionamentos OWNER TO postgres;
 
 --
--- TOC entry 2556 (class 0 OID 0)
+-- TOC entry 2568 (class 0 OID 0)
 -- Dependencies: 215
 -- Name: TABLE estacionamentos; Type: COMMENT; Schema: adm; Owner: postgres
 --
@@ -454,7 +454,7 @@ CREATE SEQUENCE adm.estacionamentos_id_seq
 ALTER TABLE adm.estacionamentos_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2557 (class 0 OID 0)
+-- TOC entry 2569 (class 0 OID 0)
 -- Dependencies: 214
 -- Name: estacionamentos_id_seq; Type: SEQUENCE OWNED BY; Schema: adm; Owner: postgres
 --
@@ -486,7 +486,7 @@ CREATE TABLE adm.gestao (
 ALTER TABLE adm.gestao OWNER TO postgres;
 
 --
--- TOC entry 2558 (class 0 OID 0)
+-- TOC entry 2570 (class 0 OID 0)
 -- Dependencies: 199
 -- Name: TABLE gestao; Type: COMMENT; Schema: adm; Owner: postgres
 --
@@ -511,7 +511,7 @@ CREATE SEQUENCE adm.gestao_id_seq
 ALTER TABLE adm.gestao_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2559 (class 0 OID 0)
+-- TOC entry 2571 (class 0 OID 0)
 -- Dependencies: 198
 -- Name: gestao_id_seq; Type: SEQUENCE OWNED BY; Schema: adm; Owner: postgres
 --
@@ -540,7 +540,7 @@ CREATE TABLE adm.piscinas (
 ALTER TABLE adm.piscinas OWNER TO postgres;
 
 --
--- TOC entry 2560 (class 0 OID 0)
+-- TOC entry 2572 (class 0 OID 0)
 -- Dependencies: 209
 -- Name: TABLE piscinas; Type: COMMENT; Schema: adm; Owner: postgres
 --
@@ -565,12 +565,66 @@ CREATE SEQUENCE adm.piscinas_id_seq
 ALTER TABLE adm.piscinas_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2561 (class 0 OID 0)
+-- TOC entry 2573 (class 0 OID 0)
 -- Dependencies: 208
 -- Name: piscinas_id_seq; Type: SEQUENCE OWNED BY; Schema: adm; Owner: postgres
 --
 
 ALTER SEQUENCE adm.piscinas_id_seq OWNED BY adm.piscinas.id;
+
+
+--
+-- TOC entry 219 (class 1259 OID 27693)
+-- Name: portarias; Type: TABLE; Schema: adm; Owner: postgres
+--
+
+CREATE TABLE adm.portarias (
+    id integer NOT NULL,
+    firstdate timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    lastdate timestamp without time zone NOT NULL,
+    purgedate timestamp without time zone NOT NULL,
+    firstuser character varying(15) NOT NULL,
+    lasttuser character varying(15) NOT NULL,
+    purgeuser character varying(15) NOT NULL,
+    condominio integer NOT NULL,
+    nome character varying(500) NOT NULL
+);
+
+
+ALTER TABLE adm.portarias OWNER TO postgres;
+
+--
+-- TOC entry 2574 (class 0 OID 0)
+-- Dependencies: 219
+-- Name: TABLE portarias; Type: COMMENT; Schema: adm; Owner: postgres
+--
+
+COMMENT ON TABLE adm.portarias IS 'Informações de gestão das portarias';
+
+
+--
+-- TOC entry 218 (class 1259 OID 27691)
+-- Name: portarias_id_seq; Type: SEQUENCE; Schema: adm; Owner: postgres
+--
+
+CREATE SEQUENCE adm.portarias_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE adm.portarias_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 2575 (class 0 OID 0)
+-- Dependencies: 218
+-- Name: portarias_id_seq; Type: SEQUENCE OWNED BY; Schema: adm; Owner: postgres
+--
+
+ALTER SEQUENCE adm.portarias_id_seq OWNED BY adm.portarias.id;
 
 
 --
@@ -594,7 +648,7 @@ CREATE TABLE adm.vagas (
 ALTER TABLE adm.vagas OWNER TO postgres;
 
 --
--- TOC entry 2562 (class 0 OID 0)
+-- TOC entry 2576 (class 0 OID 0)
 -- Dependencies: 217
 -- Name: TABLE vagas; Type: COMMENT; Schema: adm; Owner: postgres
 --
@@ -619,7 +673,7 @@ CREATE SEQUENCE adm.vagas_id_seq
 ALTER TABLE adm.vagas_id_seq OWNER TO postgres;
 
 --
--- TOC entry 2563 (class 0 OID 0)
+-- TOC entry 2577 (class 0 OID 0)
 -- Dependencies: 216
 -- Name: vagas_id_seq; Type: SEQUENCE OWNED BY; Schema: adm; Owner: postgres
 --
@@ -628,7 +682,7 @@ ALTER SEQUENCE adm.vagas_id_seq OWNED BY adm.vagas.id;
 
 
 --
--- TOC entry 2372 (class 2604 OID 27594)
+-- TOC entry 2379 (class 2604 OID 27594)
 -- Name: academias id; Type: DEFAULT; Schema: adm; Owner: postgres
 --
 
@@ -636,7 +690,7 @@ ALTER TABLE ONLY adm.academias ALTER COLUMN id SET DEFAULT nextval('adm.academia
 
 
 --
--- TOC entry 2368 (class 2604 OID 27560)
+-- TOC entry 2375 (class 2604 OID 27560)
 -- Name: blocos id; Type: DEFAULT; Schema: adm; Owner: postgres
 --
 
@@ -644,7 +698,7 @@ ALTER TABLE ONLY adm.blocos ALTER COLUMN id SET DEFAULT nextval('adm.blocos_id_s
 
 
 --
--- TOC entry 2376 (class 2604 OID 27628)
+-- TOC entry 2383 (class 2604 OID 27628)
 -- Name: churrasqueiras id; Type: DEFAULT; Schema: adm; Owner: postgres
 --
 
@@ -652,7 +706,7 @@ ALTER TABLE ONLY adm.churrasqueiras ALTER COLUMN id SET DEFAULT nextval('adm.chu
 
 
 --
--- TOC entry 2360 (class 2604 OID 27497)
+-- TOC entry 2367 (class 2604 OID 27497)
 -- Name: condominio id; Type: DEFAULT; Schema: adm; Owner: postgres
 --
 
@@ -660,7 +714,7 @@ ALTER TABLE ONLY adm.condominio ALTER COLUMN id SET DEFAULT nextval('adm.condomi
 
 
 --
--- TOC entry 2366 (class 2604 OID 27537)
+-- TOC entry 2373 (class 2604 OID 27537)
 -- Name: designacoes id; Type: DEFAULT; Schema: adm; Owner: postgres
 --
 
@@ -668,7 +722,7 @@ ALTER TABLE ONLY adm.designacoes ALTER COLUMN id SET DEFAULT nextval('adm.design
 
 
 --
--- TOC entry 2378 (class 2604 OID 27645)
+-- TOC entry 2385 (class 2604 OID 27645)
 -- Name: elevadores id; Type: DEFAULT; Schema: adm; Owner: postgres
 --
 
@@ -676,7 +730,7 @@ ALTER TABLE ONLY adm.elevadores ALTER COLUMN id SET DEFAULT nextval('adm.elevado
 
 
 --
--- TOC entry 2370 (class 2604 OID 27577)
+-- TOC entry 2377 (class 2604 OID 27577)
 -- Name: espacos id; Type: DEFAULT; Schema: adm; Owner: postgres
 --
 
@@ -684,7 +738,7 @@ ALTER TABLE ONLY adm.espacos ALTER COLUMN id SET DEFAULT nextval('adm.espacos_id
 
 
 --
--- TOC entry 2380 (class 2604 OID 27662)
+-- TOC entry 2387 (class 2604 OID 27662)
 -- Name: estacionamentos id; Type: DEFAULT; Schema: adm; Owner: postgres
 --
 
@@ -692,7 +746,7 @@ ALTER TABLE ONLY adm.estacionamentos ALTER COLUMN id SET DEFAULT nextval('adm.es
 
 
 --
--- TOC entry 2362 (class 2604 OID 27523)
+-- TOC entry 2369 (class 2604 OID 27523)
 -- Name: gestao id; Type: DEFAULT; Schema: adm; Owner: postgres
 --
 
@@ -700,7 +754,7 @@ ALTER TABLE ONLY adm.gestao ALTER COLUMN id SET DEFAULT nextval('adm.gestao_id_s
 
 
 --
--- TOC entry 2374 (class 2604 OID 27611)
+-- TOC entry 2381 (class 2604 OID 27611)
 -- Name: piscinas id; Type: DEFAULT; Schema: adm; Owner: postgres
 --
 
@@ -708,7 +762,15 @@ ALTER TABLE ONLY adm.piscinas ALTER COLUMN id SET DEFAULT nextval('adm.piscinas_
 
 
 --
--- TOC entry 2382 (class 2604 OID 27679)
+-- TOC entry 2391 (class 2604 OID 27696)
+-- Name: portarias id; Type: DEFAULT; Schema: adm; Owner: postgres
+--
+
+ALTER TABLE ONLY adm.portarias ALTER COLUMN id SET DEFAULT nextval('adm.portarias_id_seq'::regclass);
+
+
+--
+-- TOC entry 2389 (class 2604 OID 27679)
 -- Name: vagas id; Type: DEFAULT; Schema: adm; Owner: postgres
 --
 
@@ -716,7 +778,7 @@ ALTER TABLE ONLY adm.vagas ALTER COLUMN id SET DEFAULT nextval('adm.vagas_id_seq
 
 
 --
--- TOC entry 2395 (class 2606 OID 27600)
+-- TOC entry 2404 (class 2606 OID 27600)
 -- Name: academias primarykey_adm_academias; Type: CONSTRAINT; Schema: adm; Owner: postgres
 --
 
@@ -725,7 +787,7 @@ ALTER TABLE ONLY adm.academias
 
 
 --
--- TOC entry 2391 (class 2606 OID 27566)
+-- TOC entry 2400 (class 2606 OID 27566)
 -- Name: blocos primarykey_adm_blocos; Type: CONSTRAINT; Schema: adm; Owner: postgres
 --
 
@@ -734,7 +796,7 @@ ALTER TABLE ONLY adm.blocos
 
 
 --
--- TOC entry 2399 (class 2606 OID 27634)
+-- TOC entry 2408 (class 2606 OID 27634)
 -- Name: churrasqueiras primarykey_adm_churrasqueiras; Type: CONSTRAINT; Schema: adm; Owner: postgres
 --
 
@@ -743,7 +805,7 @@ ALTER TABLE ONLY adm.churrasqueiras
 
 
 --
--- TOC entry 2385 (class 2606 OID 27503)
+-- TOC entry 2394 (class 2606 OID 27503)
 -- Name: condominio primarykey_adm_condominio; Type: CONSTRAINT; Schema: adm; Owner: postgres
 --
 
@@ -752,7 +814,7 @@ ALTER TABLE ONLY adm.condominio
 
 
 --
--- TOC entry 2389 (class 2606 OID 27543)
+-- TOC entry 2398 (class 2606 OID 27543)
 -- Name: designacoes primarykey_adm_designacoes; Type: CONSTRAINT; Schema: adm; Owner: postgres
 --
 
@@ -761,7 +823,7 @@ ALTER TABLE ONLY adm.designacoes
 
 
 --
--- TOC entry 2401 (class 2606 OID 27651)
+-- TOC entry 2410 (class 2606 OID 27651)
 -- Name: elevadores primarykey_adm_elevadores; Type: CONSTRAINT; Schema: adm; Owner: postgres
 --
 
@@ -770,7 +832,7 @@ ALTER TABLE ONLY adm.elevadores
 
 
 --
--- TOC entry 2393 (class 2606 OID 27583)
+-- TOC entry 2402 (class 2606 OID 27583)
 -- Name: espacos primarykey_adm_espacos; Type: CONSTRAINT; Schema: adm; Owner: postgres
 --
 
@@ -779,7 +841,7 @@ ALTER TABLE ONLY adm.espacos
 
 
 --
--- TOC entry 2403 (class 2606 OID 27668)
+-- TOC entry 2412 (class 2606 OID 27668)
 -- Name: estacionamentos primarykey_adm_estacionamentos; Type: CONSTRAINT; Schema: adm; Owner: postgres
 --
 
@@ -788,7 +850,7 @@ ALTER TABLE ONLY adm.estacionamentos
 
 
 --
--- TOC entry 2387 (class 2606 OID 27531)
+-- TOC entry 2396 (class 2606 OID 27531)
 -- Name: gestao primarykey_adm_gestao; Type: CONSTRAINT; Schema: adm; Owner: postgres
 --
 
@@ -797,7 +859,7 @@ ALTER TABLE ONLY adm.gestao
 
 
 --
--- TOC entry 2397 (class 2606 OID 27617)
+-- TOC entry 2406 (class 2606 OID 27617)
 -- Name: piscinas primarykey_adm_piscinas; Type: CONSTRAINT; Schema: adm; Owner: postgres
 --
 
@@ -806,7 +868,16 @@ ALTER TABLE ONLY adm.piscinas
 
 
 --
--- TOC entry 2405 (class 2606 OID 27685)
+-- TOC entry 2416 (class 2606 OID 27702)
+-- Name: portarias primarykey_adm_portarias; Type: CONSTRAINT; Schema: adm; Owner: postgres
+--
+
+ALTER TABLE ONLY adm.portarias
+    ADD CONSTRAINT primarykey_adm_portarias PRIMARY KEY (id);
+
+
+--
+-- TOC entry 2414 (class 2606 OID 27685)
 -- Name: vagas primarykey_adm_vagas; Type: CONSTRAINT; Schema: adm; Owner: postgres
 --
 
@@ -815,7 +886,7 @@ ALTER TABLE ONLY adm.vagas
 
 
 --
--- TOC entry 2410 (class 2606 OID 27601)
+-- TOC entry 2421 (class 2606 OID 27601)
 -- Name: academias academias_condominio_foreignkey; Type: FK CONSTRAINT; Schema: adm; Owner: postgres
 --
 
@@ -824,7 +895,7 @@ ALTER TABLE ONLY adm.academias
 
 
 --
--- TOC entry 2408 (class 2606 OID 27567)
+-- TOC entry 2419 (class 2606 OID 27567)
 -- Name: blocos blocos_condominio_foreignkey; Type: FK CONSTRAINT; Schema: adm; Owner: postgres
 --
 
@@ -833,7 +904,7 @@ ALTER TABLE ONLY adm.blocos
 
 
 --
--- TOC entry 2412 (class 2606 OID 27635)
+-- TOC entry 2423 (class 2606 OID 27635)
 -- Name: churrasqueiras churrasqueiras_condominio_foreignkey; Type: FK CONSTRAINT; Schema: adm; Owner: postgres
 --
 
@@ -842,7 +913,7 @@ ALTER TABLE ONLY adm.churrasqueiras
 
 
 --
--- TOC entry 2413 (class 2606 OID 27652)
+-- TOC entry 2424 (class 2606 OID 27652)
 -- Name: elevadores elevadores_condominio_foreignkey; Type: FK CONSTRAINT; Schema: adm; Owner: postgres
 --
 
@@ -851,7 +922,7 @@ ALTER TABLE ONLY adm.elevadores
 
 
 --
--- TOC entry 2409 (class 2606 OID 27584)
+-- TOC entry 2420 (class 2606 OID 27584)
 -- Name: espacos espacos_condominio_foreignkey; Type: FK CONSTRAINT; Schema: adm; Owner: postgres
 --
 
@@ -860,7 +931,7 @@ ALTER TABLE ONLY adm.espacos
 
 
 --
--- TOC entry 2414 (class 2606 OID 27669)
+-- TOC entry 2425 (class 2606 OID 27669)
 -- Name: estacionamentos estacionamentos_condominio_foreignkey; Type: FK CONSTRAINT; Schema: adm; Owner: postgres
 --
 
@@ -869,7 +940,7 @@ ALTER TABLE ONLY adm.estacionamentos
 
 
 --
--- TOC entry 2406 (class 2606 OID 27545)
+-- TOC entry 2417 (class 2606 OID 27545)
 -- Name: gestao gestao_condominio_foreignkey; Type: FK CONSTRAINT; Schema: adm; Owner: postgres
 --
 
@@ -878,7 +949,7 @@ ALTER TABLE ONLY adm.gestao
 
 
 --
--- TOC entry 2407 (class 2606 OID 27550)
+-- TOC entry 2418 (class 2606 OID 27550)
 -- Name: gestao gestao_designacoes_fk; Type: FK CONSTRAINT; Schema: adm; Owner: postgres
 --
 
@@ -887,7 +958,7 @@ ALTER TABLE ONLY adm.gestao
 
 
 --
--- TOC entry 2411 (class 2606 OID 27618)
+-- TOC entry 2422 (class 2606 OID 27618)
 -- Name: piscinas piscinas_condominio_foreignkey; Type: FK CONSTRAINT; Schema: adm; Owner: postgres
 --
 
@@ -896,7 +967,16 @@ ALTER TABLE ONLY adm.piscinas
 
 
 --
--- TOC entry 2415 (class 2606 OID 27686)
+-- TOC entry 2427 (class 2606 OID 27703)
+-- Name: portarias portarias_condominio_foreignkey; Type: FK CONSTRAINT; Schema: adm; Owner: postgres
+--
+
+ALTER TABLE ONLY adm.portarias
+    ADD CONSTRAINT portarias_condominio_foreignkey FOREIGN KEY (condominio) REFERENCES adm.condominio(id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+--
+-- TOC entry 2426 (class 2606 OID 27686)
 -- Name: vagas vagas_condominio_foreignkey; Type: FK CONSTRAINT; Schema: adm; Owner: postgres
 --
 
@@ -904,7 +984,7 @@ ALTER TABLE ONLY adm.vagas
     ADD CONSTRAINT vagas_condominio_foreignkey FOREIGN KEY (estacionamento) REFERENCES adm.estacionamentos(id) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
--- Completed on 2019-10-14 12:21:27 -03
+-- Completed on 2019-10-14 12:23:16 -03
 
 --
 -- PostgreSQL database dump complete
