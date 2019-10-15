@@ -5,7 +5,7 @@
 -- Dumped from database version 10.9
 -- Dumped by pg_dump version 11.5
 
--- Started on 2019-10-15 18:32:31 -03
+-- Started on 2019-10-15 19:09:47 -03
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -4988,7 +4988,7 @@ ALTER TABLE ONLY operacional.reformas
     ADD CONSTRAINT reformas_condominio_foreignkey FOREIGN KEY (condominio) REFERENCES administracao.condominio(id) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
--- Completed on 2019-10-15 18:32:32 -03
+-- Completed on 2019-10-15 19:09:48 -03
 
 --
 -- PostgreSQL database dump complete

@@ -5,7 +5,7 @@
 -- Dumped from database version 10.9
 -- Dumped by pg_dump version 11.5
 
--- Started on 2019-10-15 18:32:32 -03
+-- Started on 2019-10-15 19:09:48 -03
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -42,7 +42,7 @@ SET xmloption = content;
 SET client_min_messages = warning;
 SET row_security = off;
 
--- Completed on 2019-10-15 18:32:33 -03
+-- Completed on 2019-10-15 19:09:48 -03
 
 --
 -- PostgreSQL database dump complete
