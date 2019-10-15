@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+/Applications/pgAdmin\ 4.app/Contents/SharedSupport/pg_dump --file $PWD"/dump_svl_data.sql" --host "localhost" --port "5432" --username "postgres" --no-password --verbose --role "postgres" --format=p --create --clean --section=pre-data --section=data --section=post-data --inserts --column-inserts --encoding "UTF8" "svl"
+/Applications/pgAdmin\ 4.app/Contents/SharedSupport/pg_dump --file $PWD"/dump_vlaccess_data.sql" --host "localhost" --port "5432" --username "postgres" --no-password --verbose --role "postgres" --format=p --create --clean --section=pre-data --section=data --section=post-data --inserts --column-inserts --encoding "UTF8" "vlaccess"
+/Applications/pgAdmin\ 4.app/Contents/SharedSupport/pg_dump --file $PWD"/dump_vlimage_data.sql" --host "localhost" --port "5432" --username "postgres" --no-password --verbose --role "postgres" --format=p --create --clean --section=pre-data --section=data --section=post-data --inserts --column-inserts --encoding "UTF8" "vlimage"

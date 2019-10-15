@@ -17,3 +17,6 @@ DO
 
         END
         $_$;
+
+
+drop DOMAIN if exists public.email cascade;
