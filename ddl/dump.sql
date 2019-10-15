@@ -5,7 +5,7 @@
 -- Dumped from database version 10.9
 -- Dumped by pg_dump version 11.5
 
--- Started on 2019-10-15 16:53:24 -03
+-- Started on 2019-10-15 17:40:50 -03
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -19,7 +19,7 @@ SET client_min_messages = warning;
 SET row_security = off;
 
 --
--- TOC entry 7 (class 2615 OID 28319)
+-- TOC entry 10 (class 2615 OID 29407)
 -- Name: administracao; Type: SCHEMA; Schema: -; Owner: postgres
 --
 
@@ -29,8 +29,8 @@ CREATE SCHEMA administracao;
 ALTER SCHEMA administracao OWNER TO postgres;
 
 --
--- TOC entry 3020 (class 0 OID 0)
--- Dependencies: 7
+-- TOC entry 3092 (class 0 OID 0)
+-- Dependencies: 10
 -- Name: SCHEMA administracao; Type: COMMENT; Schema: -; Owner: postgres
 --
 
@@ -38,7 +38,27 @@ COMMENT ON SCHEMA administracao IS 'tabelas de gestão do condomínio';
 
 
 --
--- TOC entry 12 (class 2615 OID 28320)
+-- TOC entry 6 (class 2615 OID 29408)
+-- Name: cms; Type: SCHEMA; Schema: -; Owner: postgres
+--
+
+CREATE SCHEMA cms;
+
+
+ALTER SCHEMA cms OWNER TO postgres;
+
+--
+-- TOC entry 14 (class 2615 OID 30245)
+-- Name: config; Type: SCHEMA; Schema: -; Owner: postgres
+--
+
+CREATE SCHEMA config;
+
+
+ALTER SCHEMA config OWNER TO postgres;
+
+--
+-- TOC entry 7 (class 2615 OID 29409)
 -- Name: conveniencia; Type: SCHEMA; Schema: -; Owner: postgres
 --
 
@@ -48,7 +68,7 @@ CREATE SCHEMA conveniencia;
 ALTER SCHEMA conveniencia OWNER TO postgres;
 
 --
--- TOC entry 6 (class 2615 OID 29266)
+-- TOC entry 9 (class 2615 OID 29410)
 -- Name: financeiro; Type: SCHEMA; Schema: -; Owner: postgres
 --
 
@@ -58,7 +78,7 @@ CREATE SCHEMA financeiro;
 ALTER SCHEMA financeiro OWNER TO postgres;
 
 --
--- TOC entry 11 (class 2615 OID 29131)
+-- TOC entry 5 (class 2615 OID 29411)
 -- Name: operacional; Type: SCHEMA; Schema: -; Owner: postgres
 --
 
@@ -76,7 +96,7 @@ CREATE EXTENSION IF NOT EXISTS citext WITH SCHEMA public;
 
 
 --
--- TOC entry 3021 (class 0 OID 0)
+-- TOC entry 3093 (class 0 OID 0)
 -- Dependencies: 2
 -- Name: EXTENSION citext; Type: COMMENT; Schema: -; Owner: 
 --
@@ -85,7 +105,7 @@ COMMENT ON EXTENSION citext IS 'data type for case-insensitive character strings
 
 
 --
--- TOC entry 781 (class 1247 OID 28407)
+-- TOC entry 776 (class 1247 OID 28407)
 -- Name: email; Type: DOMAIN; Schema: public; Owner: postgres
 --
 
@@ -100,14 +120,14 @@ SET default_tablespace = '';
 SET default_with_oids = false;
 
 --
--- TOC entry 201 (class 1259 OID 28409)
+-- TOC entry 203 (class 1259 OID 29412)
 -- Name: academias; Type: TABLE; Schema: administracao; Owner: postgres
 --
 
 CREATE TABLE administracao.academias (
     id integer NOT NULL,
     firstdate timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
-    lastdate timestamp without time zone NOT NULL,
+    lastdate timestamp without time zone,
     purgedate timestamp without time zone NOT NULL,
     firstuser character varying(15) NOT NULL,
     lasttuser character varying(15) NOT NULL,
@@ -120,8 +140,8 @@ CREATE TABLE administracao.academias (
 ALTER TABLE administracao.academias OWNER TO postgres;
 
 --
--- TOC entry 3022 (class 0 OID 0)
--- Dependencies: 201
+-- TOC entry 3094 (class 0 OID 0)
+-- Dependencies: 203
 -- Name: TABLE academias; Type: COMMENT; Schema: administracao; Owner: postgres
 --
 
@@ -129,7 +149,7 @@ COMMENT ON TABLE administracao.academias IS 'Cadastro de informações pertinent
 
 
 --
--- TOC entry 202 (class 1259 OID 28416)
+-- TOC entry 204 (class 1259 OID 29419)
 -- Name: academias_id_seq; Type: SEQUENCE; Schema: administracao; Owner: postgres
 --
 
@@ -145,8 +165,8 @@ CREATE SEQUENCE administracao.academias_id_seq
 ALTER TABLE administracao.academias_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3023 (class 0 OID 0)
--- Dependencies: 202
+-- TOC entry 3095 (class 0 OID 0)
+-- Dependencies: 204
 -- Name: academias_id_seq; Type: SEQUENCE OWNED BY; Schema: administracao; Owner: postgres
 --
 
@@ -154,14 +174,68 @@ ALTER SEQUENCE administracao.academias_id_seq OWNED BY administracao.academias.i
 
 
 --
--- TOC entry 203 (class 1259 OID 28418)
+-- TOC entry 205 (class 1259 OID 29421)
+-- Name: assembleias; Type: TABLE; Schema: administracao; Owner: postgres
+--
+
+CREATE TABLE administracao.assembleias (
+    id integer NOT NULL,
+    firstdate timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    lastdate timestamp without time zone,
+    purgedate timestamp without time zone NOT NULL,
+    firstuser character varying(15) NOT NULL,
+    lasttuser character varying(15) NOT NULL,
+    purgeuser character varying(15) NOT NULL,
+    condominio integer NOT NULL,
+    nome character varying(500) NOT NULL
+);
+
+
+ALTER TABLE administracao.assembleias OWNER TO postgres;
+
+--
+-- TOC entry 3096 (class 0 OID 0)
+-- Dependencies: 205
+-- Name: TABLE assembleias; Type: COMMENT; Schema: administracao; Owner: postgres
+--
+
+COMMENT ON TABLE administracao.assembleias IS 'Registro de assembléias';
+
+
+--
+-- TOC entry 206 (class 1259 OID 29428)
+-- Name: assembleias_id_seq; Type: SEQUENCE; Schema: administracao; Owner: postgres
+--
+
+CREATE SEQUENCE administracao.assembleias_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE administracao.assembleias_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 3097 (class 0 OID 0)
+-- Dependencies: 206
+-- Name: assembleias_id_seq; Type: SEQUENCE OWNED BY; Schema: administracao; Owner: postgres
+--
+
+ALTER SEQUENCE administracao.assembleias_id_seq OWNED BY administracao.assembleias.id;
+
+
+--
+-- TOC entry 207 (class 1259 OID 29430)
 -- Name: bloco; Type: TABLE; Schema: administracao; Owner: postgres
 --
 
 CREATE TABLE administracao.bloco (
     id integer NOT NULL,
     firstdate timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
-    lastdate timestamp without time zone NOT NULL,
+    lastdate timestamp without time zone,
     purgedate timestamp without time zone NOT NULL,
     firstuser character varying(15) NOT NULL,
     lasttuser character varying(15) NOT NULL,
@@ -174,8 +248,8 @@ CREATE TABLE administracao.bloco (
 ALTER TABLE administracao.bloco OWNER TO postgres;
 
 --
--- TOC entry 3024 (class 0 OID 0)
--- Dependencies: 203
+-- TOC entry 3098 (class 0 OID 0)
+-- Dependencies: 207
 -- Name: TABLE bloco; Type: COMMENT; Schema: administracao; Owner: postgres
 --
 
@@ -183,7 +257,7 @@ COMMENT ON TABLE administracao.bloco IS 'Informações a respeito dos blocos do 
 
 
 --
--- TOC entry 204 (class 1259 OID 28425)
+-- TOC entry 208 (class 1259 OID 29437)
 -- Name: blocos_id_seq; Type: SEQUENCE; Schema: administracao; Owner: postgres
 --
 
@@ -199,8 +273,8 @@ CREATE SEQUENCE administracao.blocos_id_seq
 ALTER TABLE administracao.blocos_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3025 (class 0 OID 0)
--- Dependencies: 204
+-- TOC entry 3099 (class 0 OID 0)
+-- Dependencies: 208
 -- Name: blocos_id_seq; Type: SEQUENCE OWNED BY; Schema: administracao; Owner: postgres
 --
 
@@ -208,14 +282,14 @@ ALTER SEQUENCE administracao.blocos_id_seq OWNED BY administracao.bloco.id;
 
 
 --
--- TOC entry 205 (class 1259 OID 28427)
+-- TOC entry 209 (class 1259 OID 29439)
 -- Name: churrasqueiras; Type: TABLE; Schema: administracao; Owner: postgres
 --
 
 CREATE TABLE administracao.churrasqueiras (
     id integer NOT NULL,
     firstdate timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
-    lastdate timestamp without time zone NOT NULL,
+    lastdate timestamp without time zone,
     purgedate timestamp without time zone NOT NULL,
     firstuser character varying(15) NOT NULL,
     lasttuser character varying(15) NOT NULL,
@@ -228,8 +302,8 @@ CREATE TABLE administracao.churrasqueiras (
 ALTER TABLE administracao.churrasqueiras OWNER TO postgres;
 
 --
--- TOC entry 3026 (class 0 OID 0)
--- Dependencies: 205
+-- TOC entry 3100 (class 0 OID 0)
+-- Dependencies: 209
 -- Name: TABLE churrasqueiras; Type: COMMENT; Schema: administracao; Owner: postgres
 --
 
@@ -237,7 +311,7 @@ COMMENT ON TABLE administracao.churrasqueiras IS 'Informações de gestão das c
 
 
 --
--- TOC entry 206 (class 1259 OID 28434)
+-- TOC entry 210 (class 1259 OID 29446)
 -- Name: churrasqueiras_id_seq; Type: SEQUENCE; Schema: administracao; Owner: postgres
 --
 
@@ -253,8 +327,8 @@ CREATE SEQUENCE administracao.churrasqueiras_id_seq
 ALTER TABLE administracao.churrasqueiras_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3027 (class 0 OID 0)
--- Dependencies: 206
+-- TOC entry 3101 (class 0 OID 0)
+-- Dependencies: 210
 -- Name: churrasqueiras_id_seq; Type: SEQUENCE OWNED BY; Schema: administracao; Owner: postgres
 --
 
@@ -262,14 +336,14 @@ ALTER SEQUENCE administracao.churrasqueiras_id_seq OWNED BY administracao.churra
 
 
 --
--- TOC entry 207 (class 1259 OID 28436)
+-- TOC entry 211 (class 1259 OID 29448)
 -- Name: condominio; Type: TABLE; Schema: administracao; Owner: postgres
 --
 
 CREATE TABLE administracao.condominio (
     id integer NOT NULL,
     firstdate timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
-    lastdate timestamp without time zone NOT NULL,
+    lastdate timestamp without time zone,
     purgedate timestamp without time zone NOT NULL,
     firstuser character varying(15) NOT NULL,
     lasttuser character varying(15) NOT NULL,
@@ -281,8 +355,8 @@ CREATE TABLE administracao.condominio (
 ALTER TABLE administracao.condominio OWNER TO postgres;
 
 --
--- TOC entry 3028 (class 0 OID 0)
--- Dependencies: 207
+-- TOC entry 3102 (class 0 OID 0)
+-- Dependencies: 211
 -- Name: TABLE condominio; Type: COMMENT; Schema: administracao; Owner: postgres
 --
 
@@ -290,7 +364,7 @@ COMMENT ON TABLE administracao.condominio IS 'informações detalhadas do condom
 
 
 --
--- TOC entry 208 (class 1259 OID 28443)
+-- TOC entry 212 (class 1259 OID 29455)
 -- Name: condominio_id_seq; Type: SEQUENCE; Schema: administracao; Owner: postgres
 --
 
@@ -306,8 +380,8 @@ CREATE SEQUENCE administracao.condominio_id_seq
 ALTER TABLE administracao.condominio_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3029 (class 0 OID 0)
--- Dependencies: 208
+-- TOC entry 3103 (class 0 OID 0)
+-- Dependencies: 212
 -- Name: condominio_id_seq; Type: SEQUENCE OWNED BY; Schema: administracao; Owner: postgres
 --
 
@@ -315,14 +389,14 @@ ALTER SEQUENCE administracao.condominio_id_seq OWNED BY administracao.condominio
 
 
 --
--- TOC entry 209 (class 1259 OID 28445)
+-- TOC entry 213 (class 1259 OID 29457)
 -- Name: designacoes; Type: TABLE; Schema: administracao; Owner: postgres
 --
 
 CREATE TABLE administracao.designacoes (
     id integer NOT NULL,
     firstdate timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
-    lastdate timestamp without time zone NOT NULL,
+    lastdate timestamp without time zone,
     purgedate timestamp without time zone NOT NULL,
     firstuser character varying(15) NOT NULL,
     lasttuser character varying(15) NOT NULL,
@@ -334,7 +408,7 @@ CREATE TABLE administracao.designacoes (
 ALTER TABLE administracao.designacoes OWNER TO postgres;
 
 --
--- TOC entry 210 (class 1259 OID 28452)
+-- TOC entry 214 (class 1259 OID 29464)
 -- Name: designacoes_id_seq; Type: SEQUENCE; Schema: administracao; Owner: postgres
 --
 
@@ -350,8 +424,8 @@ CREATE SEQUENCE administracao.designacoes_id_seq
 ALTER TABLE administracao.designacoes_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3030 (class 0 OID 0)
--- Dependencies: 210
+-- TOC entry 3104 (class 0 OID 0)
+-- Dependencies: 214
 -- Name: designacoes_id_seq; Type: SEQUENCE OWNED BY; Schema: administracao; Owner: postgres
 --
 
@@ -359,14 +433,68 @@ ALTER SEQUENCE administracao.designacoes_id_seq OWNED BY administracao.designaco
 
 
 --
--- TOC entry 211 (class 1259 OID 28454)
+-- TOC entry 215 (class 1259 OID 29466)
+-- Name: documentos; Type: TABLE; Schema: administracao; Owner: postgres
+--
+
+CREATE TABLE administracao.documentos (
+    id integer NOT NULL,
+    firstdate timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    lastdate timestamp without time zone,
+    purgedate timestamp without time zone NOT NULL,
+    firstuser character varying(15) NOT NULL,
+    lasttuser character varying(15) NOT NULL,
+    purgeuser character varying(15) NOT NULL,
+    condominio integer NOT NULL,
+    nome character varying(500) NOT NULL
+);
+
+
+ALTER TABLE administracao.documentos OWNER TO postgres;
+
+--
+-- TOC entry 3105 (class 0 OID 0)
+-- Dependencies: 215
+-- Name: TABLE documentos; Type: COMMENT; Schema: administracao; Owner: postgres
+--
+
+COMMENT ON TABLE administracao.documentos IS 'Integração de documentos com nuvem storage';
+
+
+--
+-- TOC entry 216 (class 1259 OID 29473)
+-- Name: documentos_id_seq; Type: SEQUENCE; Schema: administracao; Owner: postgres
+--
+
+CREATE SEQUENCE administracao.documentos_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE administracao.documentos_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 3106 (class 0 OID 0)
+-- Dependencies: 216
+-- Name: documentos_id_seq; Type: SEQUENCE OWNED BY; Schema: administracao; Owner: postgres
+--
+
+ALTER SEQUENCE administracao.documentos_id_seq OWNED BY administracao.documentos.id;
+
+
+--
+-- TOC entry 217 (class 1259 OID 29475)
 -- Name: elevadores; Type: TABLE; Schema: administracao; Owner: postgres
 --
 
 CREATE TABLE administracao.elevadores (
     id integer NOT NULL,
     firstdate timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
-    lastdate timestamp without time zone NOT NULL,
+    lastdate timestamp without time zone,
     purgedate timestamp without time zone NOT NULL,
     firstuser character varying(15) NOT NULL,
     lasttuser character varying(15) NOT NULL,
@@ -379,8 +507,8 @@ CREATE TABLE administracao.elevadores (
 ALTER TABLE administracao.elevadores OWNER TO postgres;
 
 --
--- TOC entry 3031 (class 0 OID 0)
--- Dependencies: 211
+-- TOC entry 3107 (class 0 OID 0)
+-- Dependencies: 217
 -- Name: TABLE elevadores; Type: COMMENT; Schema: administracao; Owner: postgres
 --
 
@@ -388,7 +516,7 @@ COMMENT ON TABLE administracao.elevadores IS 'Informações de gestão das eleva
 
 
 --
--- TOC entry 212 (class 1259 OID 28461)
+-- TOC entry 218 (class 1259 OID 29482)
 -- Name: elevadores_id_seq; Type: SEQUENCE; Schema: administracao; Owner: postgres
 --
 
@@ -404,8 +532,8 @@ CREATE SEQUENCE administracao.elevadores_id_seq
 ALTER TABLE administracao.elevadores_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3032 (class 0 OID 0)
--- Dependencies: 212
+-- TOC entry 3108 (class 0 OID 0)
+-- Dependencies: 218
 -- Name: elevadores_id_seq; Type: SEQUENCE OWNED BY; Schema: administracao; Owner: postgres
 --
 
@@ -413,14 +541,68 @@ ALTER SEQUENCE administracao.elevadores_id_seq OWNED BY administracao.elevadores
 
 
 --
--- TOC entry 213 (class 1259 OID 28463)
+-- TOC entry 219 (class 1259 OID 29484)
+-- Name: enquetes; Type: TABLE; Schema: administracao; Owner: postgres
+--
+
+CREATE TABLE administracao.enquetes (
+    id integer NOT NULL,
+    firstdate timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    lastdate timestamp without time zone,
+    purgedate timestamp without time zone NOT NULL,
+    firstuser character varying(15) NOT NULL,
+    lasttuser character varying(15) NOT NULL,
+    purgeuser character varying(15) NOT NULL,
+    condominio integer NOT NULL,
+    nome character varying(500) NOT NULL
+);
+
+
+ALTER TABLE administracao.enquetes OWNER TO postgres;
+
+--
+-- TOC entry 3109 (class 0 OID 0)
+-- Dependencies: 219
+-- Name: TABLE enquetes; Type: COMMENT; Schema: administracao; Owner: postgres
+--
+
+COMMENT ON TABLE administracao.enquetes IS 'Serviço de pesquisas para obter a opnião a respeito das tomadas de decisão';
+
+
+--
+-- TOC entry 220 (class 1259 OID 29491)
+-- Name: enquetes_id_seq; Type: SEQUENCE; Schema: administracao; Owner: postgres
+--
+
+CREATE SEQUENCE administracao.enquetes_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE administracao.enquetes_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 3110 (class 0 OID 0)
+-- Dependencies: 220
+-- Name: enquetes_id_seq; Type: SEQUENCE OWNED BY; Schema: administracao; Owner: postgres
+--
+
+ALTER SEQUENCE administracao.enquetes_id_seq OWNED BY administracao.enquetes.id;
+
+
+--
+-- TOC entry 221 (class 1259 OID 29493)
 -- Name: espacos; Type: TABLE; Schema: administracao; Owner: postgres
 --
 
 CREATE TABLE administracao.espacos (
     id integer NOT NULL,
     firstdate timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
-    lastdate timestamp without time zone NOT NULL,
+    lastdate timestamp without time zone,
     purgedate timestamp without time zone NOT NULL,
     firstuser character varying(15) NOT NULL,
     lasttuser character varying(15) NOT NULL,
@@ -433,8 +615,8 @@ CREATE TABLE administracao.espacos (
 ALTER TABLE administracao.espacos OWNER TO postgres;
 
 --
--- TOC entry 3033 (class 0 OID 0)
--- Dependencies: 213
+-- TOC entry 3111 (class 0 OID 0)
+-- Dependencies: 221
 -- Name: TABLE espacos; Type: COMMENT; Schema: administracao; Owner: postgres
 --
 
@@ -442,7 +624,7 @@ COMMENT ON TABLE administracao.espacos IS 'Detalhes dos salões e suas atividade
 
 
 --
--- TOC entry 214 (class 1259 OID 28470)
+-- TOC entry 222 (class 1259 OID 29500)
 -- Name: espacos_id_seq; Type: SEQUENCE; Schema: administracao; Owner: postgres
 --
 
@@ -458,8 +640,8 @@ CREATE SEQUENCE administracao.espacos_id_seq
 ALTER TABLE administracao.espacos_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3034 (class 0 OID 0)
--- Dependencies: 214
+-- TOC entry 3112 (class 0 OID 0)
+-- Dependencies: 222
 -- Name: espacos_id_seq; Type: SEQUENCE OWNED BY; Schema: administracao; Owner: postgres
 --
 
@@ -467,14 +649,14 @@ ALTER SEQUENCE administracao.espacos_id_seq OWNED BY administracao.espacos.id;
 
 
 --
--- TOC entry 215 (class 1259 OID 28472)
+-- TOC entry 223 (class 1259 OID 29502)
 -- Name: estacionamentos; Type: TABLE; Schema: administracao; Owner: postgres
 --
 
 CREATE TABLE administracao.estacionamentos (
     id integer NOT NULL,
     firstdate timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
-    lastdate timestamp without time zone NOT NULL,
+    lastdate timestamp without time zone,
     purgedate timestamp without time zone NOT NULL,
     firstuser character varying(15) NOT NULL,
     lasttuser character varying(15) NOT NULL,
@@ -487,8 +669,8 @@ CREATE TABLE administracao.estacionamentos (
 ALTER TABLE administracao.estacionamentos OWNER TO postgres;
 
 --
--- TOC entry 3035 (class 0 OID 0)
--- Dependencies: 215
+-- TOC entry 3113 (class 0 OID 0)
+-- Dependencies: 223
 -- Name: TABLE estacionamentos; Type: COMMENT; Schema: administracao; Owner: postgres
 --
 
@@ -496,7 +678,7 @@ COMMENT ON TABLE administracao.estacionamentos IS 'Informações de gestão das 
 
 
 --
--- TOC entry 216 (class 1259 OID 28479)
+-- TOC entry 224 (class 1259 OID 29509)
 -- Name: estacionamentos_id_seq; Type: SEQUENCE; Schema: administracao; Owner: postgres
 --
 
@@ -512,8 +694,8 @@ CREATE SEQUENCE administracao.estacionamentos_id_seq
 ALTER TABLE administracao.estacionamentos_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3036 (class 0 OID 0)
--- Dependencies: 216
+-- TOC entry 3114 (class 0 OID 0)
+-- Dependencies: 224
 -- Name: estacionamentos_id_seq; Type: SEQUENCE OWNED BY; Schema: administracao; Owner: postgres
 --
 
@@ -521,14 +703,14 @@ ALTER SEQUENCE administracao.estacionamentos_id_seq OWNED BY administracao.estac
 
 
 --
--- TOC entry 217 (class 1259 OID 28481)
+-- TOC entry 225 (class 1259 OID 29511)
 -- Name: gestao; Type: TABLE; Schema: administracao; Owner: postgres
 --
 
 CREATE TABLE administracao.gestao (
     id integer NOT NULL,
     firstdate timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
-    lastdate timestamp without time zone NOT NULL,
+    lastdate timestamp without time zone,
     purgedate timestamp without time zone NOT NULL,
     firstuser character varying(15) NOT NULL,
     lasttuser character varying(15) NOT NULL,
@@ -544,8 +726,8 @@ CREATE TABLE administracao.gestao (
 ALTER TABLE administracao.gestao OWNER TO postgres;
 
 --
--- TOC entry 3037 (class 0 OID 0)
--- Dependencies: 217
+-- TOC entry 3115 (class 0 OID 0)
+-- Dependencies: 225
 -- Name: TABLE gestao; Type: COMMENT; Schema: administracao; Owner: postgres
 --
 
@@ -553,7 +735,7 @@ COMMENT ON TABLE administracao.gestao IS 'Registra os tipos de cargos ou designa
 
 
 --
--- TOC entry 218 (class 1259 OID 28490)
+-- TOC entry 226 (class 1259 OID 29520)
 -- Name: gestao_id_seq; Type: SEQUENCE; Schema: administracao; Owner: postgres
 --
 
@@ -569,8 +751,8 @@ CREATE SEQUENCE administracao.gestao_id_seq
 ALTER TABLE administracao.gestao_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3038 (class 0 OID 0)
--- Dependencies: 218
+-- TOC entry 3116 (class 0 OID 0)
+-- Dependencies: 226
 -- Name: gestao_id_seq; Type: SEQUENCE OWNED BY; Schema: administracao; Owner: postgres
 --
 
@@ -578,14 +760,14 @@ ALTER SEQUENCE administracao.gestao_id_seq OWNED BY administracao.gestao.id;
 
 
 --
--- TOC entry 219 (class 1259 OID 28492)
+-- TOC entry 227 (class 1259 OID 29522)
 -- Name: piscinas; Type: TABLE; Schema: administracao; Owner: postgres
 --
 
 CREATE TABLE administracao.piscinas (
     id integer NOT NULL,
     firstdate timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
-    lastdate timestamp without time zone NOT NULL,
+    lastdate timestamp without time zone,
     purgedate timestamp without time zone NOT NULL,
     firstuser character varying(15) NOT NULL,
     lasttuser character varying(15) NOT NULL,
@@ -598,8 +780,8 @@ CREATE TABLE administracao.piscinas (
 ALTER TABLE administracao.piscinas OWNER TO postgres;
 
 --
--- TOC entry 3039 (class 0 OID 0)
--- Dependencies: 219
+-- TOC entry 3117 (class 0 OID 0)
+-- Dependencies: 227
 -- Name: TABLE piscinas; Type: COMMENT; Schema: administracao; Owner: postgres
 --
 
@@ -607,7 +789,7 @@ COMMENT ON TABLE administracao.piscinas IS 'Gestão das piscinas';
 
 
 --
--- TOC entry 220 (class 1259 OID 28499)
+-- TOC entry 228 (class 1259 OID 29529)
 -- Name: piscinas_id_seq; Type: SEQUENCE; Schema: administracao; Owner: postgres
 --
 
@@ -623,8 +805,8 @@ CREATE SEQUENCE administracao.piscinas_id_seq
 ALTER TABLE administracao.piscinas_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3040 (class 0 OID 0)
--- Dependencies: 220
+-- TOC entry 3118 (class 0 OID 0)
+-- Dependencies: 228
 -- Name: piscinas_id_seq; Type: SEQUENCE OWNED BY; Schema: administracao; Owner: postgres
 --
 
@@ -632,14 +814,14 @@ ALTER SEQUENCE administracao.piscinas_id_seq OWNED BY administracao.piscinas.id;
 
 
 --
--- TOC entry 221 (class 1259 OID 28501)
+-- TOC entry 229 (class 1259 OID 29531)
 -- Name: portarias; Type: TABLE; Schema: administracao; Owner: postgres
 --
 
 CREATE TABLE administracao.portarias (
     id integer NOT NULL,
     firstdate timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
-    lastdate timestamp without time zone NOT NULL,
+    lastdate timestamp without time zone,
     purgedate timestamp without time zone NOT NULL,
     firstuser character varying(15) NOT NULL,
     lasttuser character varying(15) NOT NULL,
@@ -652,8 +834,8 @@ CREATE TABLE administracao.portarias (
 ALTER TABLE administracao.portarias OWNER TO postgres;
 
 --
--- TOC entry 3041 (class 0 OID 0)
--- Dependencies: 221
+-- TOC entry 3119 (class 0 OID 0)
+-- Dependencies: 229
 -- Name: TABLE portarias; Type: COMMENT; Schema: administracao; Owner: postgres
 --
 
@@ -661,7 +843,7 @@ COMMENT ON TABLE administracao.portarias IS 'Informações de gestão das portar
 
 
 --
--- TOC entry 222 (class 1259 OID 28508)
+-- TOC entry 230 (class 1259 OID 29538)
 -- Name: portarias_id_seq; Type: SEQUENCE; Schema: administracao; Owner: postgres
 --
 
@@ -677,8 +859,8 @@ CREATE SEQUENCE administracao.portarias_id_seq
 ALTER TABLE administracao.portarias_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3042 (class 0 OID 0)
--- Dependencies: 222
+-- TOC entry 3120 (class 0 OID 0)
+-- Dependencies: 230
 -- Name: portarias_id_seq; Type: SEQUENCE OWNED BY; Schema: administracao; Owner: postgres
 --
 
@@ -686,14 +868,14 @@ ALTER SEQUENCE administracao.portarias_id_seq OWNED BY administracao.portarias.i
 
 
 --
--- TOC entry 265 (class 1259 OID 29055)
+-- TOC entry 231 (class 1259 OID 29540)
 -- Name: quadras; Type: TABLE; Schema: administracao; Owner: postgres
 --
 
 CREATE TABLE administracao.quadras (
     id integer NOT NULL,
     firstdate timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
-    lastdate timestamp without time zone NOT NULL,
+    lastdate timestamp without time zone,
     purgedate timestamp without time zone NOT NULL,
     firstuser character varying(15) NOT NULL,
     lasttuser character varying(15) NOT NULL,
@@ -706,8 +888,8 @@ CREATE TABLE administracao.quadras (
 ALTER TABLE administracao.quadras OWNER TO postgres;
 
 --
--- TOC entry 3043 (class 0 OID 0)
--- Dependencies: 265
+-- TOC entry 3121 (class 0 OID 0)
+-- Dependencies: 231
 -- Name: TABLE quadras; Type: COMMENT; Schema: administracao; Owner: postgres
 --
 
@@ -715,7 +897,7 @@ COMMENT ON TABLE administracao.quadras IS 'Informações de gestão das quadras'
 
 
 --
--- TOC entry 264 (class 1259 OID 29053)
+-- TOC entry 232 (class 1259 OID 29547)
 -- Name: quadras_id_seq; Type: SEQUENCE; Schema: administracao; Owner: postgres
 --
 
@@ -731,8 +913,8 @@ CREATE SEQUENCE administracao.quadras_id_seq
 ALTER TABLE administracao.quadras_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3044 (class 0 OID 0)
--- Dependencies: 264
+-- TOC entry 3122 (class 0 OID 0)
+-- Dependencies: 232
 -- Name: quadras_id_seq; Type: SEQUENCE OWNED BY; Schema: administracao; Owner: postgres
 --
 
@@ -740,14 +922,68 @@ ALTER SEQUENCE administracao.quadras_id_seq OWNED BY administracao.quadras.id;
 
 
 --
--- TOC entry 223 (class 1259 OID 28510)
+-- TOC entry 233 (class 1259 OID 29549)
+-- Name: reserva; Type: TABLE; Schema: administracao; Owner: postgres
+--
+
+CREATE TABLE administracao.reserva (
+    id integer NOT NULL,
+    firstdate timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    lastdate timestamp without time zone,
+    purgedate timestamp without time zone NOT NULL,
+    firstuser character varying(15) NOT NULL,
+    lasttuser character varying(15) NOT NULL,
+    purgeuser character varying(15) NOT NULL,
+    condominio integer NOT NULL,
+    nome character varying(500) NOT NULL
+);
+
+
+ALTER TABLE administracao.reserva OWNER TO postgres;
+
+--
+-- TOC entry 3123 (class 0 OID 0)
+-- Dependencies: 233
+-- Name: TABLE reserva; Type: COMMENT; Schema: administracao; Owner: postgres
+--
+
+COMMENT ON TABLE administracao.reserva IS 'Serviço de reserva de espaços';
+
+
+--
+-- TOC entry 234 (class 1259 OID 29556)
+-- Name: reserva_id_seq; Type: SEQUENCE; Schema: administracao; Owner: postgres
+--
+
+CREATE SEQUENCE administracao.reserva_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE administracao.reserva_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 3124 (class 0 OID 0)
+-- Dependencies: 234
+-- Name: reserva_id_seq; Type: SEQUENCE OWNED BY; Schema: administracao; Owner: postgres
+--
+
+ALTER SEQUENCE administracao.reserva_id_seq OWNED BY administracao.reserva.id;
+
+
+--
+-- TOC entry 235 (class 1259 OID 29558)
 -- Name: vagas; Type: TABLE; Schema: administracao; Owner: postgres
 --
 
 CREATE TABLE administracao.vagas (
     id integer NOT NULL,
     firstdate timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
-    lastdate timestamp without time zone NOT NULL,
+    lastdate timestamp without time zone,
     purgedate timestamp without time zone NOT NULL,
     firstuser character varying(15) NOT NULL,
     lasttuser character varying(15) NOT NULL,
@@ -760,8 +996,8 @@ CREATE TABLE administracao.vagas (
 ALTER TABLE administracao.vagas OWNER TO postgres;
 
 --
--- TOC entry 3045 (class 0 OID 0)
--- Dependencies: 223
+-- TOC entry 3125 (class 0 OID 0)
+-- Dependencies: 235
 -- Name: TABLE vagas; Type: COMMENT; Schema: administracao; Owner: postgres
 --
 
@@ -769,7 +1005,7 @@ COMMENT ON TABLE administracao.vagas IS 'Controle de vagas dos estacionamentos';
 
 
 --
--- TOC entry 224 (class 1259 OID 28517)
+-- TOC entry 236 (class 1259 OID 29565)
 -- Name: vagas_id_seq; Type: SEQUENCE; Schema: administracao; Owner: postgres
 --
 
@@ -785,8 +1021,8 @@ CREATE SEQUENCE administracao.vagas_id_seq
 ALTER TABLE administracao.vagas_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3046 (class 0 OID 0)
--- Dependencies: 224
+-- TOC entry 3126 (class 0 OID 0)
+-- Dependencies: 236
 -- Name: vagas_id_seq; Type: SEQUENCE OWNED BY; Schema: administracao; Owner: postgres
 --
 
@@ -794,14 +1030,175 @@ ALTER SEQUENCE administracao.vagas_id_seq OWNED BY administracao.vagas.id;
 
 
 --
--- TOC entry 250 (class 1259 OID 28892)
+-- TOC entry 237 (class 1259 OID 29567)
+-- Name: artigos; Type: TABLE; Schema: cms; Owner: postgres
+--
+
+CREATE TABLE cms.artigos (
+    id integer NOT NULL,
+    firstdate timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    lastdate timestamp without time zone,
+    purgedate timestamp without time zone NOT NULL,
+    firstuser character varying(15) NOT NULL,
+    lasttuser character varying(15) NOT NULL,
+    purgeuser character varying(15) NOT NULL,
+    condominio integer NOT NULL,
+    nome character varying(500) NOT NULL
+);
+
+
+ALTER TABLE cms.artigos OWNER TO postgres;
+
+--
+-- TOC entry 3127 (class 0 OID 0)
+-- Dependencies: 237
+-- Name: TABLE artigos; Type: COMMENT; Schema: cms; Owner: postgres
+--
+
+COMMENT ON TABLE cms.artigos IS 'Geração de artigos para apresentação no site do condomínio';
+
+
+--
+-- TOC entry 238 (class 1259 OID 29574)
+-- Name: artigos_id_seq; Type: SEQUENCE; Schema: cms; Owner: postgres
+--
+
+CREATE SEQUENCE cms.artigos_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE cms.artigos_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 3128 (class 0 OID 0)
+-- Dependencies: 238
+-- Name: artigos_id_seq; Type: SEQUENCE OWNED BY; Schema: cms; Owner: postgres
+--
+
+ALTER SEQUENCE cms.artigos_id_seq OWNED BY cms.artigos.id;
+
+
+--
+-- TOC entry 239 (class 1259 OID 29576)
+-- Name: comunicados; Type: TABLE; Schema: cms; Owner: postgres
+--
+
+CREATE TABLE cms.comunicados (
+    id integer NOT NULL,
+    firstdate timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    lastdate timestamp without time zone,
+    purgedate timestamp without time zone NOT NULL,
+    firstuser character varying(15) NOT NULL,
+    lasttuser character varying(15) NOT NULL,
+    purgeuser character varying(15) NOT NULL,
+    condominio integer NOT NULL,
+    nome character varying(500) NOT NULL
+);
+
+
+ALTER TABLE cms.comunicados OWNER TO postgres;
+
+--
+-- TOC entry 3129 (class 0 OID 0)
+-- Dependencies: 239
+-- Name: TABLE comunicados; Type: COMMENT; Schema: cms; Owner: postgres
+--
+
+COMMENT ON TABLE cms.comunicados IS 'Envio de mala direta aos condôminos';
+
+
+--
+-- TOC entry 240 (class 1259 OID 29583)
+-- Name: comunicados_id_seq; Type: SEQUENCE; Schema: cms; Owner: postgres
+--
+
+CREATE SEQUENCE cms.comunicados_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE cms.comunicados_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 3130 (class 0 OID 0)
+-- Dependencies: 240
+-- Name: comunicados_id_seq; Type: SEQUENCE OWNED BY; Schema: cms; Owner: postgres
+--
+
+ALTER SEQUENCE cms.comunicados_id_seq OWNED BY cms.comunicados.id;
+
+
+--
+-- TOC entry 301 (class 1259 OID 30248)
+-- Name: bloqueios_ctrl_acesso; Type: TABLE; Schema: config; Owner: postgres
+--
+
+CREATE TABLE config.bloqueios_ctrl_acesso (
+    id integer NOT NULL,
+    firstdate timestamp without time zone,
+    lastdate timestamp without time zone,
+    purgedate timestamp without time zone,
+    firstuser character varying(15),
+    lasttuser character varying(15),
+    purgeuser character varying(15),
+    nome character varying(500)
+);
+
+
+ALTER TABLE config.bloqueios_ctrl_acesso OWNER TO postgres;
+
+--
+-- TOC entry 3131 (class 0 OID 0)
+-- Dependencies: 301
+-- Name: TABLE bloqueios_ctrl_acesso; Type: COMMENT; Schema: config; Owner: postgres
+--
+
+COMMENT ON TABLE config.bloqueios_ctrl_acesso IS 'Informa os tipos de bloqueios utilizados nas operações de controle de acesso';
+
+
+--
+-- TOC entry 300 (class 1259 OID 30246)
+-- Name: bloqueios_ctrl_acesso_id_seq; Type: SEQUENCE; Schema: config; Owner: postgres
+--
+
+CREATE SEQUENCE config.bloqueios_ctrl_acesso_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE config.bloqueios_ctrl_acesso_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 3132 (class 0 OID 0)
+-- Dependencies: 300
+-- Name: bloqueios_ctrl_acesso_id_seq; Type: SEQUENCE OWNED BY; Schema: config; Owner: postgres
+--
+
+ALTER SEQUENCE config.bloqueios_ctrl_acesso_id_seq OWNED BY config.bloqueios_ctrl_acesso.id;
+
+
+--
+-- TOC entry 241 (class 1259 OID 29585)
 -- Name: pessoal_autorizacao; Type: TABLE; Schema: conveniencia; Owner: postgres
 --
 
 CREATE TABLE conveniencia.pessoal_autorizacao (
     id integer NOT NULL,
     firstdate timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
-    lastdate timestamp without time zone NOT NULL,
+    lastdate timestamp without time zone,
     purgedate timestamp without time zone NOT NULL,
     firstuser character varying(15) NOT NULL,
     lasttuser character varying(15) NOT NULL,
@@ -816,8 +1213,8 @@ CREATE TABLE conveniencia.pessoal_autorizacao (
 ALTER TABLE conveniencia.pessoal_autorizacao OWNER TO postgres;
 
 --
--- TOC entry 3047 (class 0 OID 0)
--- Dependencies: 250
+-- TOC entry 3133 (class 0 OID 0)
+-- Dependencies: 241
 -- Name: TABLE pessoal_autorizacao; Type: COMMENT; Schema: conveniencia; Owner: postgres
 --
 
@@ -825,7 +1222,7 @@ COMMENT ON TABLE conveniencia.pessoal_autorizacao IS 'Registro de autorização 
 
 
 --
--- TOC entry 249 (class 1259 OID 28890)
+-- TOC entry 242 (class 1259 OID 29593)
 -- Name: autorizacao_pessoal_id_seq; Type: SEQUENCE; Schema: conveniencia; Owner: postgres
 --
 
@@ -841,8 +1238,8 @@ CREATE SEQUENCE conveniencia.autorizacao_pessoal_id_seq
 ALTER TABLE conveniencia.autorizacao_pessoal_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3048 (class 0 OID 0)
--- Dependencies: 249
+-- TOC entry 3134 (class 0 OID 0)
+-- Dependencies: 242
 -- Name: autorizacao_pessoal_id_seq; Type: SEQUENCE OWNED BY; Schema: conveniencia; Owner: postgres
 --
 
@@ -850,14 +1247,14 @@ ALTER SEQUENCE conveniencia.autorizacao_pessoal_id_seq OWNED BY conveniencia.pes
 
 
 --
--- TOC entry 248 (class 1259 OID 28869)
+-- TOC entry 243 (class 1259 OID 29595)
 -- Name: autorizacao_veicular; Type: TABLE; Schema: conveniencia; Owner: postgres
 --
 
 CREATE TABLE conveniencia.autorizacao_veicular (
     id integer NOT NULL,
     firstdate timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
-    lastdate timestamp without time zone NOT NULL,
+    lastdate timestamp without time zone,
     purgedate timestamp without time zone NOT NULL,
     firstuser character varying(15) NOT NULL,
     lasttuser character varying(15) NOT NULL,
@@ -872,8 +1269,8 @@ CREATE TABLE conveniencia.autorizacao_veicular (
 ALTER TABLE conveniencia.autorizacao_veicular OWNER TO postgres;
 
 --
--- TOC entry 3049 (class 0 OID 0)
--- Dependencies: 248
+-- TOC entry 3135 (class 0 OID 0)
+-- Dependencies: 243
 -- Name: TABLE autorizacao_veicular; Type: COMMENT; Schema: conveniencia; Owner: postgres
 --
 
@@ -881,7 +1278,7 @@ COMMENT ON TABLE conveniencia.autorizacao_veicular IS 'Registro de autorização
 
 
 --
--- TOC entry 247 (class 1259 OID 28867)
+-- TOC entry 244 (class 1259 OID 29603)
 -- Name: autorizacao_veicular_id_seq; Type: SEQUENCE; Schema: conveniencia; Owner: postgres
 --
 
@@ -897,8 +1294,8 @@ CREATE SEQUENCE conveniencia.autorizacao_veicular_id_seq
 ALTER TABLE conveniencia.autorizacao_veicular_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3050 (class 0 OID 0)
--- Dependencies: 247
+-- TOC entry 3136 (class 0 OID 0)
+-- Dependencies: 244
 -- Name: autorizacao_veicular_id_seq; Type: SEQUENCE OWNED BY; Schema: conveniencia; Owner: postgres
 --
 
@@ -906,14 +1303,14 @@ ALTER SEQUENCE conveniencia.autorizacao_veicular_id_seq OWNED BY conveniencia.au
 
 
 --
--- TOC entry 240 (class 1259 OID 28735)
+-- TOC entry 245 (class 1259 OID 29605)
 -- Name: correspondencias; Type: TABLE; Schema: conveniencia; Owner: postgres
 --
 
 CREATE TABLE conveniencia.correspondencias (
     id integer NOT NULL,
     firstdate timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
-    lastdate timestamp without time zone NOT NULL,
+    lastdate timestamp without time zone,
     purgedate timestamp without time zone NOT NULL,
     firstuser character varying(15) NOT NULL,
     lasttuser character varying(15) NOT NULL,
@@ -934,8 +1331,8 @@ CREATE TABLE conveniencia.correspondencias (
 ALTER TABLE conveniencia.correspondencias OWNER TO postgres;
 
 --
--- TOC entry 3051 (class 0 OID 0)
--- Dependencies: 240
+-- TOC entry 3137 (class 0 OID 0)
+-- Dependencies: 245
 -- Name: TABLE correspondencias; Type: COMMENT; Schema: conveniencia; Owner: postgres
 --
 
@@ -943,7 +1340,7 @@ COMMENT ON TABLE conveniencia.correspondencias IS 'Tabela de controle das corres
 
 
 --
--- TOC entry 239 (class 1259 OID 28733)
+-- TOC entry 246 (class 1259 OID 29612)
 -- Name: correspondencias_id_seq; Type: SEQUENCE; Schema: conveniencia; Owner: postgres
 --
 
@@ -959,8 +1356,8 @@ CREATE SEQUENCE conveniencia.correspondencias_id_seq
 ALTER TABLE conveniencia.correspondencias_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3052 (class 0 OID 0)
--- Dependencies: 239
+-- TOC entry 3138 (class 0 OID 0)
+-- Dependencies: 246
 -- Name: correspondencias_id_seq; Type: SEQUENCE OWNED BY; Schema: conveniencia; Owner: postgres
 --
 
@@ -968,14 +1365,14 @@ ALTER SEQUENCE conveniencia.correspondencias_id_seq OWNED BY conveniencia.corres
 
 
 --
--- TOC entry 242 (class 1259 OID 28752)
+-- TOC entry 247 (class 1259 OID 29614)
 -- Name: diario; Type: TABLE; Schema: conveniencia; Owner: postgres
 --
 
 CREATE TABLE conveniencia.diario (
     id integer NOT NULL,
     firstdate timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
-    lastdate timestamp without time zone NOT NULL,
+    lastdate timestamp without time zone,
     purgedate timestamp without time zone NOT NULL,
     firstuser character varying(15) NOT NULL,
     lasttuser character varying(15) NOT NULL,
@@ -989,8 +1386,8 @@ CREATE TABLE conveniencia.diario (
 ALTER TABLE conveniencia.diario OWNER TO postgres;
 
 --
--- TOC entry 3053 (class 0 OID 0)
--- Dependencies: 242
+-- TOC entry 3139 (class 0 OID 0)
+-- Dependencies: 247
 -- Name: TABLE diario; Type: COMMENT; Schema: conveniencia; Owner: postgres
 --
 
@@ -998,7 +1395,7 @@ COMMENT ON TABLE conveniencia.diario IS 'Registra os tipos de eventos que ocorre
 
 
 --
--- TOC entry 241 (class 1259 OID 28750)
+-- TOC entry 248 (class 1259 OID 29621)
 -- Name: diario_id_seq; Type: SEQUENCE; Schema: conveniencia; Owner: postgres
 --
 
@@ -1014,8 +1411,8 @@ CREATE SEQUENCE conveniencia.diario_id_seq
 ALTER TABLE conveniencia.diario_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3054 (class 0 OID 0)
--- Dependencies: 241
+-- TOC entry 3140 (class 0 OID 0)
+-- Dependencies: 248
 -- Name: diario_id_seq; Type: SEQUENCE OWNED BY; Schema: conveniencia; Owner: postgres
 --
 
@@ -1023,14 +1420,14 @@ ALTER SEQUENCE conveniencia.diario_id_seq OWNED BY conveniencia.diario.id;
 
 
 --
--- TOC entry 225 (class 1259 OID 28519)
+-- TOC entry 249 (class 1259 OID 29623)
 -- Name: emails; Type: TABLE; Schema: conveniencia; Owner: postgres
 --
 
 CREATE TABLE conveniencia.emails (
     id integer NOT NULL,
     firstdate timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
-    lastdate timestamp without time zone NOT NULL,
+    lastdate timestamp without time zone,
     purgedate timestamp without time zone NOT NULL,
     firstuser character varying(15) NOT NULL,
     lasttuser character varying(15) NOT NULL,
@@ -1051,8 +1448,8 @@ CREATE TABLE conveniencia.emails (
 ALTER TABLE conveniencia.emails OWNER TO postgres;
 
 --
--- TOC entry 3055 (class 0 OID 0)
--- Dependencies: 225
+-- TOC entry 3141 (class 0 OID 0)
+-- Dependencies: 249
 -- Name: TABLE emails; Type: COMMENT; Schema: conveniencia; Owner: postgres
 --
 
@@ -1060,7 +1457,7 @@ COMMENT ON TABLE conveniencia.emails IS 'Endereços e tipos de entrega de inform
 
 
 --
--- TOC entry 226 (class 1259 OID 28533)
+-- TOC entry 250 (class 1259 OID 29638)
 -- Name: emails_id_seq; Type: SEQUENCE; Schema: conveniencia; Owner: postgres
 --
 
@@ -1076,8 +1473,8 @@ CREATE SEQUENCE conveniencia.emails_id_seq
 ALTER TABLE conveniencia.emails_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3056 (class 0 OID 0)
--- Dependencies: 226
+-- TOC entry 3142 (class 0 OID 0)
+-- Dependencies: 250
 -- Name: emails_id_seq; Type: SEQUENCE OWNED BY; Schema: conveniencia; Owner: postgres
 --
 
@@ -1085,14 +1482,14 @@ ALTER SEQUENCE conveniencia.emails_id_seq OWNED BY conveniencia.emails.id;
 
 
 --
--- TOC entry 260 (class 1259 OID 29016)
+-- TOC entry 251 (class 1259 OID 29640)
 -- Name: incidentes; Type: TABLE; Schema: conveniencia; Owner: postgres
 --
 
 CREATE TABLE conveniencia.incidentes (
     id integer NOT NULL,
     firstdate timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
-    lastdate timestamp without time zone NOT NULL,
+    lastdate timestamp without time zone,
     purgedate timestamp without time zone NOT NULL,
     firstuser character varying(15) NOT NULL,
     lasttuser character varying(15) NOT NULL,
@@ -1109,8 +1506,8 @@ CREATE TABLE conveniencia.incidentes (
 ALTER TABLE conveniencia.incidentes OWNER TO postgres;
 
 --
--- TOC entry 3057 (class 0 OID 0)
--- Dependencies: 260
+-- TOC entry 3143 (class 0 OID 0)
+-- Dependencies: 251
 -- Name: TABLE incidentes; Type: COMMENT; Schema: conveniencia; Owner: postgres
 --
 
@@ -1118,7 +1515,7 @@ COMMENT ON TABLE conveniencia.incidentes IS 'Registra multas, notificações e o
 
 
 --
--- TOC entry 259 (class 1259 OID 29014)
+-- TOC entry 252 (class 1259 OID 29647)
 -- Name: incidentes_id_seq; Type: SEQUENCE; Schema: conveniencia; Owner: postgres
 --
 
@@ -1134,8 +1531,8 @@ CREATE SEQUENCE conveniencia.incidentes_id_seq
 ALTER TABLE conveniencia.incidentes_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3058 (class 0 OID 0)
--- Dependencies: 259
+-- TOC entry 3144 (class 0 OID 0)
+-- Dependencies: 252
 -- Name: incidentes_id_seq; Type: SEQUENCE OWNED BY; Schema: conveniencia; Owner: postgres
 --
 
@@ -1143,14 +1540,14 @@ ALTER SEQUENCE conveniencia.incidentes_id_seq OWNED BY conveniencia.incidentes.i
 
 
 --
--- TOC entry 258 (class 1259 OID 28998)
+-- TOC entry 253 (class 1259 OID 29649)
 -- Name: login; Type: TABLE; Schema: conveniencia; Owner: postgres
 --
 
 CREATE TABLE conveniencia.login (
     id integer NOT NULL,
     firstdate timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
-    lastdate timestamp without time zone NOT NULL,
+    lastdate timestamp without time zone,
     purgedate timestamp without time zone NOT NULL,
     firstuser character varying(15) NOT NULL,
     lasttuser character varying(15) NOT NULL,
@@ -1164,8 +1561,8 @@ CREATE TABLE conveniencia.login (
 ALTER TABLE conveniencia.login OWNER TO postgres;
 
 --
--- TOC entry 3059 (class 0 OID 0)
--- Dependencies: 258
+-- TOC entry 3145 (class 0 OID 0)
+-- Dependencies: 253
 -- Name: TABLE login; Type: COMMENT; Schema: conveniencia; Owner: postgres
 --
 
@@ -1173,7 +1570,7 @@ COMMENT ON TABLE conveniencia.login IS 'Usuário do condômino';
 
 
 --
--- TOC entry 257 (class 1259 OID 28996)
+-- TOC entry 254 (class 1259 OID 29656)
 -- Name: login_id_seq; Type: SEQUENCE; Schema: conveniencia; Owner: postgres
 --
 
@@ -1189,8 +1586,8 @@ CREATE SEQUENCE conveniencia.login_id_seq
 ALTER TABLE conveniencia.login_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3060 (class 0 OID 0)
--- Dependencies: 257
+-- TOC entry 3146 (class 0 OID 0)
+-- Dependencies: 254
 -- Name: login_id_seq; Type: SEQUENCE OWNED BY; Schema: conveniencia; Owner: postgres
 --
 
@@ -1198,14 +1595,14 @@ ALTER SEQUENCE conveniencia.login_id_seq OWNED BY conveniencia.login.id;
 
 
 --
--- TOC entry 227 (class 1259 OID 28535)
+-- TOC entry 255 (class 1259 OID 29658)
 -- Name: pessoal_cadastro; Type: TABLE; Schema: conveniencia; Owner: postgres
 --
 
 CREATE TABLE conveniencia.pessoal_cadastro (
     id integer NOT NULL,
     firstdate timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
-    lastdate timestamp without time zone NOT NULL,
+    lastdate timestamp without time zone,
     purgedate timestamp without time zone NOT NULL,
     firstuser character varying(15) NOT NULL,
     lasttuser character varying(15) NOT NULL,
@@ -1218,8 +1615,8 @@ CREATE TABLE conveniencia.pessoal_cadastro (
 ALTER TABLE conveniencia.pessoal_cadastro OWNER TO postgres;
 
 --
--- TOC entry 3061 (class 0 OID 0)
--- Dependencies: 227
+-- TOC entry 3147 (class 0 OID 0)
+-- Dependencies: 255
 -- Name: TABLE pessoal_cadastro; Type: COMMENT; Schema: conveniencia; Owner: postgres
 --
 
@@ -1227,14 +1624,14 @@ COMMENT ON TABLE conveniencia.pessoal_cadastro IS 'Registro geral de pessoas no 
 
 
 --
--- TOC entry 269 (class 1259 OID 29099)
+-- TOC entry 256 (class 1259 OID 29662)
 -- Name: pessoal_contato; Type: TABLE; Schema: conveniencia; Owner: postgres
 --
 
 CREATE TABLE conveniencia.pessoal_contato (
     id integer NOT NULL,
     firstdate timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
-    lastdate timestamp without time zone NOT NULL,
+    lastdate timestamp without time zone,
     purgedate timestamp without time zone NOT NULL,
     firstuser character varying(15) NOT NULL,
     lasttuser character varying(15) NOT NULL,
@@ -1248,8 +1645,8 @@ CREATE TABLE conveniencia.pessoal_contato (
 ALTER TABLE conveniencia.pessoal_contato OWNER TO postgres;
 
 --
--- TOC entry 3062 (class 0 OID 0)
--- Dependencies: 269
+-- TOC entry 3148 (class 0 OID 0)
+-- Dependencies: 256
 -- Name: TABLE pessoal_contato; Type: COMMENT; Schema: conveniencia; Owner: postgres
 --
 
@@ -1257,7 +1654,7 @@ COMMENT ON TABLE conveniencia.pessoal_contato IS 'Registra os dados de contato d
 
 
 --
--- TOC entry 268 (class 1259 OID 29097)
+-- TOC entry 257 (class 1259 OID 29669)
 -- Name: pessoal_contato_id_seq; Type: SEQUENCE; Schema: conveniencia; Owner: postgres
 --
 
@@ -1273,8 +1670,8 @@ CREATE SEQUENCE conveniencia.pessoal_contato_id_seq
 ALTER TABLE conveniencia.pessoal_contato_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3063 (class 0 OID 0)
--- Dependencies: 268
+-- TOC entry 3149 (class 0 OID 0)
+-- Dependencies: 257
 -- Name: pessoal_contato_id_seq; Type: SEQUENCE OWNED BY; Schema: conveniencia; Owner: postgres
 --
 
@@ -1282,14 +1679,14 @@ ALTER SEQUENCE conveniencia.pessoal_contato_id_seq OWNED BY conveniencia.pessoal
 
 
 --
--- TOC entry 267 (class 1259 OID 29072)
+-- TOC entry 258 (class 1259 OID 29671)
 -- Name: pessoal_documentos; Type: TABLE; Schema: conveniencia; Owner: postgres
 --
 
 CREATE TABLE conveniencia.pessoal_documentos (
     id integer NOT NULL,
     firstdate timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
-    lastdate timestamp without time zone NOT NULL,
+    lastdate timestamp without time zone,
     purgedate timestamp without time zone NOT NULL,
     firstuser character varying(15) NOT NULL,
     lasttuser character varying(15) NOT NULL,
@@ -1303,8 +1700,8 @@ CREATE TABLE conveniencia.pessoal_documentos (
 ALTER TABLE conveniencia.pessoal_documentos OWNER TO postgres;
 
 --
--- TOC entry 3064 (class 0 OID 0)
--- Dependencies: 267
+-- TOC entry 3150 (class 0 OID 0)
+-- Dependencies: 258
 -- Name: TABLE pessoal_documentos; Type: COMMENT; Schema: conveniencia; Owner: postgres
 --
 
@@ -1312,7 +1709,7 @@ COMMENT ON TABLE conveniencia.pessoal_documentos IS 'Registra um documento espec
 
 
 --
--- TOC entry 266 (class 1259 OID 29070)
+-- TOC entry 259 (class 1259 OID 29678)
 -- Name: pessoal_documentos_id_seq; Type: SEQUENCE; Schema: conveniencia; Owner: postgres
 --
 
@@ -1328,8 +1725,8 @@ CREATE SEQUENCE conveniencia.pessoal_documentos_id_seq
 ALTER TABLE conveniencia.pessoal_documentos_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3065 (class 0 OID 0)
--- Dependencies: 266
+-- TOC entry 3151 (class 0 OID 0)
+-- Dependencies: 259
 -- Name: pessoal_documentos_id_seq; Type: SEQUENCE OWNED BY; Schema: conveniencia; Owner: postgres
 --
 
@@ -1337,14 +1734,14 @@ ALTER SEQUENCE conveniencia.pessoal_documentos_id_seq OWNED BY conveniencia.pess
 
 
 --
--- TOC entry 271 (class 1259 OID 29116)
+-- TOC entry 260 (class 1259 OID 29680)
 -- Name: pessoal_particularidades; Type: TABLE; Schema: conveniencia; Owner: postgres
 --
 
 CREATE TABLE conveniencia.pessoal_particularidades (
     id integer NOT NULL,
     firstdate timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
-    lastdate timestamp without time zone NOT NULL,
+    lastdate timestamp without time zone,
     purgedate timestamp without time zone NOT NULL,
     firstuser character varying(15) NOT NULL,
     lasttuser character varying(15) NOT NULL,
@@ -1363,8 +1760,8 @@ CREATE TABLE conveniencia.pessoal_particularidades (
 ALTER TABLE conveniencia.pessoal_particularidades OWNER TO postgres;
 
 --
--- TOC entry 3066 (class 0 OID 0)
--- Dependencies: 271
+-- TOC entry 3152 (class 0 OID 0)
+-- Dependencies: 260
 -- Name: TABLE pessoal_particularidades; Type: COMMENT; Schema: conveniencia; Owner: postgres
 --
 
@@ -1372,7 +1769,7 @@ COMMENT ON TABLE conveniencia.pessoal_particularidades IS 'Registra as particula
 
 
 --
--- TOC entry 270 (class 1259 OID 29114)
+-- TOC entry 261 (class 1259 OID 29687)
 -- Name: pessoal_particularidades_id_seq; Type: SEQUENCE; Schema: conveniencia; Owner: postgres
 --
 
@@ -1388,8 +1785,8 @@ CREATE SEQUENCE conveniencia.pessoal_particularidades_id_seq
 ALTER TABLE conveniencia.pessoal_particularidades_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3067 (class 0 OID 0)
--- Dependencies: 270
+-- TOC entry 3153 (class 0 OID 0)
+-- Dependencies: 261
 -- Name: pessoal_particularidades_id_seq; Type: SEQUENCE OWNED BY; Schema: conveniencia; Owner: postgres
 --
 
@@ -1397,7 +1794,7 @@ ALTER SEQUENCE conveniencia.pessoal_particularidades_id_seq OWNED BY convenienci
 
 
 --
--- TOC entry 228 (class 1259 OID 28539)
+-- TOC entry 262 (class 1259 OID 29689)
 -- Name: pessoas_id_seq; Type: SEQUENCE; Schema: conveniencia; Owner: postgres
 --
 
@@ -1413,8 +1810,8 @@ CREATE SEQUENCE conveniencia.pessoas_id_seq
 ALTER TABLE conveniencia.pessoas_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3068 (class 0 OID 0)
--- Dependencies: 228
+-- TOC entry 3154 (class 0 OID 0)
+-- Dependencies: 262
 -- Name: pessoas_id_seq; Type: SEQUENCE OWNED BY; Schema: conveniencia; Owner: postgres
 --
 
@@ -1422,14 +1819,14 @@ ALTER SEQUENCE conveniencia.pessoas_id_seq OWNED BY conveniencia.pessoal_cadastr
 
 
 --
--- TOC entry 229 (class 1259 OID 28541)
+-- TOC entry 263 (class 1259 OID 29691)
 -- Name: pets; Type: TABLE; Schema: conveniencia; Owner: postgres
 --
 
 CREATE TABLE conveniencia.pets (
     id integer NOT NULL,
     firstdate timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
-    lastdate timestamp without time zone NOT NULL,
+    lastdate timestamp without time zone,
     purgedate timestamp without time zone NOT NULL,
     firstuser character varying(15) NOT NULL,
     lasttuser character varying(15) NOT NULL,
@@ -1441,8 +1838,8 @@ CREATE TABLE conveniencia.pets (
 ALTER TABLE conveniencia.pets OWNER TO postgres;
 
 --
--- TOC entry 3069 (class 0 OID 0)
--- Dependencies: 229
+-- TOC entry 3155 (class 0 OID 0)
+-- Dependencies: 263
 -- Name: TABLE pets; Type: COMMENT; Schema: conveniencia; Owner: postgres
 --
 
@@ -1450,7 +1847,7 @@ COMMENT ON TABLE conveniencia.pets IS 'Registro geral de pets da unidade';
 
 
 --
--- TOC entry 230 (class 1259 OID 28545)
+-- TOC entry 264 (class 1259 OID 29695)
 -- Name: pets_id_seq; Type: SEQUENCE; Schema: conveniencia; Owner: postgres
 --
 
@@ -1466,8 +1863,8 @@ CREATE SEQUENCE conveniencia.pets_id_seq
 ALTER TABLE conveniencia.pets_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3070 (class 0 OID 0)
--- Dependencies: 230
+-- TOC entry 3156 (class 0 OID 0)
+-- Dependencies: 264
 -- Name: pets_id_seq; Type: SEQUENCE OWNED BY; Schema: conveniencia; Owner: postgres
 --
 
@@ -1475,14 +1872,14 @@ ALTER SEQUENCE conveniencia.pets_id_seq OWNED BY conveniencia.pets.id;
 
 
 --
--- TOC entry 263 (class 1259 OID 29035)
+-- TOC entry 265 (class 1259 OID 29697)
 -- Name: pre_autorizacao; Type: TABLE; Schema: conveniencia; Owner: postgres
 --
 
 CREATE TABLE conveniencia.pre_autorizacao (
     id integer NOT NULL,
     firstdate timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
-    lastdate timestamp without time zone NOT NULL,
+    lastdate timestamp without time zone,
     purgedate timestamp without time zone NOT NULL,
     firstuser character varying(15) NOT NULL,
     lasttuser character varying(15) NOT NULL,
@@ -1495,8 +1892,8 @@ CREATE TABLE conveniencia.pre_autorizacao (
 ALTER TABLE conveniencia.pre_autorizacao OWNER TO postgres;
 
 --
--- TOC entry 3071 (class 0 OID 0)
--- Dependencies: 263
+-- TOC entry 3157 (class 0 OID 0)
+-- Dependencies: 265
 -- Name: TABLE pre_autorizacao; Type: COMMENT; Schema: conveniencia; Owner: postgres
 --
 
@@ -1504,7 +1901,7 @@ COMMENT ON TABLE conveniencia.pre_autorizacao IS 'Efetua a pré-autorização de
 
 
 --
--- TOC entry 261 (class 1259 OID 29031)
+-- TOC entry 266 (class 1259 OID 29701)
 -- Name: pre_autorizacao_id_seq; Type: SEQUENCE; Schema: conveniencia; Owner: postgres
 --
 
@@ -1520,8 +1917,8 @@ CREATE SEQUENCE conveniencia.pre_autorizacao_id_seq
 ALTER TABLE conveniencia.pre_autorizacao_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3072 (class 0 OID 0)
--- Dependencies: 261
+-- TOC entry 3158 (class 0 OID 0)
+-- Dependencies: 266
 -- Name: pre_autorizacao_id_seq; Type: SEQUENCE OWNED BY; Schema: conveniencia; Owner: postgres
 --
 
@@ -1529,7 +1926,7 @@ ALTER SEQUENCE conveniencia.pre_autorizacao_id_seq OWNED BY conveniencia.pre_aut
 
 
 --
--- TOC entry 262 (class 1259 OID 29033)
+-- TOC entry 267 (class 1259 OID 29703)
 -- Name: pre_autorizacao_pessoa_seq; Type: SEQUENCE; Schema: conveniencia; Owner: postgres
 --
 
@@ -1544,8 +1941,8 @@ CREATE SEQUENCE conveniencia.pre_autorizacao_pessoa_seq
 ALTER TABLE conveniencia.pre_autorizacao_pessoa_seq OWNER TO postgres;
 
 --
--- TOC entry 3073 (class 0 OID 0)
--- Dependencies: 262
+-- TOC entry 3159 (class 0 OID 0)
+-- Dependencies: 267
 -- Name: pre_autorizacao_pessoa_seq; Type: SEQUENCE OWNED BY; Schema: conveniencia; Owner: postgres
 --
 
@@ -1553,14 +1950,14 @@ ALTER SEQUENCE conveniencia.pre_autorizacao_pessoa_seq OWNED BY conveniencia.pre
 
 
 --
--- TOC entry 231 (class 1259 OID 28547)
+-- TOC entry 268 (class 1259 OID 29705)
 -- Name: unidade; Type: TABLE; Schema: conveniencia; Owner: postgres
 --
 
 CREATE TABLE conveniencia.unidade (
     id integer NOT NULL,
     firstdate timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
-    lastdate timestamp without time zone NOT NULL,
+    lastdate timestamp without time zone,
     purgedate timestamp without time zone NOT NULL,
     firstuser character varying(15) NOT NULL,
     lasttuser character varying(15) NOT NULL,
@@ -1574,8 +1971,8 @@ CREATE TABLE conveniencia.unidade (
 ALTER TABLE conveniencia.unidade OWNER TO postgres;
 
 --
--- TOC entry 3074 (class 0 OID 0)
--- Dependencies: 231
+-- TOC entry 3160 (class 0 OID 0)
+-- Dependencies: 268
 -- Name: TABLE unidade; Type: COMMENT; Schema: conveniencia; Owner: postgres
 --
 
@@ -1583,7 +1980,7 @@ COMMENT ON TABLE conveniencia.unidade IS 'Informações gerais da unidade';
 
 
 --
--- TOC entry 232 (class 1259 OID 28554)
+-- TOC entry 269 (class 1259 OID 29712)
 -- Name: registro_id_seq; Type: SEQUENCE; Schema: conveniencia; Owner: postgres
 --
 
@@ -1599,8 +1996,8 @@ CREATE SEQUENCE conveniencia.registro_id_seq
 ALTER TABLE conveniencia.registro_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3075 (class 0 OID 0)
--- Dependencies: 232
+-- TOC entry 3161 (class 0 OID 0)
+-- Dependencies: 269
 -- Name: registro_id_seq; Type: SEQUENCE OWNED BY; Schema: conveniencia; Owner: postgres
 --
 
@@ -1608,14 +2005,14 @@ ALTER SEQUENCE conveniencia.registro_id_seq OWNED BY conveniencia.unidade.id;
 
 
 --
--- TOC entry 256 (class 1259 OID 28976)
+-- TOC entry 270 (class 1259 OID 29714)
 -- Name: reservas; Type: TABLE; Schema: conveniencia; Owner: postgres
 --
 
 CREATE TABLE conveniencia.reservas (
     id integer NOT NULL,
     firstdate timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
-    lastdate timestamp without time zone NOT NULL,
+    lastdate timestamp without time zone,
     purgedate timestamp without time zone NOT NULL,
     firstuser character varying(15) NOT NULL,
     lasttuser character varying(15) NOT NULL,
@@ -1628,8 +2025,8 @@ CREATE TABLE conveniencia.reservas (
 ALTER TABLE conveniencia.reservas OWNER TO postgres;
 
 --
--- TOC entry 3076 (class 0 OID 0)
--- Dependencies: 256
+-- TOC entry 3162 (class 0 OID 0)
+-- Dependencies: 270
 -- Name: TABLE reservas; Type: COMMENT; Schema: conveniencia; Owner: postgres
 --
 
@@ -1637,7 +2034,7 @@ COMMENT ON TABLE conveniencia.reservas IS 'Registro de reserva de espaços';
 
 
 --
--- TOC entry 255 (class 1259 OID 28974)
+-- TOC entry 271 (class 1259 OID 29718)
 -- Name: reservas_id_seq; Type: SEQUENCE; Schema: conveniencia; Owner: postgres
 --
 
@@ -1653,8 +2050,8 @@ CREATE SEQUENCE conveniencia.reservas_id_seq
 ALTER TABLE conveniencia.reservas_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3077 (class 0 OID 0)
--- Dependencies: 255
+-- TOC entry 3163 (class 0 OID 0)
+-- Dependencies: 271
 -- Name: reservas_id_seq; Type: SEQUENCE OWNED BY; Schema: conveniencia; Owner: postgres
 --
 
@@ -1662,14 +2059,14 @@ ALTER SEQUENCE conveniencia.reservas_id_seq OWNED BY conveniencia.reservas.id;
 
 
 --
--- TOC entry 252 (class 1259 OID 28933)
+-- TOC entry 272 (class 1259 OID 29720)
 -- Name: solicitacoes; Type: TABLE; Schema: conveniencia; Owner: postgres
 --
 
 CREATE TABLE conveniencia.solicitacoes (
     id integer NOT NULL,
     firstdate timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
-    lastdate timestamp without time zone NOT NULL,
+    lastdate timestamp without time zone,
     purgedate timestamp without time zone NOT NULL,
     firstuser character varying(15) NOT NULL,
     lasttuser character varying(15) NOT NULL,
@@ -1685,8 +2082,8 @@ CREATE TABLE conveniencia.solicitacoes (
 ALTER TABLE conveniencia.solicitacoes OWNER TO postgres;
 
 --
--- TOC entry 3078 (class 0 OID 0)
--- Dependencies: 252
+-- TOC entry 3164 (class 0 OID 0)
+-- Dependencies: 272
 -- Name: TABLE solicitacoes; Type: COMMENT; Schema: conveniencia; Owner: postgres
 --
 
@@ -1694,7 +2091,7 @@ COMMENT ON TABLE conveniencia.solicitacoes IS 'Registro de solicitações dos co
 
 
 --
--- TOC entry 251 (class 1259 OID 28931)
+-- TOC entry 273 (class 1259 OID 29727)
 -- Name: solicitacoes_id_seq; Type: SEQUENCE; Schema: conveniencia; Owner: postgres
 --
 
@@ -1710,8 +2107,8 @@ CREATE SEQUENCE conveniencia.solicitacoes_id_seq
 ALTER TABLE conveniencia.solicitacoes_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3079 (class 0 OID 0)
--- Dependencies: 251
+-- TOC entry 3165 (class 0 OID 0)
+-- Dependencies: 273
 -- Name: solicitacoes_id_seq; Type: SEQUENCE OWNED BY; Schema: conveniencia; Owner: postgres
 --
 
@@ -1719,67 +2116,14 @@ ALTER SEQUENCE conveniencia.solicitacoes_id_seq OWNED BY conveniencia.solicitaco
 
 
 --
--- TOC entry 246 (class 1259 OID 28818)
--- Name: tipo_bloqueio; Type: TABLE; Schema: conveniencia; Owner: postgres
---
-
-CREATE TABLE conveniencia.tipo_bloqueio (
-    id integer NOT NULL,
-    firstdate timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
-    lastdate timestamp without time zone NOT NULL,
-    purgedate timestamp without time zone NOT NULL,
-    firstuser character varying(15) NOT NULL,
-    lasttuser character varying(15) NOT NULL,
-    purgeuser character varying(15) NOT NULL,
-    nome character varying(500) NOT NULL
-);
-
-
-ALTER TABLE conveniencia.tipo_bloqueio OWNER TO postgres;
-
---
--- TOC entry 3080 (class 0 OID 0)
--- Dependencies: 246
--- Name: TABLE tipo_bloqueio; Type: COMMENT; Schema: conveniencia; Owner: postgres
---
-
-COMMENT ON TABLE conveniencia.tipo_bloqueio IS 'Informa os tipos de bloqueios utilizados nas operações de controle de acesso';
-
-
---
--- TOC entry 245 (class 1259 OID 28816)
--- Name: tipo_bloqueio_id_seq; Type: SEQUENCE; Schema: conveniencia; Owner: postgres
---
-
-CREATE SEQUENCE conveniencia.tipo_bloqueio_id_seq
-    AS integer
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
-ALTER TABLE conveniencia.tipo_bloqueio_id_seq OWNER TO postgres;
-
---
--- TOC entry 3081 (class 0 OID 0)
--- Dependencies: 245
--- Name: tipo_bloqueio_id_seq; Type: SEQUENCE OWNED BY; Schema: conveniencia; Owner: postgres
---
-
-ALTER SEQUENCE conveniencia.tipo_bloqueio_id_seq OWNED BY conveniencia.tipo_bloqueio.id;
-
-
---
--- TOC entry 244 (class 1259 OID 28769)
+-- TOC entry 274 (class 1259 OID 29738)
 -- Name: tipo_diario; Type: TABLE; Schema: conveniencia; Owner: postgres
 --
 
 CREATE TABLE conveniencia.tipo_diario (
     id integer NOT NULL,
     firstdate timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
-    lastdate timestamp without time zone NOT NULL,
+    lastdate timestamp without time zone,
     purgedate timestamp without time zone NOT NULL,
     firstuser character varying(15) NOT NULL,
     lasttuser character varying(15) NOT NULL,
@@ -1791,7 +2135,7 @@ CREATE TABLE conveniencia.tipo_diario (
 ALTER TABLE conveniencia.tipo_diario OWNER TO postgres;
 
 --
--- TOC entry 243 (class 1259 OID 28767)
+-- TOC entry 275 (class 1259 OID 29745)
 -- Name: tipo_diario_id_seq; Type: SEQUENCE; Schema: conveniencia; Owner: postgres
 --
 
@@ -1807,8 +2151,8 @@ CREATE SEQUENCE conveniencia.tipo_diario_id_seq
 ALTER TABLE conveniencia.tipo_diario_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3082 (class 0 OID 0)
--- Dependencies: 243
+-- TOC entry 3166 (class 0 OID 0)
+-- Dependencies: 275
 -- Name: tipo_diario_id_seq; Type: SEQUENCE OWNED BY; Schema: conveniencia; Owner: postgres
 --
 
@@ -1816,14 +2160,14 @@ ALTER SEQUENCE conveniencia.tipo_diario_id_seq OWNED BY conveniencia.tipo_diario
 
 
 --
--- TOC entry 233 (class 1259 OID 28556)
+-- TOC entry 276 (class 1259 OID 29747)
 -- Name: tipo_registro; Type: TABLE; Schema: conveniencia; Owner: postgres
 --
 
 CREATE TABLE conveniencia.tipo_registro (
     id integer NOT NULL,
     firstdate timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
-    lastdate timestamp without time zone NOT NULL,
+    lastdate timestamp without time zone,
     purgedate timestamp without time zone NOT NULL,
     firstuser character varying(15) NOT NULL,
     lasttuser character varying(15) NOT NULL,
@@ -1835,7 +2179,7 @@ CREATE TABLE conveniencia.tipo_registro (
 ALTER TABLE conveniencia.tipo_registro OWNER TO postgres;
 
 --
--- TOC entry 234 (class 1259 OID 28563)
+-- TOC entry 277 (class 1259 OID 29754)
 -- Name: tipo_registro_id_seq; Type: SEQUENCE; Schema: conveniencia; Owner: postgres
 --
 
@@ -1851,8 +2195,8 @@ CREATE SEQUENCE conveniencia.tipo_registro_id_seq
 ALTER TABLE conveniencia.tipo_registro_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3083 (class 0 OID 0)
--- Dependencies: 234
+-- TOC entry 3167 (class 0 OID 0)
+-- Dependencies: 277
 -- Name: tipo_registro_id_seq; Type: SEQUENCE OWNED BY; Schema: conveniencia; Owner: postgres
 --
 
@@ -1860,14 +2204,14 @@ ALTER SEQUENCE conveniencia.tipo_registro_id_seq OWNED BY conveniencia.tipo_regi
 
 
 --
--- TOC entry 254 (class 1259 OID 28950)
+-- TOC entry 278 (class 1259 OID 29756)
 -- Name: tipo_solicitacao; Type: TABLE; Schema: conveniencia; Owner: postgres
 --
 
 CREATE TABLE conveniencia.tipo_solicitacao (
     id integer NOT NULL,
     firstdate timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
-    lastdate timestamp without time zone NOT NULL,
+    lastdate timestamp without time zone,
     purgedate timestamp without time zone NOT NULL,
     firstuser character varying(15) NOT NULL,
     lasttuser character varying(15) NOT NULL,
@@ -1879,8 +2223,8 @@ CREATE TABLE conveniencia.tipo_solicitacao (
 ALTER TABLE conveniencia.tipo_solicitacao OWNER TO postgres;
 
 --
--- TOC entry 3084 (class 0 OID 0)
--- Dependencies: 254
+-- TOC entry 3168 (class 0 OID 0)
+-- Dependencies: 278
 -- Name: TABLE tipo_solicitacao; Type: COMMENT; Schema: conveniencia; Owner: postgres
 --
 
@@ -1888,7 +2232,7 @@ COMMENT ON TABLE conveniencia.tipo_solicitacao IS 'Informa os tipos de solicitac
 
 
 --
--- TOC entry 253 (class 1259 OID 28948)
+-- TOC entry 279 (class 1259 OID 29763)
 -- Name: tipo_solicitacao_id_seq; Type: SEQUENCE; Schema: conveniencia; Owner: postgres
 --
 
@@ -1904,8 +2248,8 @@ CREATE SEQUENCE conveniencia.tipo_solicitacao_id_seq
 ALTER TABLE conveniencia.tipo_solicitacao_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3085 (class 0 OID 0)
--- Dependencies: 253
+-- TOC entry 3169 (class 0 OID 0)
+-- Dependencies: 279
 -- Name: tipo_solicitacao_id_seq; Type: SEQUENCE OWNED BY; Schema: conveniencia; Owner: postgres
 --
 
@@ -1913,14 +2257,14 @@ ALTER SEQUENCE conveniencia.tipo_solicitacao_id_seq OWNED BY conveniencia.tipo_s
 
 
 --
--- TOC entry 235 (class 1259 OID 28565)
+-- TOC entry 280 (class 1259 OID 29765)
 -- Name: tipo_veiculo; Type: TABLE; Schema: conveniencia; Owner: postgres
 --
 
 CREATE TABLE conveniencia.tipo_veiculo (
     id integer NOT NULL,
     firstdate timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
-    lastdate timestamp without time zone NOT NULL,
+    lastdate timestamp without time zone,
     purgedate timestamp without time zone NOT NULL,
     firstuser character varying(15) NOT NULL,
     lasttuser character varying(15) NOT NULL,
@@ -1932,7 +2276,7 @@ CREATE TABLE conveniencia.tipo_veiculo (
 ALTER TABLE conveniencia.tipo_veiculo OWNER TO postgres;
 
 --
--- TOC entry 236 (class 1259 OID 28572)
+-- TOC entry 281 (class 1259 OID 29772)
 -- Name: tipo_veiculo_id_seq; Type: SEQUENCE; Schema: conveniencia; Owner: postgres
 --
 
@@ -1948,8 +2292,8 @@ CREATE SEQUENCE conveniencia.tipo_veiculo_id_seq
 ALTER TABLE conveniencia.tipo_veiculo_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3086 (class 0 OID 0)
--- Dependencies: 236
+-- TOC entry 3170 (class 0 OID 0)
+-- Dependencies: 281
 -- Name: tipo_veiculo_id_seq; Type: SEQUENCE OWNED BY; Schema: conveniencia; Owner: postgres
 --
 
@@ -1957,14 +2301,14 @@ ALTER SEQUENCE conveniencia.tipo_veiculo_id_seq OWNED BY conveniencia.tipo_veicu
 
 
 --
--- TOC entry 237 (class 1259 OID 28574)
+-- TOC entry 282 (class 1259 OID 29774)
 -- Name: veiculos; Type: TABLE; Schema: conveniencia; Owner: postgres
 --
 
 CREATE TABLE conveniencia.veiculos (
     id integer NOT NULL,
     firstdate timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
-    lastdate timestamp without time zone NOT NULL,
+    lastdate timestamp without time zone,
     purgedate timestamp without time zone NOT NULL,
     firstuser character varying(15) NOT NULL,
     lasttuser character varying(15) NOT NULL,
@@ -1978,7 +2322,7 @@ CREATE TABLE conveniencia.veiculos (
 ALTER TABLE conveniencia.veiculos OWNER TO postgres;
 
 --
--- TOC entry 238 (class 1259 OID 28578)
+-- TOC entry 283 (class 1259 OID 29778)
 -- Name: veiculos_id_seq; Type: SEQUENCE; Schema: conveniencia; Owner: postgres
 --
 
@@ -1994,8 +2338,8 @@ CREATE SEQUENCE conveniencia.veiculos_id_seq
 ALTER TABLE conveniencia.veiculos_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3087 (class 0 OID 0)
--- Dependencies: 238
+-- TOC entry 3171 (class 0 OID 0)
+-- Dependencies: 283
 -- Name: veiculos_id_seq; Type: SEQUENCE OWNED BY; Schema: conveniencia; Owner: postgres
 --
 
@@ -2003,14 +2347,68 @@ ALTER SEQUENCE conveniencia.veiculos_id_seq OWNED BY conveniencia.veiculos.id;
 
 
 --
--- TOC entry 279 (class 1259 OID 29185)
+-- TOC entry 284 (class 1259 OID 29780)
+-- Name: achados_perdidos; Type: TABLE; Schema: operacional; Owner: postgres
+--
+
+CREATE TABLE operacional.achados_perdidos (
+    id integer NOT NULL,
+    firstdate timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    lastdate timestamp without time zone,
+    purgedate timestamp without time zone NOT NULL,
+    firstuser character varying(15) NOT NULL,
+    lasttuser character varying(15) NOT NULL,
+    purgeuser character varying(15) NOT NULL,
+    condominio integer NOT NULL,
+    nome character varying(500) NOT NULL
+);
+
+
+ALTER TABLE operacional.achados_perdidos OWNER TO postgres;
+
+--
+-- TOC entry 3172 (class 0 OID 0)
+-- Dependencies: 284
+-- Name: TABLE achados_perdidos; Type: COMMENT; Schema: operacional; Owner: postgres
+--
+
+COMMENT ON TABLE operacional.achados_perdidos IS 'Controle de objetos perdidos';
+
+
+--
+-- TOC entry 285 (class 1259 OID 29787)
+-- Name: achados_perdidos_id_seq; Type: SEQUENCE; Schema: operacional; Owner: postgres
+--
+
+CREATE SEQUENCE operacional.achados_perdidos_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE operacional.achados_perdidos_id_seq OWNER TO postgres;
+
+--
+-- TOC entry 3173 (class 0 OID 0)
+-- Dependencies: 285
+-- Name: achados_perdidos_id_seq; Type: SEQUENCE OWNED BY; Schema: operacional; Owner: postgres
+--
+
+ALTER SEQUENCE operacional.achados_perdidos_id_seq OWNED BY operacional.achados_perdidos.id;
+
+
+--
+-- TOC entry 286 (class 1259 OID 29789)
 -- Name: atendimentos; Type: TABLE; Schema: operacional; Owner: postgres
 --
 
 CREATE TABLE operacional.atendimentos (
     id integer NOT NULL,
     firstdate timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
-    lastdate timestamp without time zone NOT NULL,
+    lastdate timestamp without time zone,
     purgedate timestamp without time zone NOT NULL,
     firstuser character varying(15) NOT NULL,
     lasttuser character varying(15) NOT NULL,
@@ -2023,8 +2421,8 @@ CREATE TABLE operacional.atendimentos (
 ALTER TABLE operacional.atendimentos OWNER TO postgres;
 
 --
--- TOC entry 3088 (class 0 OID 0)
--- Dependencies: 279
+-- TOC entry 3174 (class 0 OID 0)
+-- Dependencies: 286
 -- Name: TABLE atendimentos; Type: COMMENT; Schema: operacional; Owner: postgres
 --
 
@@ -2032,7 +2430,7 @@ COMMENT ON TABLE operacional.atendimentos IS 'Acompanha os atendimentos com os p
 
 
 --
--- TOC entry 278 (class 1259 OID 29183)
+-- TOC entry 287 (class 1259 OID 29793)
 -- Name: atendimentos_id_seq; Type: SEQUENCE; Schema: operacional; Owner: postgres
 --
 
@@ -2048,8 +2446,8 @@ CREATE SEQUENCE operacional.atendimentos_id_seq
 ALTER TABLE operacional.atendimentos_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3089 (class 0 OID 0)
--- Dependencies: 278
+-- TOC entry 3175 (class 0 OID 0)
+-- Dependencies: 287
 -- Name: atendimentos_id_seq; Type: SEQUENCE OWNED BY; Schema: operacional; Owner: postgres
 --
 
@@ -2057,14 +2455,14 @@ ALTER SEQUENCE operacional.atendimentos_id_seq OWNED BY operacional.atendimentos
 
 
 --
--- TOC entry 275 (class 1259 OID 29151)
+-- TOC entry 288 (class 1259 OID 29795)
 -- Name: contratos; Type: TABLE; Schema: operacional; Owner: postgres
 --
 
 CREATE TABLE operacional.contratos (
     id integer NOT NULL,
     firstdate timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
-    lastdate timestamp without time zone NOT NULL,
+    lastdate timestamp without time zone,
     purgedate timestamp without time zone NOT NULL,
     firstuser character varying(15) NOT NULL,
     lasttuser character varying(15) NOT NULL,
@@ -2078,8 +2476,8 @@ CREATE TABLE operacional.contratos (
 ALTER TABLE operacional.contratos OWNER TO postgres;
 
 --
--- TOC entry 3090 (class 0 OID 0)
--- Dependencies: 275
+-- TOC entry 3176 (class 0 OID 0)
+-- Dependencies: 288
 -- Name: TABLE contratos; Type: COMMENT; Schema: operacional; Owner: postgres
 --
 
@@ -2087,7 +2485,7 @@ COMMENT ON TABLE operacional.contratos IS 'Acompanha os contratos com os prestad
 
 
 --
--- TOC entry 274 (class 1259 OID 29149)
+-- TOC entry 289 (class 1259 OID 29799)
 -- Name: contratos_id_seq; Type: SEQUENCE; Schema: operacional; Owner: postgres
 --
 
@@ -2103,8 +2501,8 @@ CREATE SEQUENCE operacional.contratos_id_seq
 ALTER TABLE operacional.contratos_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3091 (class 0 OID 0)
--- Dependencies: 274
+-- TOC entry 3177 (class 0 OID 0)
+-- Dependencies: 289
 -- Name: contratos_id_seq; Type: SEQUENCE OWNED BY; Schema: operacional; Owner: postgres
 --
 
@@ -2112,14 +2510,14 @@ ALTER SEQUENCE operacional.contratos_id_seq OWNED BY operacional.contratos.id;
 
 
 --
--- TOC entry 287 (class 1259 OID 29251)
+-- TOC entry 290 (class 1259 OID 29801)
 -- Name: estoque; Type: TABLE; Schema: operacional; Owner: postgres
 --
 
 CREATE TABLE operacional.estoque (
     id integer NOT NULL,
     firstdate timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
-    lastdate timestamp without time zone NOT NULL,
+    lastdate timestamp without time zone,
     purgedate timestamp without time zone NOT NULL,
     firstuser character varying(15) NOT NULL,
     lasttuser character varying(15) NOT NULL,
@@ -2132,8 +2530,8 @@ CREATE TABLE operacional.estoque (
 ALTER TABLE operacional.estoque OWNER TO postgres;
 
 --
--- TOC entry 3092 (class 0 OID 0)
--- Dependencies: 287
+-- TOC entry 3178 (class 0 OID 0)
+-- Dependencies: 290
 -- Name: TABLE estoque; Type: COMMENT; Schema: operacional; Owner: postgres
 --
 
@@ -2141,7 +2539,7 @@ COMMENT ON TABLE operacional.estoque IS 'Registro de materiais em estoque';
 
 
 --
--- TOC entry 286 (class 1259 OID 29249)
+-- TOC entry 291 (class 1259 OID 29808)
 -- Name: estoque_id_seq; Type: SEQUENCE; Schema: operacional; Owner: postgres
 --
 
@@ -2157,8 +2555,8 @@ CREATE SEQUENCE operacional.estoque_id_seq
 ALTER TABLE operacional.estoque_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3093 (class 0 OID 0)
--- Dependencies: 286
+-- TOC entry 3179 (class 0 OID 0)
+-- Dependencies: 291
 -- Name: estoque_id_seq; Type: SEQUENCE OWNED BY; Schema: operacional; Owner: postgres
 --
 
@@ -2166,14 +2564,14 @@ ALTER SEQUENCE operacional.estoque_id_seq OWNED BY operacional.estoque.id;
 
 
 --
--- TOC entry 273 (class 1259 OID 29134)
+-- TOC entry 292 (class 1259 OID 29810)
 -- Name: fornecedores; Type: TABLE; Schema: operacional; Owner: postgres
 --
 
 CREATE TABLE operacional.fornecedores (
     id integer NOT NULL,
     firstdate timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
-    lastdate timestamp without time zone NOT NULL,
+    lastdate timestamp without time zone,
     purgedate timestamp without time zone NOT NULL,
     firstuser character varying(15) NOT NULL,
     lasttuser character varying(15) NOT NULL,
@@ -2187,8 +2585,8 @@ CREATE TABLE operacional.fornecedores (
 ALTER TABLE operacional.fornecedores OWNER TO postgres;
 
 --
--- TOC entry 3094 (class 0 OID 0)
--- Dependencies: 273
+-- TOC entry 3180 (class 0 OID 0)
+-- Dependencies: 292
 -- Name: TABLE fornecedores; Type: COMMENT; Schema: operacional; Owner: postgres
 --
 
@@ -2196,7 +2594,7 @@ COMMENT ON TABLE operacional.fornecedores IS 'Cadastro de pessoas e empresas pre
 
 
 --
--- TOC entry 272 (class 1259 OID 29132)
+-- TOC entry 293 (class 1259 OID 29817)
 -- Name: fornecedores_id_seq; Type: SEQUENCE; Schema: operacional; Owner: postgres
 --
 
@@ -2212,8 +2610,8 @@ CREATE SEQUENCE operacional.fornecedores_id_seq
 ALTER TABLE operacional.fornecedores_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3095 (class 0 OID 0)
--- Dependencies: 272
+-- TOC entry 3181 (class 0 OID 0)
+-- Dependencies: 293
 -- Name: fornecedores_id_seq; Type: SEQUENCE OWNED BY; Schema: operacional; Owner: postgres
 --
 
@@ -2221,69 +2619,14 @@ ALTER SEQUENCE operacional.fornecedores_id_seq OWNED BY operacional.fornecedores
 
 
 --
--- TOC entry 283 (class 1259 OID 29212)
--- Name: funcionarios; Type: TABLE; Schema: operacional; Owner: postgres
---
-
-CREATE TABLE operacional.funcionarios (
-    id integer NOT NULL,
-    firstdate timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
-    lastdate timestamp without time zone NOT NULL,
-    purgedate timestamp without time zone NOT NULL,
-    firstuser character varying(15) NOT NULL,
-    lasttuser character varying(15) NOT NULL,
-    purgeuser character varying(15) NOT NULL,
-    condominio integer NOT NULL,
-    nome character varying(500) NOT NULL,
-    cargo integer NOT NULL
-);
-
-
-ALTER TABLE operacional.funcionarios OWNER TO postgres;
-
---
--- TOC entry 3096 (class 0 OID 0)
--- Dependencies: 283
--- Name: TABLE funcionarios; Type: COMMENT; Schema: operacional; Owner: postgres
---
-
-COMMENT ON TABLE operacional.funcionarios IS 'Cadastro de funcionários do condomínio';
-
-
---
--- TOC entry 282 (class 1259 OID 29210)
--- Name: funcionarios_id_seq; Type: SEQUENCE; Schema: operacional; Owner: postgres
---
-
-CREATE SEQUENCE operacional.funcionarios_id_seq
-    AS integer
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-
-
-ALTER TABLE operacional.funcionarios_id_seq OWNER TO postgres;
-
---
--- TOC entry 3097 (class 0 OID 0)
--- Dependencies: 282
--- Name: funcionarios_id_seq; Type: SEQUENCE OWNED BY; Schema: operacional; Owner: postgres
---
-
-ALTER SEQUENCE operacional.funcionarios_id_seq OWNED BY operacional.funcionarios.id;
-
-
---
--- TOC entry 285 (class 1259 OID 29234)
+-- TOC entry 294 (class 1259 OID 29819)
 -- Name: inventario; Type: TABLE; Schema: operacional; Owner: postgres
 --
 
 CREATE TABLE operacional.inventario (
     id integer NOT NULL,
     firstdate timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
-    lastdate timestamp without time zone NOT NULL,
+    lastdate timestamp without time zone,
     purgedate timestamp without time zone NOT NULL,
     firstuser character varying(15) NOT NULL,
     lasttuser character varying(15) NOT NULL,
@@ -2296,8 +2639,8 @@ CREATE TABLE operacional.inventario (
 ALTER TABLE operacional.inventario OWNER TO postgres;
 
 --
--- TOC entry 3098 (class 0 OID 0)
--- Dependencies: 285
+-- TOC entry 3182 (class 0 OID 0)
+-- Dependencies: 294
 -- Name: TABLE inventario; Type: COMMENT; Schema: operacional; Owner: postgres
 --
 
@@ -2305,7 +2648,7 @@ COMMENT ON TABLE operacional.inventario IS 'Registro de bens proprietários do c
 
 
 --
--- TOC entry 284 (class 1259 OID 29232)
+-- TOC entry 295 (class 1259 OID 29826)
 -- Name: inventario_id_seq; Type: SEQUENCE; Schema: operacional; Owner: postgres
 --
 
@@ -2321,8 +2664,8 @@ CREATE SEQUENCE operacional.inventario_id_seq
 ALTER TABLE operacional.inventario_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3099 (class 0 OID 0)
--- Dependencies: 284
+-- TOC entry 3183 (class 0 OID 0)
+-- Dependencies: 295
 -- Name: inventario_id_seq; Type: SEQUENCE OWNED BY; Schema: operacional; Owner: postgres
 --
 
@@ -2330,39 +2673,40 @@ ALTER SEQUENCE operacional.inventario_id_seq OWNED BY operacional.inventario.id;
 
 
 --
--- TOC entry 281 (class 1259 OID 29199)
--- Name: tipo_cargo; Type: TABLE; Schema: operacional; Owner: postgres
+-- TOC entry 296 (class 1259 OID 29828)
+-- Name: reformas; Type: TABLE; Schema: operacional; Owner: postgres
 --
 
-CREATE TABLE operacional.tipo_cargo (
+CREATE TABLE operacional.reformas (
     id integer NOT NULL,
     firstdate timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
-    lastdate timestamp without time zone NOT NULL,
+    lastdate timestamp without time zone,
     purgedate timestamp without time zone NOT NULL,
     firstuser character varying(15) NOT NULL,
     lasttuser character varying(15) NOT NULL,
     purgeuser character varying(15) NOT NULL,
+    condominio integer NOT NULL,
     nome character varying(500) NOT NULL
 );
 
 
-ALTER TABLE operacional.tipo_cargo OWNER TO postgres;
+ALTER TABLE operacional.reformas OWNER TO postgres;
 
 --
--- TOC entry 3100 (class 0 OID 0)
--- Dependencies: 281
--- Name: TABLE tipo_cargo; Type: COMMENT; Schema: operacional; Owner: postgres
+-- TOC entry 3184 (class 0 OID 0)
+-- Dependencies: 296
+-- Name: TABLE reformas; Type: COMMENT; Schema: operacional; Owner: postgres
 --
 
-COMMENT ON TABLE operacional.tipo_cargo IS 'Registra os cargos dos funcionários do condomínio';
+COMMENT ON TABLE operacional.reformas IS 'Acompanhamento de obras e reformas, manutenções etc';
 
 
 --
--- TOC entry 280 (class 1259 OID 29197)
--- Name: tipo_cargo_id_seq; Type: SEQUENCE; Schema: operacional; Owner: postgres
+-- TOC entry 297 (class 1259 OID 29835)
+-- Name: reformas_id_seq; Type: SEQUENCE; Schema: operacional; Owner: postgres
 --
 
-CREATE SEQUENCE operacional.tipo_cargo_id_seq
+CREATE SEQUENCE operacional.reformas_id_seq
     AS integer
     START WITH 1
     INCREMENT BY 1
@@ -2371,26 +2715,26 @@ CREATE SEQUENCE operacional.tipo_cargo_id_seq
     CACHE 1;
 
 
-ALTER TABLE operacional.tipo_cargo_id_seq OWNER TO postgres;
+ALTER TABLE operacional.reformas_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3101 (class 0 OID 0)
--- Dependencies: 280
--- Name: tipo_cargo_id_seq; Type: SEQUENCE OWNED BY; Schema: operacional; Owner: postgres
+-- TOC entry 3185 (class 0 OID 0)
+-- Dependencies: 297
+-- Name: reformas_id_seq; Type: SEQUENCE OWNED BY; Schema: operacional; Owner: postgres
 --
 
-ALTER SEQUENCE operacional.tipo_cargo_id_seq OWNED BY operacional.tipo_cargo.id;
+ALTER SEQUENCE operacional.reformas_id_seq OWNED BY operacional.reformas.id;
 
 
 --
--- TOC entry 277 (class 1259 OID 29168)
+-- TOC entry 298 (class 1259 OID 29837)
 -- Name: tipo_servico; Type: TABLE; Schema: operacional; Owner: postgres
 --
 
 CREATE TABLE operacional.tipo_servico (
     id integer NOT NULL,
     firstdate timestamp without time zone DEFAULT CURRENT_TIMESTAMP NOT NULL,
-    lastdate timestamp without time zone NOT NULL,
+    lastdate timestamp without time zone,
     purgedate timestamp without time zone NOT NULL,
     firstuser character varying(15) NOT NULL,
     lasttuser character varying(15) NOT NULL,
@@ -2402,8 +2746,8 @@ CREATE TABLE operacional.tipo_servico (
 ALTER TABLE operacional.tipo_servico OWNER TO postgres;
 
 --
--- TOC entry 3102 (class 0 OID 0)
--- Dependencies: 277
+-- TOC entry 3186 (class 0 OID 0)
+-- Dependencies: 298
 -- Name: TABLE tipo_servico; Type: COMMENT; Schema: operacional; Owner: postgres
 --
 
@@ -2411,7 +2755,7 @@ COMMENT ON TABLE operacional.tipo_servico IS 'registra os tipos de atividades do
 
 
 --
--- TOC entry 276 (class 1259 OID 29166)
+-- TOC entry 299 (class 1259 OID 29844)
 -- Name: tipo_servico_id_seq; Type: SEQUENCE; Schema: operacional; Owner: postgres
 --
 
@@ -2427,8 +2771,8 @@ CREATE SEQUENCE operacional.tipo_servico_id_seq
 ALTER TABLE operacional.tipo_servico_id_seq OWNER TO postgres;
 
 --
--- TOC entry 3103 (class 0 OID 0)
--- Dependencies: 276
+-- TOC entry 3187 (class 0 OID 0)
+-- Dependencies: 299
 -- Name: tipo_servico_id_seq; Type: SEQUENCE OWNED BY; Schema: operacional; Owner: postgres
 --
 
@@ -2436,7 +2780,7 @@ ALTER SEQUENCE operacional.tipo_servico_id_seq OWNED BY operacional.tipo_servico
 
 
 --
--- TOC entry 2666 (class 2604 OID 28580)
+-- TOC entry 2709 (class 2604 OID 29846)
 -- Name: academias id; Type: DEFAULT; Schema: administracao; Owner: postgres
 --
 
@@ -2444,7 +2788,15 @@ ALTER TABLE ONLY administracao.academias ALTER COLUMN id SET DEFAULT nextval('ad
 
 
 --
--- TOC entry 2668 (class 2604 OID 28581)
+-- TOC entry 2711 (class 2604 OID 29847)
+-- Name: assembleias id; Type: DEFAULT; Schema: administracao; Owner: postgres
+--
+
+ALTER TABLE ONLY administracao.assembleias ALTER COLUMN id SET DEFAULT nextval('administracao.assembleias_id_seq'::regclass);
+
+
+--
+-- TOC entry 2713 (class 2604 OID 29848)
 -- Name: bloco id; Type: DEFAULT; Schema: administracao; Owner: postgres
 --
 
@@ -2452,7 +2804,7 @@ ALTER TABLE ONLY administracao.bloco ALTER COLUMN id SET DEFAULT nextval('admini
 
 
 --
--- TOC entry 2670 (class 2604 OID 28582)
+-- TOC entry 2715 (class 2604 OID 29849)
 -- Name: churrasqueiras id; Type: DEFAULT; Schema: administracao; Owner: postgres
 --
 
@@ -2460,7 +2812,7 @@ ALTER TABLE ONLY administracao.churrasqueiras ALTER COLUMN id SET DEFAULT nextva
 
 
 --
--- TOC entry 2672 (class 2604 OID 28583)
+-- TOC entry 2717 (class 2604 OID 29850)
 -- Name: condominio id; Type: DEFAULT; Schema: administracao; Owner: postgres
 --
 
@@ -2468,7 +2820,7 @@ ALTER TABLE ONLY administracao.condominio ALTER COLUMN id SET DEFAULT nextval('a
 
 
 --
--- TOC entry 2674 (class 2604 OID 28584)
+-- TOC entry 2719 (class 2604 OID 29851)
 -- Name: designacoes id; Type: DEFAULT; Schema: administracao; Owner: postgres
 --
 
@@ -2476,7 +2828,15 @@ ALTER TABLE ONLY administracao.designacoes ALTER COLUMN id SET DEFAULT nextval('
 
 
 --
--- TOC entry 2676 (class 2604 OID 28585)
+-- TOC entry 2721 (class 2604 OID 29852)
+-- Name: documentos id; Type: DEFAULT; Schema: administracao; Owner: postgres
+--
+
+ALTER TABLE ONLY administracao.documentos ALTER COLUMN id SET DEFAULT nextval('administracao.documentos_id_seq'::regclass);
+
+
+--
+-- TOC entry 2723 (class 2604 OID 29853)
 -- Name: elevadores id; Type: DEFAULT; Schema: administracao; Owner: postgres
 --
 
@@ -2484,7 +2844,15 @@ ALTER TABLE ONLY administracao.elevadores ALTER COLUMN id SET DEFAULT nextval('a
 
 
 --
--- TOC entry 2678 (class 2604 OID 28586)
+-- TOC entry 2725 (class 2604 OID 29854)
+-- Name: enquetes id; Type: DEFAULT; Schema: administracao; Owner: postgres
+--
+
+ALTER TABLE ONLY administracao.enquetes ALTER COLUMN id SET DEFAULT nextval('administracao.enquetes_id_seq'::regclass);
+
+
+--
+-- TOC entry 2727 (class 2604 OID 29855)
 -- Name: espacos id; Type: DEFAULT; Schema: administracao; Owner: postgres
 --
 
@@ -2492,7 +2860,7 @@ ALTER TABLE ONLY administracao.espacos ALTER COLUMN id SET DEFAULT nextval('admi
 
 
 --
--- TOC entry 2680 (class 2604 OID 28587)
+-- TOC entry 2729 (class 2604 OID 29856)
 -- Name: estacionamentos id; Type: DEFAULT; Schema: administracao; Owner: postgres
 --
 
@@ -2500,7 +2868,7 @@ ALTER TABLE ONLY administracao.estacionamentos ALTER COLUMN id SET DEFAULT nextv
 
 
 --
--- TOC entry 2684 (class 2604 OID 28588)
+-- TOC entry 2733 (class 2604 OID 29857)
 -- Name: gestao id; Type: DEFAULT; Schema: administracao; Owner: postgres
 --
 
@@ -2508,7 +2876,7 @@ ALTER TABLE ONLY administracao.gestao ALTER COLUMN id SET DEFAULT nextval('admin
 
 
 --
--- TOC entry 2686 (class 2604 OID 28589)
+-- TOC entry 2735 (class 2604 OID 29858)
 -- Name: piscinas id; Type: DEFAULT; Schema: administracao; Owner: postgres
 --
 
@@ -2516,7 +2884,7 @@ ALTER TABLE ONLY administracao.piscinas ALTER COLUMN id SET DEFAULT nextval('adm
 
 
 --
--- TOC entry 2688 (class 2604 OID 28590)
+-- TOC entry 2737 (class 2604 OID 29859)
 -- Name: portarias id; Type: DEFAULT; Schema: administracao; Owner: postgres
 --
 
@@ -2524,7 +2892,7 @@ ALTER TABLE ONLY administracao.portarias ALTER COLUMN id SET DEFAULT nextval('ad
 
 
 --
--- TOC entry 2740 (class 2604 OID 29058)
+-- TOC entry 2739 (class 2604 OID 29860)
 -- Name: quadras id; Type: DEFAULT; Schema: administracao; Owner: postgres
 --
 
@@ -2532,7 +2900,15 @@ ALTER TABLE ONLY administracao.quadras ALTER COLUMN id SET DEFAULT nextval('admi
 
 
 --
--- TOC entry 2690 (class 2604 OID 28591)
+-- TOC entry 2741 (class 2604 OID 29861)
+-- Name: reserva id; Type: DEFAULT; Schema: administracao; Owner: postgres
+--
+
+ALTER TABLE ONLY administracao.reserva ALTER COLUMN id SET DEFAULT nextval('administracao.reserva_id_seq'::regclass);
+
+
+--
+-- TOC entry 2743 (class 2604 OID 29862)
 -- Name: vagas id; Type: DEFAULT; Schema: administracao; Owner: postgres
 --
 
@@ -2540,7 +2916,31 @@ ALTER TABLE ONLY administracao.vagas ALTER COLUMN id SET DEFAULT nextval('admini
 
 
 --
--- TOC entry 2721 (class 2604 OID 28872)
+-- TOC entry 2745 (class 2604 OID 29863)
+-- Name: artigos id; Type: DEFAULT; Schema: cms; Owner: postgres
+--
+
+ALTER TABLE ONLY cms.artigos ALTER COLUMN id SET DEFAULT nextval('cms.artigos_id_seq'::regclass);
+
+
+--
+-- TOC entry 2747 (class 2604 OID 29864)
+-- Name: comunicados id; Type: DEFAULT; Schema: cms; Owner: postgres
+--
+
+ALTER TABLE ONLY cms.comunicados ALTER COLUMN id SET DEFAULT nextval('cms.comunicados_id_seq'::regclass);
+
+
+--
+-- TOC entry 2817 (class 2604 OID 30251)
+-- Name: bloqueios_ctrl_acesso id; Type: DEFAULT; Schema: config; Owner: postgres
+--
+
+ALTER TABLE ONLY config.bloqueios_ctrl_acesso ALTER COLUMN id SET DEFAULT nextval('config.bloqueios_ctrl_acesso_id_seq'::regclass);
+
+
+--
+-- TOC entry 2753 (class 2604 OID 29865)
 -- Name: autorizacao_veicular id; Type: DEFAULT; Schema: conveniencia; Owner: postgres
 --
 
@@ -2548,7 +2948,7 @@ ALTER TABLE ONLY conveniencia.autorizacao_veicular ALTER COLUMN id SET DEFAULT n
 
 
 --
--- TOC entry 2713 (class 2604 OID 28738)
+-- TOC entry 2755 (class 2604 OID 29866)
 -- Name: correspondencias id; Type: DEFAULT; Schema: conveniencia; Owner: postgres
 --
 
@@ -2556,7 +2956,7 @@ ALTER TABLE ONLY conveniencia.correspondencias ALTER COLUMN id SET DEFAULT nextv
 
 
 --
--- TOC entry 2715 (class 2604 OID 28755)
+-- TOC entry 2757 (class 2604 OID 29867)
 -- Name: diario id; Type: DEFAULT; Schema: conveniencia; Owner: postgres
 --
 
@@ -2564,7 +2964,7 @@ ALTER TABLE ONLY conveniencia.diario ALTER COLUMN id SET DEFAULT nextval('conven
 
 
 --
--- TOC entry 2700 (class 2604 OID 28592)
+-- TOC entry 2767 (class 2604 OID 29868)
 -- Name: emails id; Type: DEFAULT; Schema: conveniencia; Owner: postgres
 --
 
@@ -2572,7 +2972,7 @@ ALTER TABLE ONLY conveniencia.emails ALTER COLUMN id SET DEFAULT nextval('conven
 
 
 --
--- TOC entry 2735 (class 2604 OID 29019)
+-- TOC entry 2769 (class 2604 OID 29869)
 -- Name: incidentes id; Type: DEFAULT; Schema: conveniencia; Owner: postgres
 --
 
@@ -2580,7 +2980,7 @@ ALTER TABLE ONLY conveniencia.incidentes ALTER COLUMN id SET DEFAULT nextval('co
 
 
 --
--- TOC entry 2733 (class 2604 OID 29001)
+-- TOC entry 2771 (class 2604 OID 29870)
 -- Name: login id; Type: DEFAULT; Schema: conveniencia; Owner: postgres
 --
 
@@ -2588,7 +2988,7 @@ ALTER TABLE ONLY conveniencia.login ALTER COLUMN id SET DEFAULT nextval('conveni
 
 
 --
--- TOC entry 2724 (class 2604 OID 28895)
+-- TOC entry 2750 (class 2604 OID 29871)
 -- Name: pessoal_autorizacao id; Type: DEFAULT; Schema: conveniencia; Owner: postgres
 --
 
@@ -2596,7 +2996,7 @@ ALTER TABLE ONLY conveniencia.pessoal_autorizacao ALTER COLUMN id SET DEFAULT ne
 
 
 --
--- TOC entry 2702 (class 2604 OID 28593)
+-- TOC entry 2773 (class 2604 OID 29872)
 -- Name: pessoal_cadastro id; Type: DEFAULT; Schema: conveniencia; Owner: postgres
 --
 
@@ -2604,7 +3004,7 @@ ALTER TABLE ONLY conveniencia.pessoal_cadastro ALTER COLUMN id SET DEFAULT nextv
 
 
 --
--- TOC entry 2744 (class 2604 OID 29102)
+-- TOC entry 2775 (class 2604 OID 29873)
 -- Name: pessoal_contato id; Type: DEFAULT; Schema: conveniencia; Owner: postgres
 --
 
@@ -2612,7 +3012,7 @@ ALTER TABLE ONLY conveniencia.pessoal_contato ALTER COLUMN id SET DEFAULT nextva
 
 
 --
--- TOC entry 2742 (class 2604 OID 29075)
+-- TOC entry 2777 (class 2604 OID 29874)
 -- Name: pessoal_documentos id; Type: DEFAULT; Schema: conveniencia; Owner: postgres
 --
 
@@ -2620,7 +3020,7 @@ ALTER TABLE ONLY conveniencia.pessoal_documentos ALTER COLUMN id SET DEFAULT nex
 
 
 --
--- TOC entry 2746 (class 2604 OID 29119)
+-- TOC entry 2779 (class 2604 OID 29875)
 -- Name: pessoal_particularidades id; Type: DEFAULT; Schema: conveniencia; Owner: postgres
 --
 
@@ -2628,7 +3028,7 @@ ALTER TABLE ONLY conveniencia.pessoal_particularidades ALTER COLUMN id SET DEFAU
 
 
 --
--- TOC entry 2704 (class 2604 OID 28594)
+-- TOC entry 2781 (class 2604 OID 29876)
 -- Name: pets id; Type: DEFAULT; Schema: conveniencia; Owner: postgres
 --
 
@@ -2636,7 +3036,7 @@ ALTER TABLE ONLY conveniencia.pets ALTER COLUMN id SET DEFAULT nextval('convenie
 
 
 --
--- TOC entry 2737 (class 2604 OID 29038)
+-- TOC entry 2783 (class 2604 OID 29877)
 -- Name: pre_autorizacao id; Type: DEFAULT; Schema: conveniencia; Owner: postgres
 --
 
@@ -2644,7 +3044,7 @@ ALTER TABLE ONLY conveniencia.pre_autorizacao ALTER COLUMN id SET DEFAULT nextva
 
 
 --
--- TOC entry 2739 (class 2604 OID 29040)
+-- TOC entry 2784 (class 2604 OID 29878)
 -- Name: pre_autorizacao pessoa; Type: DEFAULT; Schema: conveniencia; Owner: postgres
 --
 
@@ -2652,7 +3052,7 @@ ALTER TABLE ONLY conveniencia.pre_autorizacao ALTER COLUMN pessoa SET DEFAULT ne
 
 
 --
--- TOC entry 2731 (class 2604 OID 28979)
+-- TOC entry 2788 (class 2604 OID 29879)
 -- Name: reservas id; Type: DEFAULT; Schema: conveniencia; Owner: postgres
 --
 
@@ -2660,7 +3060,7 @@ ALTER TABLE ONLY conveniencia.reservas ALTER COLUMN id SET DEFAULT nextval('conv
 
 
 --
--- TOC entry 2727 (class 2604 OID 28936)
+-- TOC entry 2790 (class 2604 OID 29880)
 -- Name: solicitacoes id; Type: DEFAULT; Schema: conveniencia; Owner: postgres
 --
 
@@ -2668,15 +3068,7 @@ ALTER TABLE ONLY conveniencia.solicitacoes ALTER COLUMN id SET DEFAULT nextval('
 
 
 --
--- TOC entry 2719 (class 2604 OID 28821)
--- Name: tipo_bloqueio id; Type: DEFAULT; Schema: conveniencia; Owner: postgres
---
-
-ALTER TABLE ONLY conveniencia.tipo_bloqueio ALTER COLUMN id SET DEFAULT nextval('conveniencia.tipo_bloqueio_id_seq'::regclass);
-
-
---
--- TOC entry 2717 (class 2604 OID 28772)
+-- TOC entry 2792 (class 2604 OID 29882)
 -- Name: tipo_diario id; Type: DEFAULT; Schema: conveniencia; Owner: postgres
 --
 
@@ -2684,7 +3076,7 @@ ALTER TABLE ONLY conveniencia.tipo_diario ALTER COLUMN id SET DEFAULT nextval('c
 
 
 --
--- TOC entry 2708 (class 2604 OID 28596)
+-- TOC entry 2794 (class 2604 OID 29883)
 -- Name: tipo_registro id; Type: DEFAULT; Schema: conveniencia; Owner: postgres
 --
 
@@ -2692,7 +3084,7 @@ ALTER TABLE ONLY conveniencia.tipo_registro ALTER COLUMN id SET DEFAULT nextval(
 
 
 --
--- TOC entry 2729 (class 2604 OID 28953)
+-- TOC entry 2796 (class 2604 OID 29884)
 -- Name: tipo_solicitacao id; Type: DEFAULT; Schema: conveniencia; Owner: postgres
 --
 
@@ -2700,7 +3092,7 @@ ALTER TABLE ONLY conveniencia.tipo_solicitacao ALTER COLUMN id SET DEFAULT nextv
 
 
 --
--- TOC entry 2710 (class 2604 OID 28597)
+-- TOC entry 2798 (class 2604 OID 29885)
 -- Name: tipo_veiculo id; Type: DEFAULT; Schema: conveniencia; Owner: postgres
 --
 
@@ -2708,7 +3100,7 @@ ALTER TABLE ONLY conveniencia.tipo_veiculo ALTER COLUMN id SET DEFAULT nextval('
 
 
 --
--- TOC entry 2706 (class 2604 OID 28595)
+-- TOC entry 2786 (class 2604 OID 29886)
 -- Name: unidade id; Type: DEFAULT; Schema: conveniencia; Owner: postgres
 --
 
@@ -2716,7 +3108,7 @@ ALTER TABLE ONLY conveniencia.unidade ALTER COLUMN id SET DEFAULT nextval('conve
 
 
 --
--- TOC entry 2712 (class 2604 OID 28598)
+-- TOC entry 2800 (class 2604 OID 29887)
 -- Name: veiculos id; Type: DEFAULT; Schema: conveniencia; Owner: postgres
 --
 
@@ -2724,7 +3116,15 @@ ALTER TABLE ONLY conveniencia.veiculos ALTER COLUMN id SET DEFAULT nextval('conv
 
 
 --
--- TOC entry 2754 (class 2604 OID 29188)
+-- TOC entry 2802 (class 2604 OID 29888)
+-- Name: achados_perdidos id; Type: DEFAULT; Schema: operacional; Owner: postgres
+--
+
+ALTER TABLE ONLY operacional.achados_perdidos ALTER COLUMN id SET DEFAULT nextval('operacional.achados_perdidos_id_seq'::regclass);
+
+
+--
+-- TOC entry 2804 (class 2604 OID 29889)
 -- Name: atendimentos id; Type: DEFAULT; Schema: operacional; Owner: postgres
 --
 
@@ -2732,7 +3132,7 @@ ALTER TABLE ONLY operacional.atendimentos ALTER COLUMN id SET DEFAULT nextval('o
 
 
 --
--- TOC entry 2750 (class 2604 OID 29154)
+-- TOC entry 2806 (class 2604 OID 29890)
 -- Name: contratos id; Type: DEFAULT; Schema: operacional; Owner: postgres
 --
 
@@ -2740,7 +3140,7 @@ ALTER TABLE ONLY operacional.contratos ALTER COLUMN id SET DEFAULT nextval('oper
 
 
 --
--- TOC entry 2762 (class 2604 OID 29254)
+-- TOC entry 2808 (class 2604 OID 29891)
 -- Name: estoque id; Type: DEFAULT; Schema: operacional; Owner: postgres
 --
 
@@ -2748,7 +3148,7 @@ ALTER TABLE ONLY operacional.estoque ALTER COLUMN id SET DEFAULT nextval('operac
 
 
 --
--- TOC entry 2748 (class 2604 OID 29137)
+-- TOC entry 2810 (class 2604 OID 29892)
 -- Name: fornecedores id; Type: DEFAULT; Schema: operacional; Owner: postgres
 --
 
@@ -2756,15 +3156,7 @@ ALTER TABLE ONLY operacional.fornecedores ALTER COLUMN id SET DEFAULT nextval('o
 
 
 --
--- TOC entry 2758 (class 2604 OID 29215)
--- Name: funcionarios id; Type: DEFAULT; Schema: operacional; Owner: postgres
---
-
-ALTER TABLE ONLY operacional.funcionarios ALTER COLUMN id SET DEFAULT nextval('operacional.funcionarios_id_seq'::regclass);
-
-
---
--- TOC entry 2760 (class 2604 OID 29237)
+-- TOC entry 2812 (class 2604 OID 29893)
 -- Name: inventario id; Type: DEFAULT; Schema: operacional; Owner: postgres
 --
 
@@ -2772,15 +3164,15 @@ ALTER TABLE ONLY operacional.inventario ALTER COLUMN id SET DEFAULT nextval('ope
 
 
 --
--- TOC entry 2756 (class 2604 OID 29202)
--- Name: tipo_cargo id; Type: DEFAULT; Schema: operacional; Owner: postgres
+-- TOC entry 2814 (class 2604 OID 29894)
+-- Name: reformas id; Type: DEFAULT; Schema: operacional; Owner: postgres
 --
 
-ALTER TABLE ONLY operacional.tipo_cargo ALTER COLUMN id SET DEFAULT nextval('operacional.tipo_cargo_id_seq'::regclass);
+ALTER TABLE ONLY operacional.reformas ALTER COLUMN id SET DEFAULT nextval('operacional.reformas_id_seq'::regclass);
 
 
 --
--- TOC entry 2752 (class 2604 OID 29171)
+-- TOC entry 2816 (class 2604 OID 29895)
 -- Name: tipo_servico id; Type: DEFAULT; Schema: operacional; Owner: postgres
 --
 
@@ -2788,7 +3180,7 @@ ALTER TABLE ONLY operacional.tipo_servico ALTER COLUMN id SET DEFAULT nextval('o
 
 
 --
--- TOC entry 2765 (class 2606 OID 28600)
+-- TOC entry 2819 (class 2606 OID 29897)
 -- Name: academias primarykey_adm_academias; Type: CONSTRAINT; Schema: administracao; Owner: postgres
 --
 
@@ -2797,7 +3189,16 @@ ALTER TABLE ONLY administracao.academias
 
 
 --
--- TOC entry 2767 (class 2606 OID 28602)
+-- TOC entry 2821 (class 2606 OID 29899)
+-- Name: assembleias primarykey_adm_assembleias; Type: CONSTRAINT; Schema: administracao; Owner: postgres
+--
+
+ALTER TABLE ONLY administracao.assembleias
+    ADD CONSTRAINT primarykey_adm_assembleias PRIMARY KEY (id);
+
+
+--
+-- TOC entry 2823 (class 2606 OID 29901)
 -- Name: bloco primarykey_adm_blocos; Type: CONSTRAINT; Schema: administracao; Owner: postgres
 --
 
@@ -2806,7 +3207,7 @@ ALTER TABLE ONLY administracao.bloco
 
 
 --
--- TOC entry 2769 (class 2606 OID 28604)
+-- TOC entry 2825 (class 2606 OID 29903)
 -- Name: churrasqueiras primarykey_adm_churrasqueiras; Type: CONSTRAINT; Schema: administracao; Owner: postgres
 --
 
@@ -2815,7 +3216,7 @@ ALTER TABLE ONLY administracao.churrasqueiras
 
 
 --
--- TOC entry 2771 (class 2606 OID 28606)
+-- TOC entry 2827 (class 2606 OID 29905)
 -- Name: condominio primarykey_adm_condominio; Type: CONSTRAINT; Schema: administracao; Owner: postgres
 --
 
@@ -2824,7 +3225,7 @@ ALTER TABLE ONLY administracao.condominio
 
 
 --
--- TOC entry 2773 (class 2606 OID 28608)
+-- TOC entry 2829 (class 2606 OID 29907)
 -- Name: designacoes primarykey_adm_designacoes; Type: CONSTRAINT; Schema: administracao; Owner: postgres
 --
 
@@ -2833,7 +3234,16 @@ ALTER TABLE ONLY administracao.designacoes
 
 
 --
--- TOC entry 2775 (class 2606 OID 28610)
+-- TOC entry 2831 (class 2606 OID 29909)
+-- Name: documentos primarykey_adm_documentos; Type: CONSTRAINT; Schema: administracao; Owner: postgres
+--
+
+ALTER TABLE ONLY administracao.documentos
+    ADD CONSTRAINT primarykey_adm_documentos PRIMARY KEY (id);
+
+
+--
+-- TOC entry 2833 (class 2606 OID 29911)
 -- Name: elevadores primarykey_adm_elevadores; Type: CONSTRAINT; Schema: administracao; Owner: postgres
 --
 
@@ -2842,7 +3252,16 @@ ALTER TABLE ONLY administracao.elevadores
 
 
 --
--- TOC entry 2777 (class 2606 OID 28612)
+-- TOC entry 2835 (class 2606 OID 29913)
+-- Name: enquetes primarykey_adm_enquetes; Type: CONSTRAINT; Schema: administracao; Owner: postgres
+--
+
+ALTER TABLE ONLY administracao.enquetes
+    ADD CONSTRAINT primarykey_adm_enquetes PRIMARY KEY (id);
+
+
+--
+-- TOC entry 2837 (class 2606 OID 29915)
 -- Name: espacos primarykey_adm_espacos; Type: CONSTRAINT; Schema: administracao; Owner: postgres
 --
 
@@ -2851,7 +3270,7 @@ ALTER TABLE ONLY administracao.espacos
 
 
 --
--- TOC entry 2779 (class 2606 OID 28614)
+-- TOC entry 2839 (class 2606 OID 29917)
 -- Name: estacionamentos primarykey_adm_estacionamentos; Type: CONSTRAINT; Schema: administracao; Owner: postgres
 --
 
@@ -2860,7 +3279,7 @@ ALTER TABLE ONLY administracao.estacionamentos
 
 
 --
--- TOC entry 2781 (class 2606 OID 28616)
+-- TOC entry 2841 (class 2606 OID 29919)
 -- Name: gestao primarykey_adm_gestao; Type: CONSTRAINT; Schema: administracao; Owner: postgres
 --
 
@@ -2869,7 +3288,7 @@ ALTER TABLE ONLY administracao.gestao
 
 
 --
--- TOC entry 2783 (class 2606 OID 28618)
+-- TOC entry 2843 (class 2606 OID 29921)
 -- Name: piscinas primarykey_adm_piscinas; Type: CONSTRAINT; Schema: administracao; Owner: postgres
 --
 
@@ -2878,7 +3297,7 @@ ALTER TABLE ONLY administracao.piscinas
 
 
 --
--- TOC entry 2785 (class 2606 OID 28620)
+-- TOC entry 2845 (class 2606 OID 29923)
 -- Name: portarias primarykey_adm_portarias; Type: CONSTRAINT; Schema: administracao; Owner: postgres
 --
 
@@ -2887,7 +3306,7 @@ ALTER TABLE ONLY administracao.portarias
 
 
 --
--- TOC entry 2827 (class 2606 OID 29064)
+-- TOC entry 2847 (class 2606 OID 29925)
 -- Name: quadras primarykey_adm_quadras; Type: CONSTRAINT; Schema: administracao; Owner: postgres
 --
 
@@ -2896,7 +3315,16 @@ ALTER TABLE ONLY administracao.quadras
 
 
 --
--- TOC entry 2787 (class 2606 OID 28622)
+-- TOC entry 2849 (class 2606 OID 29927)
+-- Name: reserva primarykey_adm_reserva; Type: CONSTRAINT; Schema: administracao; Owner: postgres
+--
+
+ALTER TABLE ONLY administracao.reserva
+    ADD CONSTRAINT primarykey_adm_reserva PRIMARY KEY (id);
+
+
+--
+-- TOC entry 2851 (class 2606 OID 29929)
 -- Name: vagas primarykey_adm_vagas; Type: CONSTRAINT; Schema: administracao; Owner: postgres
 --
 
@@ -2905,7 +3333,34 @@ ALTER TABLE ONLY administracao.vagas
 
 
 --
--- TOC entry 2831 (class 2606 OID 29108)
+-- TOC entry 2853 (class 2606 OID 29931)
+-- Name: artigos primarykey_cms_artigos; Type: CONSTRAINT; Schema: cms; Owner: postgres
+--
+
+ALTER TABLE ONLY cms.artigos
+    ADD CONSTRAINT primarykey_cms_artigos PRIMARY KEY (id);
+
+
+--
+-- TOC entry 2855 (class 2606 OID 29933)
+-- Name: comunicados primarykey_cms_comunicados; Type: CONSTRAINT; Schema: cms; Owner: postgres
+--
+
+ALTER TABLE ONLY cms.comunicados
+    ADD CONSTRAINT primarykey_cms_comunicados PRIMARY KEY (id);
+
+
+--
+-- TOC entry 2915 (class 2606 OID 30256)
+-- Name: bloqueios_ctrl_acesso bloqueios_ctrl_acesso_pk; Type: CONSTRAINT; Schema: config; Owner: postgres
+--
+
+ALTER TABLE ONLY config.bloqueios_ctrl_acesso
+    ADD CONSTRAINT bloqueios_ctrl_acesso_pk PRIMARY KEY (id);
+
+
+--
+-- TOC entry 2873 (class 2606 OID 29935)
 -- Name: pessoal_contato primarykey_residencial_pessoal_contato; Type: CONSTRAINT; Schema: conveniencia; Owner: postgres
 --
 
@@ -2914,7 +3369,7 @@ ALTER TABLE ONLY conveniencia.pessoal_contato
 
 
 --
--- TOC entry 2829 (class 2606 OID 29081)
+-- TOC entry 2875 (class 2606 OID 29937)
 -- Name: pessoal_documentos primarykey_residencial_pessoal_documentacao; Type: CONSTRAINT; Schema: conveniencia; Owner: postgres
 --
 
@@ -2923,7 +3378,7 @@ ALTER TABLE ONLY conveniencia.pessoal_documentos
 
 
 --
--- TOC entry 2833 (class 2606 OID 29125)
+-- TOC entry 2877 (class 2606 OID 29939)
 -- Name: pessoal_particularidades primarykey_residencial_pessoal_particularidades; Type: CONSTRAINT; Schema: conveniencia; Owner: postgres
 --
 
@@ -2932,7 +3387,7 @@ ALTER TABLE ONLY conveniencia.pessoal_particularidades
 
 
 --
--- TOC entry 2813 (class 2606 OID 28902)
+-- TOC entry 2857 (class 2606 OID 29941)
 -- Name: pessoal_autorizacao primarykey_unidade_autorizacao_pessoal; Type: CONSTRAINT; Schema: conveniencia; Owner: postgres
 --
 
@@ -2941,7 +3396,7 @@ ALTER TABLE ONLY conveniencia.pessoal_autorizacao
 
 
 --
--- TOC entry 2811 (class 2606 OID 28879)
+-- TOC entry 2859 (class 2606 OID 29943)
 -- Name: autorizacao_veicular primarykey_unidade_autorizacao_veicular; Type: CONSTRAINT; Schema: conveniencia; Owner: postgres
 --
 
@@ -2950,7 +3405,7 @@ ALTER TABLE ONLY conveniencia.autorizacao_veicular
 
 
 --
--- TOC entry 2803 (class 2606 OID 28744)
+-- TOC entry 2861 (class 2606 OID 29945)
 -- Name: correspondencias primarykey_unidade_correspondencias; Type: CONSTRAINT; Schema: conveniencia; Owner: postgres
 --
 
@@ -2959,7 +3414,7 @@ ALTER TABLE ONLY conveniencia.correspondencias
 
 
 --
--- TOC entry 2805 (class 2606 OID 28761)
+-- TOC entry 2863 (class 2606 OID 29947)
 -- Name: diario primarykey_unidade_diario; Type: CONSTRAINT; Schema: conveniencia; Owner: postgres
 --
 
@@ -2968,7 +3423,7 @@ ALTER TABLE ONLY conveniencia.diario
 
 
 --
--- TOC entry 2789 (class 2606 OID 28624)
+-- TOC entry 2865 (class 2606 OID 29949)
 -- Name: emails primarykey_unidade_emails; Type: CONSTRAINT; Schema: conveniencia; Owner: postgres
 --
 
@@ -2977,7 +3432,7 @@ ALTER TABLE ONLY conveniencia.emails
 
 
 --
--- TOC entry 2823 (class 2606 OID 29025)
+-- TOC entry 2867 (class 2606 OID 29951)
 -- Name: incidentes primarykey_unidade_incidentes; Type: CONSTRAINT; Schema: conveniencia; Owner: postgres
 --
 
@@ -2986,7 +3441,7 @@ ALTER TABLE ONLY conveniencia.incidentes
 
 
 --
--- TOC entry 2821 (class 2606 OID 29007)
+-- TOC entry 2869 (class 2606 OID 29953)
 -- Name: login primarykey_unidade_login; Type: CONSTRAINT; Schema: conveniencia; Owner: postgres
 --
 
@@ -2995,7 +3450,7 @@ ALTER TABLE ONLY conveniencia.login
 
 
 --
--- TOC entry 2791 (class 2606 OID 28626)
+-- TOC entry 2871 (class 2606 OID 29955)
 -- Name: pessoal_cadastro primarykey_unidade_pessoas; Type: CONSTRAINT; Schema: conveniencia; Owner: postgres
 --
 
@@ -3004,7 +3459,7 @@ ALTER TABLE ONLY conveniencia.pessoal_cadastro
 
 
 --
--- TOC entry 2793 (class 2606 OID 28628)
+-- TOC entry 2879 (class 2606 OID 29957)
 -- Name: pets primarykey_unidade_pets; Type: CONSTRAINT; Schema: conveniencia; Owner: postgres
 --
 
@@ -3013,7 +3468,7 @@ ALTER TABLE ONLY conveniencia.pets
 
 
 --
--- TOC entry 2825 (class 2606 OID 29042)
+-- TOC entry 2881 (class 2606 OID 29959)
 -- Name: pre_autorizacao primarykey_unidade_pre_autorizacao; Type: CONSTRAINT; Schema: conveniencia; Owner: postgres
 --
 
@@ -3022,7 +3477,7 @@ ALTER TABLE ONLY conveniencia.pre_autorizacao
 
 
 --
--- TOC entry 2795 (class 2606 OID 28630)
+-- TOC entry 2883 (class 2606 OID 29961)
 -- Name: unidade primarykey_unidade_registro; Type: CONSTRAINT; Schema: conveniencia; Owner: postgres
 --
 
@@ -3031,7 +3486,7 @@ ALTER TABLE ONLY conveniencia.unidade
 
 
 --
--- TOC entry 2819 (class 2606 OID 28982)
+-- TOC entry 2885 (class 2606 OID 29963)
 -- Name: reservas primarykey_unidade_reservas; Type: CONSTRAINT; Schema: conveniencia; Owner: postgres
 --
 
@@ -3040,7 +3495,7 @@ ALTER TABLE ONLY conveniencia.reservas
 
 
 --
--- TOC entry 2815 (class 2606 OID 28942)
+-- TOC entry 2887 (class 2606 OID 29965)
 -- Name: solicitacoes primarykey_unidade_solicitacoes; Type: CONSTRAINT; Schema: conveniencia; Owner: postgres
 --
 
@@ -3049,16 +3504,7 @@ ALTER TABLE ONLY conveniencia.solicitacoes
 
 
 --
--- TOC entry 2809 (class 2606 OID 28827)
--- Name: tipo_bloqueio primarykey_unidade_tipo_bloqueio; Type: CONSTRAINT; Schema: conveniencia; Owner: postgres
---
-
-ALTER TABLE ONLY conveniencia.tipo_bloqueio
-    ADD CONSTRAINT primarykey_unidade_tipo_bloqueio PRIMARY KEY (id);
-
-
---
--- TOC entry 2807 (class 2606 OID 28778)
+-- TOC entry 2889 (class 2606 OID 29969)
 -- Name: tipo_diario primarykey_unidade_tipo_diario; Type: CONSTRAINT; Schema: conveniencia; Owner: postgres
 --
 
@@ -3067,7 +3513,7 @@ ALTER TABLE ONLY conveniencia.tipo_diario
 
 
 --
--- TOC entry 2797 (class 2606 OID 28632)
+-- TOC entry 2891 (class 2606 OID 29971)
 -- Name: tipo_registro primarykey_unidade_tipo_registro; Type: CONSTRAINT; Schema: conveniencia; Owner: postgres
 --
 
@@ -3076,7 +3522,7 @@ ALTER TABLE ONLY conveniencia.tipo_registro
 
 
 --
--- TOC entry 2817 (class 2606 OID 28959)
+-- TOC entry 2893 (class 2606 OID 29973)
 -- Name: tipo_solicitacao primarykey_unidade_tipo_solicitacao; Type: CONSTRAINT; Schema: conveniencia; Owner: postgres
 --
 
@@ -3085,7 +3531,7 @@ ALTER TABLE ONLY conveniencia.tipo_solicitacao
 
 
 --
--- TOC entry 2799 (class 2606 OID 28634)
+-- TOC entry 2895 (class 2606 OID 29975)
 -- Name: tipo_veiculo primarykey_unidade_tipo_veiculo; Type: CONSTRAINT; Schema: conveniencia; Owner: postgres
 --
 
@@ -3094,7 +3540,7 @@ ALTER TABLE ONLY conveniencia.tipo_veiculo
 
 
 --
--- TOC entry 2801 (class 2606 OID 28636)
+-- TOC entry 2897 (class 2606 OID 29977)
 -- Name: veiculos primarykey_unidade_veiculos; Type: CONSTRAINT; Schema: conveniencia; Owner: postgres
 --
 
@@ -3103,7 +3549,7 @@ ALTER TABLE ONLY conveniencia.veiculos
 
 
 --
--- TOC entry 2841 (class 2606 OID 29191)
+-- TOC entry 2901 (class 2606 OID 29979)
 -- Name: atendimentos primarykey_adm_atendimentos; Type: CONSTRAINT; Schema: operacional; Owner: postgres
 --
 
@@ -3112,7 +3558,7 @@ ALTER TABLE ONLY operacional.atendimentos
 
 
 --
--- TOC entry 2837 (class 2606 OID 29160)
+-- TOC entry 2903 (class 2606 OID 29981)
 -- Name: contratos primarykey_adm_contratos; Type: CONSTRAINT; Schema: operacional; Owner: postgres
 --
 
@@ -3121,7 +3567,7 @@ ALTER TABLE ONLY operacional.contratos
 
 
 --
--- TOC entry 2835 (class 2606 OID 29143)
+-- TOC entry 2907 (class 2606 OID 29983)
 -- Name: fornecedores primarykey_adm_fornecedores; Type: CONSTRAINT; Schema: operacional; Owner: postgres
 --
 
@@ -3130,16 +3576,16 @@ ALTER TABLE ONLY operacional.fornecedores
 
 
 --
--- TOC entry 2845 (class 2606 OID 29221)
--- Name: funcionarios primarykey_adm_funcionarios; Type: CONSTRAINT; Schema: operacional; Owner: postgres
+-- TOC entry 2899 (class 2606 OID 29985)
+-- Name: achados_perdidos primarykey_operacional_achados_perdidos; Type: CONSTRAINT; Schema: operacional; Owner: postgres
 --
 
-ALTER TABLE ONLY operacional.funcionarios
-    ADD CONSTRAINT primarykey_adm_funcionarios PRIMARY KEY (id);
+ALTER TABLE ONLY operacional.achados_perdidos
+    ADD CONSTRAINT primarykey_operacional_achados_perdidos PRIMARY KEY (id);
 
 
 --
--- TOC entry 2849 (class 2606 OID 29260)
+-- TOC entry 2905 (class 2606 OID 29987)
 -- Name: estoque primarykey_operacional_estoque; Type: CONSTRAINT; Schema: operacional; Owner: postgres
 --
 
@@ -3148,7 +3594,7 @@ ALTER TABLE ONLY operacional.estoque
 
 
 --
--- TOC entry 2847 (class 2606 OID 29243)
+-- TOC entry 2909 (class 2606 OID 29989)
 -- Name: inventario primarykey_operacional_inventario; Type: CONSTRAINT; Schema: operacional; Owner: postgres
 --
 
@@ -3157,16 +3603,16 @@ ALTER TABLE ONLY operacional.inventario
 
 
 --
--- TOC entry 2843 (class 2606 OID 29208)
--- Name: tipo_cargo primarykey_operacional_tipo_cargo; Type: CONSTRAINT; Schema: operacional; Owner: postgres
+-- TOC entry 2911 (class 2606 OID 29991)
+-- Name: reformas primarykey_operacional_reformas; Type: CONSTRAINT; Schema: operacional; Owner: postgres
 --
 
-ALTER TABLE ONLY operacional.tipo_cargo
-    ADD CONSTRAINT primarykey_operacional_tipo_cargo PRIMARY KEY (id);
+ALTER TABLE ONLY operacional.reformas
+    ADD CONSTRAINT primarykey_operacional_reformas PRIMARY KEY (id);
 
 
 --
--- TOC entry 2839 (class 2606 OID 29177)
+-- TOC entry 2913 (class 2606 OID 29993)
 -- Name: tipo_servico primarykey_unidade_tipo_servico; Type: CONSTRAINT; Schema: operacional; Owner: postgres
 --
 
@@ -3175,7 +3621,7 @@ ALTER TABLE ONLY operacional.tipo_servico
 
 
 --
--- TOC entry 2850 (class 2606 OID 28637)
+-- TOC entry 2916 (class 2606 OID 29994)
 -- Name: academias academias_condominio_foreignkey; Type: FK CONSTRAINT; Schema: administracao; Owner: postgres
 --
 
@@ -3184,7 +3630,16 @@ ALTER TABLE ONLY administracao.academias
 
 
 --
--- TOC entry 2851 (class 2606 OID 28642)
+-- TOC entry 2917 (class 2606 OID 29999)
+-- Name: assembleias assembleias_condominio_foreignkey; Type: FK CONSTRAINT; Schema: administracao; Owner: postgres
+--
+
+ALTER TABLE ONLY administracao.assembleias
+    ADD CONSTRAINT assembleias_condominio_foreignkey FOREIGN KEY (condominio) REFERENCES administracao.condominio(id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+--
+-- TOC entry 2918 (class 2606 OID 30004)
 -- Name: bloco blocos_condominio_foreignkey; Type: FK CONSTRAINT; Schema: administracao; Owner: postgres
 --
 
@@ -3193,7 +3648,7 @@ ALTER TABLE ONLY administracao.bloco
 
 
 --
--- TOC entry 2852 (class 2606 OID 28647)
+-- TOC entry 2919 (class 2606 OID 30009)
 -- Name: churrasqueiras churrasqueiras_condominio_foreignkey; Type: FK CONSTRAINT; Schema: administracao; Owner: postgres
 --
 
@@ -3202,7 +3657,16 @@ ALTER TABLE ONLY administracao.churrasqueiras
 
 
 --
--- TOC entry 2853 (class 2606 OID 28652)
+-- TOC entry 2920 (class 2606 OID 30014)
+-- Name: documentos documentos_condominio_foreignkey; Type: FK CONSTRAINT; Schema: administracao; Owner: postgres
+--
+
+ALTER TABLE ONLY administracao.documentos
+    ADD CONSTRAINT documentos_condominio_foreignkey FOREIGN KEY (condominio) REFERENCES administracao.condominio(id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+--
+-- TOC entry 2921 (class 2606 OID 30019)
 -- Name: elevadores elevadores_condominio_foreignkey; Type: FK CONSTRAINT; Schema: administracao; Owner: postgres
 --
 
@@ -3211,7 +3675,16 @@ ALTER TABLE ONLY administracao.elevadores
 
 
 --
--- TOC entry 2854 (class 2606 OID 28657)
+-- TOC entry 2922 (class 2606 OID 30024)
+-- Name: enquetes enquetes_condominio_foreignkey; Type: FK CONSTRAINT; Schema: administracao; Owner: postgres
+--
+
+ALTER TABLE ONLY administracao.enquetes
+    ADD CONSTRAINT enquetes_condominio_foreignkey FOREIGN KEY (condominio) REFERENCES administracao.condominio(id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+--
+-- TOC entry 2923 (class 2606 OID 30029)
 -- Name: espacos espacos_condominio_foreignkey; Type: FK CONSTRAINT; Schema: administracao; Owner: postgres
 --
 
@@ -3220,7 +3693,7 @@ ALTER TABLE ONLY administracao.espacos
 
 
 --
--- TOC entry 2855 (class 2606 OID 28662)
+-- TOC entry 2924 (class 2606 OID 30034)
 -- Name: estacionamentos estacionamentos_condominio_foreignkey; Type: FK CONSTRAINT; Schema: administracao; Owner: postgres
 --
 
@@ -3229,7 +3702,7 @@ ALTER TABLE ONLY administracao.estacionamentos
 
 
 --
--- TOC entry 2856 (class 2606 OID 28667)
+-- TOC entry 2925 (class 2606 OID 30039)
 -- Name: gestao gestao_condominio_foreignkey; Type: FK CONSTRAINT; Schema: administracao; Owner: postgres
 --
 
@@ -3238,7 +3711,7 @@ ALTER TABLE ONLY administracao.gestao
 
 
 --
--- TOC entry 2857 (class 2606 OID 28672)
+-- TOC entry 2926 (class 2606 OID 30044)
 -- Name: gestao gestao_designacoes_fk; Type: FK CONSTRAINT; Schema: administracao; Owner: postgres
 --
 
@@ -3247,7 +3720,7 @@ ALTER TABLE ONLY administracao.gestao
 
 
 --
--- TOC entry 2858 (class 2606 OID 28677)
+-- TOC entry 2927 (class 2606 OID 30049)
 -- Name: piscinas piscinas_condominio_foreignkey; Type: FK CONSTRAINT; Schema: administracao; Owner: postgres
 --
 
@@ -3256,7 +3729,7 @@ ALTER TABLE ONLY administracao.piscinas
 
 
 --
--- TOC entry 2859 (class 2606 OID 28682)
+-- TOC entry 2928 (class 2606 OID 30054)
 -- Name: portarias portarias_condominio_foreignkey; Type: FK CONSTRAINT; Schema: administracao; Owner: postgres
 --
 
@@ -3265,7 +3738,7 @@ ALTER TABLE ONLY administracao.portarias
 
 
 --
--- TOC entry 2882 (class 2606 OID 29065)
+-- TOC entry 2929 (class 2606 OID 30059)
 -- Name: quadras quadras_condominio_foreignkey; Type: FK CONSTRAINT; Schema: administracao; Owner: postgres
 --
 
@@ -3274,7 +3747,16 @@ ALTER TABLE ONLY administracao.quadras
 
 
 --
--- TOC entry 2860 (class 2606 OID 28687)
+-- TOC entry 2930 (class 2606 OID 30064)
+-- Name: reserva reserva_condominio_foreignkey; Type: FK CONSTRAINT; Schema: administracao; Owner: postgres
+--
+
+ALTER TABLE ONLY administracao.reserva
+    ADD CONSTRAINT reserva_condominio_foreignkey FOREIGN KEY (condominio) REFERENCES administracao.condominio(id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+--
+-- TOC entry 2931 (class 2606 OID 30069)
 -- Name: vagas vagas_condominio_foreignkey; Type: FK CONSTRAINT; Schema: administracao; Owner: postgres
 --
 
@@ -3283,7 +3765,25 @@ ALTER TABLE ONLY administracao.vagas
 
 
 --
--- TOC entry 2874 (class 2606 OID 28903)
+-- TOC entry 2932 (class 2606 OID 30074)
+-- Name: artigos artigos_condominio_foreignkey; Type: FK CONSTRAINT; Schema: cms; Owner: postgres
+--
+
+ALTER TABLE ONLY cms.artigos
+    ADD CONSTRAINT artigos_condominio_foreignkey FOREIGN KEY (condominio) REFERENCES administracao.condominio(id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+--
+-- TOC entry 2933 (class 2606 OID 30079)
+-- Name: comunicados comunicados_condominio_foreignkey; Type: FK CONSTRAINT; Schema: cms; Owner: postgres
+--
+
+ALTER TABLE ONLY cms.comunicados
+    ADD CONSTRAINT comunicados_condominio_foreignkey FOREIGN KEY (condominio) REFERENCES administracao.condominio(id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+--
+-- TOC entry 2935 (class 2606 OID 30084)
 -- Name: pessoal_autorizacao autorizacao_pessoa_foreignkey; Type: FK CONSTRAINT; Schema: conveniencia; Owner: postgres
 --
 
@@ -3292,25 +3792,25 @@ ALTER TABLE ONLY conveniencia.pessoal_autorizacao
 
 
 --
--- TOC entry 2873 (class 2606 OID 28885)
--- Name: autorizacao_veicular autorizacao_unidade_tipo_bloqueio_foreignkey; Type: FK CONSTRAINT; Schema: conveniencia; Owner: postgres
---
-
-ALTER TABLE ONLY conveniencia.autorizacao_veicular
-    ADD CONSTRAINT autorizacao_unidade_tipo_bloqueio_foreignkey FOREIGN KEY (bloqueio) REFERENCES conveniencia.tipo_bloqueio(id) ON UPDATE CASCADE ON DELETE CASCADE;
-
-
---
--- TOC entry 2875 (class 2606 OID 28908)
+-- TOC entry 2934 (class 2606 OID 30262)
 -- Name: pessoal_autorizacao autorizacao_unidade_tipo_bloqueio_foreignkey; Type: FK CONSTRAINT; Schema: conveniencia; Owner: postgres
 --
 
 ALTER TABLE ONLY conveniencia.pessoal_autorizacao
-    ADD CONSTRAINT autorizacao_unidade_tipo_bloqueio_foreignkey FOREIGN KEY (bloqueio) REFERENCES conveniencia.tipo_bloqueio(id) ON UPDATE CASCADE ON DELETE CASCADE;
+    ADD CONSTRAINT autorizacao_unidade_tipo_bloqueio_foreignkey FOREIGN KEY (bloqueio) REFERENCES config.bloqueios_ctrl_acesso(id) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
 --
--- TOC entry 2872 (class 2606 OID 28880)
+-- TOC entry 2936 (class 2606 OID 30257)
+-- Name: autorizacao_veicular autorizacao_veicular_tipo_bloqueio_fk; Type: FK CONSTRAINT; Schema: conveniencia; Owner: postgres
+--
+
+ALTER TABLE ONLY conveniencia.autorizacao_veicular
+    ADD CONSTRAINT autorizacao_veicular_tipo_bloqueio_fk FOREIGN KEY (bloqueio) REFERENCES config.bloqueios_ctrl_acesso(id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+--
+-- TOC entry 2937 (class 2606 OID 30099)
 -- Name: autorizacao_veicular autorizacao_veiculo_foreignkey; Type: FK CONSTRAINT; Schema: conveniencia; Owner: postgres
 --
 
@@ -3319,7 +3819,7 @@ ALTER TABLE ONLY conveniencia.autorizacao_veicular
 
 
 --
--- TOC entry 2869 (class 2606 OID 28745)
+-- TOC entry 2938 (class 2606 OID 30104)
 -- Name: correspondencias correspondencias_unidade_foreignkey; Type: FK CONSTRAINT; Schema: conveniencia; Owner: postgres
 --
 
@@ -3328,7 +3828,7 @@ ALTER TABLE ONLY conveniencia.correspondencias
 
 
 --
--- TOC entry 2870 (class 2606 OID 28762)
+-- TOC entry 2939 (class 2606 OID 30109)
 -- Name: diario diario_unidade_foreignkey; Type: FK CONSTRAINT; Schema: conveniencia; Owner: postgres
 --
 
@@ -3337,7 +3837,7 @@ ALTER TABLE ONLY conveniencia.diario
 
 
 --
--- TOC entry 2871 (class 2606 OID 28779)
+-- TOC entry 2940 (class 2606 OID 30114)
 -- Name: diario diario_unidade_tipo_diario_foreignkey; Type: FK CONSTRAINT; Schema: conveniencia; Owner: postgres
 --
 
@@ -3346,7 +3846,7 @@ ALTER TABLE ONLY conveniencia.diario
 
 
 --
--- TOC entry 2861 (class 2606 OID 28692)
+-- TOC entry 2941 (class 2606 OID 30119)
 -- Name: emails emails_unidade_foreignkey; Type: FK CONSTRAINT; Schema: conveniencia; Owner: postgres
 --
 
@@ -3355,7 +3855,7 @@ ALTER TABLE ONLY conveniencia.emails
 
 
 --
--- TOC entry 2880 (class 2606 OID 29026)
+-- TOC entry 2942 (class 2606 OID 30124)
 -- Name: incidentes incidentes_unidade_foreignkey; Type: FK CONSTRAINT; Schema: conveniencia; Owner: postgres
 --
 
@@ -3364,7 +3864,7 @@ ALTER TABLE ONLY conveniencia.incidentes
 
 
 --
--- TOC entry 2879 (class 2606 OID 29008)
+-- TOC entry 2943 (class 2606 OID 30129)
 -- Name: login login_unidade_foreignkey; Type: FK CONSTRAINT; Schema: conveniencia; Owner: postgres
 --
 
@@ -3373,7 +3873,7 @@ ALTER TABLE ONLY conveniencia.login
 
 
 --
--- TOC entry 2862 (class 2606 OID 28697)
+-- TOC entry 2944 (class 2606 OID 30134)
 -- Name: pessoal_cadastro pessoas_tipo_registro_foreignkey; Type: FK CONSTRAINT; Schema: conveniencia; Owner: postgres
 --
 
@@ -3382,7 +3882,7 @@ ALTER TABLE ONLY conveniencia.pessoal_cadastro
 
 
 --
--- TOC entry 2863 (class 2606 OID 28702)
+-- TOC entry 2945 (class 2606 OID 30139)
 -- Name: pessoal_cadastro pessoas_unidade_foreignkey; Type: FK CONSTRAINT; Schema: conveniencia; Owner: postgres
 --
 
@@ -3391,7 +3891,7 @@ ALTER TABLE ONLY conveniencia.pessoal_cadastro
 
 
 --
--- TOC entry 2864 (class 2606 OID 28707)
+-- TOC entry 2949 (class 2606 OID 30144)
 -- Name: pets pets_unidade_foreignkey; Type: FK CONSTRAINT; Schema: conveniencia; Owner: postgres
 --
 
@@ -3400,7 +3900,7 @@ ALTER TABLE ONLY conveniencia.pets
 
 
 --
--- TOC entry 2881 (class 2606 OID 29043)
+-- TOC entry 2950 (class 2606 OID 30149)
 -- Name: pre_autorizacao pre_autorizacao_unidade_foreignkey; Type: FK CONSTRAINT; Schema: conveniencia; Owner: postgres
 --
 
@@ -3409,7 +3909,7 @@ ALTER TABLE ONLY conveniencia.pre_autorizacao
 
 
 --
--- TOC entry 2865 (class 2606 OID 28712)
+-- TOC entry 2951 (class 2606 OID 30154)
 -- Name: unidade registro_bloco_foreignkey; Type: FK CONSTRAINT; Schema: conveniencia; Owner: postgres
 --
 
@@ -3418,7 +3918,7 @@ ALTER TABLE ONLY conveniencia.unidade
 
 
 --
--- TOC entry 2878 (class 2606 OID 28983)
+-- TOC entry 2952 (class 2606 OID 30159)
 -- Name: reservas reservas_unidade_foreignkey; Type: FK CONSTRAINT; Schema: conveniencia; Owner: postgres
 --
 
@@ -3427,7 +3927,7 @@ ALTER TABLE ONLY conveniencia.reservas
 
 
 --
--- TOC entry 2884 (class 2606 OID 29109)
+-- TOC entry 2946 (class 2606 OID 30164)
 -- Name: pessoal_contato residencial_pessoa_contato_foreignkey; Type: FK CONSTRAINT; Schema: conveniencia; Owner: postgres
 --
 
@@ -3436,7 +3936,7 @@ ALTER TABLE ONLY conveniencia.pessoal_contato
 
 
 --
--- TOC entry 2883 (class 2606 OID 29082)
+-- TOC entry 2947 (class 2606 OID 30169)
 -- Name: pessoal_documentos residencial_pessoa_foreignkey; Type: FK CONSTRAINT; Schema: conveniencia; Owner: postgres
 --
 
@@ -3445,7 +3945,7 @@ ALTER TABLE ONLY conveniencia.pessoal_documentos
 
 
 --
--- TOC entry 2885 (class 2606 OID 29126)
+-- TOC entry 2948 (class 2606 OID 30174)
 -- Name: pessoal_particularidades residencial_pessoa_particularidades_foreignkey; Type: FK CONSTRAINT; Schema: conveniencia; Owner: postgres
 --
 
@@ -3454,7 +3954,7 @@ ALTER TABLE ONLY conveniencia.pessoal_particularidades
 
 
 --
--- TOC entry 2877 (class 2606 OID 29048)
+-- TOC entry 2953 (class 2606 OID 30179)
 -- Name: solicitacoes solicitacoes_tipo_solicitacao_fk; Type: FK CONSTRAINT; Schema: conveniencia; Owner: postgres
 --
 
@@ -3463,7 +3963,7 @@ ALTER TABLE ONLY conveniencia.solicitacoes
 
 
 --
--- TOC entry 2876 (class 2606 OID 28943)
+-- TOC entry 2954 (class 2606 OID 30184)
 -- Name: solicitacoes solicitacoes_unidade_foreignkey; Type: FK CONSTRAINT; Schema: conveniencia; Owner: postgres
 --
 
@@ -3472,7 +3972,7 @@ ALTER TABLE ONLY conveniencia.solicitacoes
 
 
 --
--- TOC entry 2866 (class 2606 OID 28717)
+-- TOC entry 2955 (class 2606 OID 30189)
 -- Name: veiculos veiculos_tipo_registro_fk; Type: FK CONSTRAINT; Schema: conveniencia; Owner: postgres
 --
 
@@ -3481,7 +3981,7 @@ ALTER TABLE ONLY conveniencia.veiculos
 
 
 --
--- TOC entry 2867 (class 2606 OID 28722)
+-- TOC entry 2956 (class 2606 OID 30194)
 -- Name: veiculos veiculos_tipo_veiculo_fk; Type: FK CONSTRAINT; Schema: conveniencia; Owner: postgres
 --
 
@@ -3490,7 +3990,7 @@ ALTER TABLE ONLY conveniencia.veiculos
 
 
 --
--- TOC entry 2868 (class 2606 OID 28727)
+-- TOC entry 2957 (class 2606 OID 30199)
 -- Name: veiculos veiculos_unidade_foreignkey; Type: FK CONSTRAINT; Schema: conveniencia; Owner: postgres
 --
 
@@ -3499,7 +3999,16 @@ ALTER TABLE ONLY conveniencia.veiculos
 
 
 --
--- TOC entry 2889 (class 2606 OID 29192)
+-- TOC entry 2958 (class 2606 OID 30204)
+-- Name: achados_perdidos achados_perdidos_condominio_foreignkey; Type: FK CONSTRAINT; Schema: operacional; Owner: postgres
+--
+
+ALTER TABLE ONLY operacional.achados_perdidos
+    ADD CONSTRAINT achados_perdidos_condominio_foreignkey FOREIGN KEY (condominio) REFERENCES administracao.condominio(id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+--
+-- TOC entry 2959 (class 2606 OID 30209)
 -- Name: atendimentos atendimentos_fornecedores_foreignkey; Type: FK CONSTRAINT; Schema: operacional; Owner: postgres
 --
 
@@ -3508,7 +4017,7 @@ ALTER TABLE ONLY operacional.atendimentos
 
 
 --
--- TOC entry 2888 (class 2606 OID 29161)
+-- TOC entry 2960 (class 2606 OID 30214)
 -- Name: contratos contratos_fornecedores_foreignkey; Type: FK CONSTRAINT; Schema: operacional; Owner: postgres
 --
 
@@ -3517,7 +4026,7 @@ ALTER TABLE ONLY operacional.contratos
 
 
 --
--- TOC entry 2893 (class 2606 OID 29261)
+-- TOC entry 2961 (class 2606 OID 30219)
 -- Name: estoque estoque_condominio_foreignkey; Type: FK CONSTRAINT; Schema: operacional; Owner: postgres
 --
 
@@ -3526,7 +4035,7 @@ ALTER TABLE ONLY operacional.estoque
 
 
 --
--- TOC entry 2886 (class 2606 OID 29144)
+-- TOC entry 2962 (class 2606 OID 30224)
 -- Name: fornecedores fornecedores_condominio_foreignkey; Type: FK CONSTRAINT; Schema: operacional; Owner: postgres
 --
 
@@ -3535,7 +4044,7 @@ ALTER TABLE ONLY operacional.fornecedores
 
 
 --
--- TOC entry 2887 (class 2606 OID 29178)
+-- TOC entry 2963 (class 2606 OID 30229)
 -- Name: fornecedores fornecedores_tipo_servico_fk; Type: FK CONSTRAINT; Schema: operacional; Owner: postgres
 --
 
@@ -3544,25 +4053,7 @@ ALTER TABLE ONLY operacional.fornecedores
 
 
 --
--- TOC entry 2890 (class 2606 OID 29222)
--- Name: funcionarios funcionarios_condominio_foreignkey; Type: FK CONSTRAINT; Schema: operacional; Owner: postgres
---
-
-ALTER TABLE ONLY operacional.funcionarios
-    ADD CONSTRAINT funcionarios_condominio_foreignkey FOREIGN KEY (condominio) REFERENCES administracao.condominio(id) ON UPDATE CASCADE ON DELETE CASCADE;
-
-
---
--- TOC entry 2891 (class 2606 OID 29227)
--- Name: funcionarios funcionarios_tipo_scargo_fk; Type: FK CONSTRAINT; Schema: operacional; Owner: postgres
---
-
-ALTER TABLE ONLY operacional.funcionarios
-    ADD CONSTRAINT funcionarios_tipo_scargo_fk FOREIGN KEY (cargo) REFERENCES operacional.tipo_cargo(id) ON UPDATE CASCADE ON DELETE CASCADE;
-
-
---
--- TOC entry 2892 (class 2606 OID 29244)
+-- TOC entry 2964 (class 2606 OID 30234)
 -- Name: inventario inventario_condominio_foreignkey; Type: FK CONSTRAINT; Schema: operacional; Owner: postgres
 --
 
@@ -3570,7 +4061,16 @@ ALTER TABLE ONLY operacional.inventario
     ADD CONSTRAINT inventario_condominio_foreignkey FOREIGN KEY (condominio) REFERENCES administracao.condominio(id) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
--- Completed on 2019-10-15 16:53:25 -03
+--
+-- TOC entry 2965 (class 2606 OID 30239)
+-- Name: reformas reformas_condominio_foreignkey; Type: FK CONSTRAINT; Schema: operacional; Owner: postgres
+--
+
+ALTER TABLE ONLY operacional.reformas
+    ADD CONSTRAINT reformas_condominio_foreignkey FOREIGN KEY (condominio) REFERENCES administracao.condominio(id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+-- Completed on 2019-10-15 17:40:51 -03
 
 --
 -- PostgreSQL database dump complete
