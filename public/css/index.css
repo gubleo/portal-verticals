@@ -37,6 +37,8 @@ html, body {
     margin-right: 2px;
 }
 
+
+
 .linha-select{
     border-bottom: 1px solid #0f7b9f;
 }
@@ -134,7 +136,7 @@ html, body {
 }
 
 .dentromenu {
-    border-top: solid 4px red;
+    border-top: solid 3px #00b0ff;
 }
 
 .teste1 {

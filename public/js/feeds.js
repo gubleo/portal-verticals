@@ -29,6 +29,10 @@ $.post('./html/grids/copyright.html', function (copyright) {
     $('#bycraos2').html(copyright);
 });
 
+$.post('./html/grids/copyright.html', function (copyright) {
+    $('#bycraos').html(copyright);
+});
+
 
 $.post('../financeiro/grids/copyright.html', function (copyright) {
     $('#bycraos2').html(copyright);
